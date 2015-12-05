@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 欢迎来到 *vividfree* 的博客
+title: 欢迎来到 vividfree | 罗维 的博客
 tagline: 
 ---
 {% include JB/setup %}
