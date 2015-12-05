@@ -8,8 +8,8 @@ highlighter: pygments
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : [ vividfree ]
-tagline: 关注机器学习
+title : vividfree
+tagline: Stay hungry. Stay foolish.
 author :
   name : 罗维
   email : vividfree@qq.com

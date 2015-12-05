@@ -7,16 +7,17 @@ tagline:
 
 大家好！
 
-我是vividfree（罗维），这个博客主要关注机器学习领域的学术界和工业界的前沿进展。
+我是vividfree（罗维），这个博客主要关注 **机器学习** **计算广告** **自然语言处理** **大数据处理** **系统架构** 领域的前沿进展。
 
 欢迎与我讨论问题！
 
-### 正在关注
+### 近期博文
 
-+ 机器学习
-+ 计算广告
-+ 自然语言处理
-+ 大数据处理
+<ul class="posts">
+  {% for post in site.posts %}
+    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+</ul>
 
 ### 个人关键词
 
