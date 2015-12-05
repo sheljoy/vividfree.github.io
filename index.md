@@ -27,5 +27,5 @@ tagline:
 
 ### 还可以在这些地方找到我的足迹
 
-+ github : vividfree
-+ weibo  : vividfree
++ github : vividfree AT github.com
++ weibo  : vividfree AT weibo.com
