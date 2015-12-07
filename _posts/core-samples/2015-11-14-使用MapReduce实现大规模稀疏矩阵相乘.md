@@ -23,5 +23,5 @@ tags : [MapReduce, 大规模数据, 稀疏矩阵, 稠密矩阵, 相似度计算]
 
 将一个\\(m \times n\\)的矩阵A和一个\\(n \times k\\)的矩阵B相乘得到\\(m \times k\\)的矩阵C，数学公式如下：
 
-\begin{equation}\mathbf{C}\_{x,y} = \displaystyle\sum_{i=0}^{n-1} {\mathbf{A}\_{x,i} \times \mathbf{B}\_{i,y}}\end{equation}
+\begin{equation}\mathbf{C}\_{x,\ y} = \displaystyle\sum_{i=0}^{n-1} {\mathbf{A}\_{x,\ i} \times \mathbf{B}\_{i,\ y}}\end{equation}
 
