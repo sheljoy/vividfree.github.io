@@ -31,11 +31,9 @@ tags : [MapReduce, 大规模数据, 稀疏矩阵, 稠密矩阵, 相似度计算]
 
 ### 3.1 简单相乘法
 
-add figure 1
 <div align="center">
-  <img src="/images/1.jpg" style="max-width:324px; text-align:center" alt="图1"/>
+  <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure1.jpg" style="max-width:324px; text-align:center" alt=""/>
 </div>
-
 
 简单相乘法可谓是最朴素的MapReduce上矩阵相乘算法，用此方法作为算法比较的基础。简单相乘法依据公式（1）来实现矩阵乘法，图1是其算法流程图。图中，Map输出的第一个”\|”表示分桶 key的位置，第二个”\|”表示排序 key的位置。它只需要一轮MapReduce。
 
@@ -45,7 +43,9 @@ Map阶段每读入一条数据\\(\<x, y, v\>\\)，需要输出若干条数据。
 
 ### 3.2 分块相乘法
 
-add figure 2
+<div align="center">
+  <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure2.jpg" style="max-width:324px; text-align:center" alt=""/>
+</div>
 
 分块相乘法，也就是在线性代数或者矩阵论教材上所说的分块矩阵相乘法，该方法有点类似于递归思路，即把原问题的求解先分解为多个子问题的求解，然后在做某种恰当的归并操作。分块相乘法有多种具体实现，这里举一种代表性的实现方案，很多方法可以视为该方法的变种。图2是一种实现方案。图中，Map输出的第一个”\|”表示分桶 key的位置，第二个”\|”表示排序 key的位置。它也只需要一轮MapReduce。
 
@@ -83,15 +83,21 @@ A的列向量有n个，B的行向量也有n个，将A的某个列向量与B的�
 
 为了更方便的理解流程，下面对具体的例子（还是用第1节中的第2个例子）给出算法流程图，请见图5和图6。第1轮建立起关于URL的倒排索引，第2轮Map阶段对倒排索引的各项计算笛卡尔积，然后Reduce阶段对相同key进行求和。
 
-add figure 3
+<div align="center">
+  <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure3.jpg" style="max-width:324px; text-align:center" alt=""/>
+</div>
 
+<div align="center">
+  <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure4.jpg" style="max-width:324px; text-align:center" alt=""/>
+</div>
 
-add figure 4
+<div align="center">
+  <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure5.jpg" style="max-width:324px; text-align:center" alt=""/>
+</div>
 
-
-add figure 5
-
-add figure 6
+<div align="center">
+  <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure6.jpg" style="max-width:324px; text-align:center" alt=""/>
+</div>
 
 考虑到MapReduce集群对节点的内存限制，使用这种方法要注意各单项元素的倒排链不能太长，如果每个索引项需要的存储空间为100字节，那么可以估算倒排链长度的极限是\\(\mathrm{10}^{\mathrm{7}}\\)，也就是1000万。为稳定运行该流程，建议控制在数百万的量级。另外，在实际业务中，如果某元素的倒排链长度能到100万甚至更多，那一般来说此元素其实价值不大。比如，某URL能被100多万用户访问，这一方面说明此URL是高频URL，但另一方面也说明此URL的信息量不大，用此URL去架起user到query的桥梁的意义不大，从业务层面上看，这样的URL是可以被舍弃的。
 
