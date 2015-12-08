@@ -32,6 +32,10 @@ tags : [MapReduce, 大规模数据, 稀疏矩阵, 稠密矩阵, 相似度计算]
 ### 3.1 简单相乘法
 
 add figure 1
+<div align="center">
+  <img src="/images/1.jpg" style="max-width:324px; text-align:center" alt="图1"/>
+</div>
+
 
 简单相乘法可谓是最朴素的MapReduce上矩阵相乘算法，用此方法作为算法比较的基础。简单相乘法依据公式（1）来实现矩阵乘法，图1是其算法流程图。图中，Map输出的第一个”\|”表示分桶 key的位置，第二个”\|”表示排序 key的位置。它只需要一轮MapReduce。
 
