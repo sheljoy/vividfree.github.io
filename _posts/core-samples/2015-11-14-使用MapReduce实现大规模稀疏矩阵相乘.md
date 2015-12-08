@@ -75,14 +75,6 @@ A的列向量有n个，B的行向量也有n个，将A的某个列向量与B的�
 
 ### 4.3 双侧倒排索引的矩阵相乘法
 
-当矩阵A和矩阵B都较大，无论哪边的索引都超过MapReduce集群对节点的内存限制，那么就需要对两矩阵都建立倒排。如上文所说，当输入矩阵的某个\\(\<x,y\>\\)的v为0，因为零值元素对矩阵相乘的最终结果不会有分数上的贡献，所以不用将该项加入到索引中。在充分利用稀疏矩阵的这一特性后，我们可以设计出高效的矩阵相乘法。图3和图4是算法的2轮MapReduce的流程图。
-
-第一轮 Map阶段将矩阵A按列划分，矩阵B按行划分，即每读入一条\\(\<x,y,v\>\\), 若来自矩阵 A, 则输出\\(\<y,\'A\',x,v\>\\)；若来自矩阵B，则输出\\(\<x,\'B\',y,v\>\\)。以第一个字段为分桶 key，前两个字段为排序 key。这样A的第i列和B的第i行会被发送到同一个reducer并放在一起，而且A的数据在前，B的数据在后。这样Reduce阶段就先输出i索引到A的数据，后输出同一个i索引到B的数据。
-
-第二轮Map阶段对每个i，对索引到A的数据集合和索引到B的数据集合求笛卡尔积，并把y1\\_y2组合作为key，其分数乘积\\(v1 \times v2\\)作为value发送给reducer，Reduce阶段只需要将第一轮输出中相同key的值求和。
-
-为了更方便的理解流程，下面对具体的例子（还是用第1节中的第2个例子）给出算法流程图，请见图5和图6。第1轮建立起关于URL的倒排索引，第2轮Map阶段对倒排索引的各项计算笛卡尔积，然后Reduce阶段对相同key进行求和。
-
 <div align="center">
   <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure3.jpg" style="max-width:383px; text-align:center" alt=""/>
 </div>
@@ -90,6 +82,14 @@ A的列向量有n个，B的行向量也有n个，将A的某个列向量与B的�
 <div align="center">
   <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure4.jpg" style="max-width:383px; text-align:center" alt=""/>
 </div>
+
+当矩阵A和矩阵B都较大，无论哪边的索引都超过MapReduce集群对节点的内存限制，那么就需要对两矩阵都建立倒排。如上文所说，当输入矩阵的某个\\(\<x,y\>\\)的v为0，因为零值元素对矩阵相乘的最终结果不会有分数上的贡献，所以不用将该项加入到索引中。在充分利用稀疏矩阵的这一特性后，我们可以设计出高效的矩阵相乘法。图3和图4是算法的2轮MapReduce的流程图。
+
+第一轮 Map阶段将矩阵A按列划分，矩阵B按行划分，即每读入一条\\(\<x,y,v\>\\), 若来自矩阵 A, 则输出\\(\<y,\'A\',x,v\>\\)；若来自矩阵B，则输出\\(\<x,\'B\',y,v\>\\)。以第一个字段为分桶 key，前两个字段为排序 key。这样A的第i列和B的第i行会被发送到同一个reducer并放在一起，而且A的数据在前，B的数据在后。这样Reduce阶段就先输出i索引到A的数据，后输出同一个i索引到B的数据。
+
+第二轮Map阶段对每个i，对索引到A的数据集合和索引到B的数据集合求笛卡尔积，并把y1\\_y2组合作为key，其分数乘积\\(v1 \times v2\\)作为value发送给reducer，Reduce阶段只需要将第一轮输出中相同key的值求和。
+
+为了更方便的理解流程，下面对具体的例子（还是用第1节中的第2个例子）给出算法流程图，请见图5和图6。第1轮建立起关于URL的倒排索引，第2轮Map阶段对倒排索引的各项计算笛卡尔积，然后Reduce阶段对相同key进行求和。
 
 <div align="center">
   <img src="/images/2015-11-14-matrix-multiplication-using-mapreduce-figure5.jpg" style="max-width:441px; text-align:center" alt=""/>
