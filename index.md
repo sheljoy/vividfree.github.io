@@ -27,5 +27,6 @@ tagline:
 
 ### 还可以在这些地方找到我的足迹
 
+# 老博客 : [网易博客](http://luowei828.blog.163.com/)（网易博客近期访问不稳定）
 + Github : *vividfree*
 + Weibo  : *vividfree*
