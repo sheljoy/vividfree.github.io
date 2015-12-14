@@ -22,7 +22,11 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 ## 从概率到odds再到log of odds
 
-LR模型的输出值是概率，介于0到1之间。假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odd定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odd，就是\\(\frac p{1 - p} \\)，易见该式子是关于*p*的递增函数。对odd取对数，也就是\\(\mathbf{log}\frac p{1 - p}\\)，易见该式子还是关于*p*的递增函数。
+"Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)，易见该式子是关于*p*的递增函数。对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，记为 \\(logit(p)\\)，易见该式子还是关于*p*的递增函数。
+
+对于LR模型而言，LR模型的输出值是概率，介于0到1之间。其\\(logit(p)\\)的表达式经过推导，可以很快得到下面这个式子（也就是公式2中的z）：
+
+\begin{equation}logit(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
 
 ## odds ratio
