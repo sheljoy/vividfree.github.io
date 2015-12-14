@@ -14,7 +14,7 @@ LR模型的model function如下
 
 \begin{equation}\mathbf{f}(z) = \frac 1{1 + e^{-z}}\end{equation}
 
-\begin{equation}\mathbf{f}(x, y) = \displaystyle\sum_{i=0}^{n-1} {\mathbf{A}\_{x,\ i} \times \mathbf{B}\_{i,\ y}}\end{equation}
+\begin{equation}z = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
 
 Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。
