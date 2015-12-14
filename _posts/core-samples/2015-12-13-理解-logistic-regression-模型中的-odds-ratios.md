@@ -2,11 +2,17 @@
 layout: post
 category : 机器学习
 tagline: 
-tags : ["logistic regression", odds, "log of odds", 逻辑回归]
+tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 ---
 {% include JB/setup %}
 
 ## 引言
+
+说明odds ratio是什么，承担什么角色。这篇文章偏LR模型的细节
+
+说明 不同的建模下，截距是有区别的
+
+说明一些情况下讨论截距是没有意义
 
 ## 参考文献
 
