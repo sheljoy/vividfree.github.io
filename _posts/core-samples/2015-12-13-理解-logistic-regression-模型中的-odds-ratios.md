@@ -22,19 +22,19 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 ## 从概率到odds再到log of odds
 
-"Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)。为下文表述方便，用函数odds(p)表示如下：
+"Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)。为下文表述方便，用函数\\(odds(p)\\)表示如下：
 
 \begin{equation}odds(p) = \frac p{1 - p}\end{equation}
 
 易见函数odds(p)是关于*p*的递增函数。
 
-对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在正式的数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数log_of_odds(p)表示如下：
+对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在正式的数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数\\(log\\_of\\_odds(p)\\)表示如下：
 
 \begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p})\end{equation}
 
 易见函数log_of_odds(p)还是关于*p*的递增函数。
 
-对于LR模型而言，LR模型的输出值是概率，介于0到1之间。容易推导出LR模型对应的odds(p)和log_of_odds(p)的函数表达形式，分别见公式5和公式6，其中公式6恰好就是公式2中的z：
+对于LR模型而言，LR模型的输出值是概率，介于0到1之间。容易推导出LR模型对应的\\(odds(p)\\)和\\(log\\_of\\_odds(p)\\)的函数表达形式，分别见公式5和公式6，其中公式6恰好就是公式2中的z：
 
 \begin{equation}odds(p) = e^{\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k}\end{equation}
 
