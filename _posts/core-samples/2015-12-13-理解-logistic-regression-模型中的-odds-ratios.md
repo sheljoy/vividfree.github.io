@@ -16,11 +16,13 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 \begin{equation}z = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
-说明：公式1被称为logistic function。
+说明：公式1的学名为logistic function。
 
-Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。
+Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。下文将介绍odds ratio，并从odds ratio角度理解LR模型的参数。
 
-## 从概率到log of odds
+## 从概率到odds再到log of odds
+
+LR模型的输出值是概率，介于0到1之间。假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odd定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odd，就是\\(\frac p{1 - p} \\)，易见该式子是关于*p*的递增函数。对odd取对数，也就是\\(\mathbf{log}\frac p{1 - p}\\)，易见该式子还是关于*p*的递增函数。
 
 
 ## odds ratio
