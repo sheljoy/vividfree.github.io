@@ -12,7 +12,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 LR模型的model function如下
 
-\begin{equation}\mathbf{f}(z) = \frac 1{1 + e^{-z}}\end{equation}
+\begin{equation}\mathbf{f}(x_1, x_2, ..., x_k) = \frac 1{1 + e^{-(\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k)}}\end{equation}
 
 \begin{equation}z = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
