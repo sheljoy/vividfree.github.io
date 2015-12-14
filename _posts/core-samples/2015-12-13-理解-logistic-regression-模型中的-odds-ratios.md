@@ -24,18 +24,21 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 "Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)。为下文表述方便，用函数odds(p)表示如下：
 
-\begin{equation}odds(p) = e^{\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k}\end{equation}
+\begin{equation}odds(p) = \frac p{1 - p}\end{equation}
 
 易见函数odds(p)是关于*p*的递增函数。
 
 对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数log_of_odds(p)表示如下：
 
-\begin{equation}log_of_odds(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p})\end{equation}
 
-
-易见该式子还是关于*p*的递增函数。
+易见函数log_of_odds(p)还是关于*p*的递增函数。
 
 对于LR模型而言，LR模型的输出值是概率，介于0到1之间。其\\(logit(p)\\)的表达式经过推导，可以很快得到下面这个式子（恰好等于公式2中的z）：
+
+\begin{equation}odds(p) = e^{\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k}\end{equation}
+
+\begin{equation}log\\_of\\_odds(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
 ## odds ratio
 
