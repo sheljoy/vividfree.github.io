@@ -10,12 +10,13 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 无论在学术界，还是在工业界，Logistic Regression(LR, 逻辑回归)模型[1]是常用的分类模型，被用于各种分类场景和点击率预估问题等，它也是Max Entropy(ME, 最大熵)模型[2]，或者说Softmax Regression模型[3]，在二分类的一种特例。
 
-LR模型的model function如下
+用\\(X\ =\ (x_1, x_2, ..., x_k)\\)表示*k*维样本，用\\(\beta = (\beta_1, \beta_2, ..., \beta_k)\\)表示*k*维模型变量，那么LR模型的model function如下表示：
 
-\begin{equation}\mathbf{f}(x_1, x_2, ..., x_k) = \frac 1{1 + e^{-(\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k)}}\end{equation}
+\begin{equation}\mathbf{f}(z) = \frac 1{1 + e^{-z}}\end{equation}
 
 \begin{equation}z = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
+说明：公式1被称为logistic function。
 
 Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。
 
