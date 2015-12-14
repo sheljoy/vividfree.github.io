@@ -18,26 +18,34 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 说明：公式1的学名为logistic function。
 
-Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。下文将介绍odds ratio，并从odds ratio角度理解LR模型的参数。
+Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。下文先介绍odds和log of odds，然后用odds ratio来解释LR模型的参数含义。
 
 ## 从概率到odds再到log of odds
 
-"Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)，易见该式子是关于*p*的递增函数。对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，记为 \\(logit(p)\\)，易见该式子还是关于*p*的递增函数。
+"Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)。为下文表述方便，用函数odds(p)表示如下：
 
-对于LR模型而言，LR模型的输出值是概率，介于0到1之间。其\\(logit(p)\\)的表达式经过推导，可以很快得到下面这个式子（也就是公式2中的z）：
+\begin{equation}odds(p) = e^{\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k}\end{equation}
 
-\begin{equation}logit(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
+易见函数odds(p)是关于*p*的递增函数。
 
+对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数log_of_odds(p)表示如下：
+
+\begin{equation}log_of_odds(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
+
+
+易见该式子还是关于*p*的递增函数。
+
+对于LR模型而言，LR模型的输出值是概率，介于0到1之间。其\\(logit(p)\\)的表达式经过推导，可以很快得到下面这个式子（恰好等于公式2中的z）：
 
 ## odds ratio
 
+这节基于上节介绍的odds和log of odds的概念，应用odds ratio来解释LR模型的参数含义。文章[4], [5]是两份非常好的资料，读者可以详细阅读。下面以文章[4]中的数据集为例来阐述odds ratio与LR模型参数之间的关系。
 
-## 截距(intercept)
+顾名思义，odds ratio是2个odds相除的结果，只不过2个odds怎么算出要看是分析哪个LR模型参数。当然 log of odds ratio
 
-说明 不同的建模下，截距是有区别的
+## 补充说明
 
-## 其他
-
+TODO
 说明一些情况下讨论截距是没有意义
 
 ## 参考文献
@@ -46,7 +54,7 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 [2] [Max Entropy](https://en.wikipedia.org/wiki/Maximum_entropy_probability_distribution) (来自Wikipedia)
 
-[3] [Softmax Regression \| Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
+[3] [Softmax Regression 或者 Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
 
 [4] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
 
