@@ -25,7 +25,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 [2] [Max Entropy](https://en.wikipedia.org/wiki/Maximum_entropy_probability_distribution) (来自Wikipedia)
 
-[3] [Softmax Regression | Multinomial Logistic Regression](Logistic_regressio://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
+[3] [Softmax Regression | Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
 
 [1] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
 
