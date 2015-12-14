@@ -28,13 +28,13 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 易见函数odds(p)是关于*p*的递增函数。
 
-对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数log_of_odds(p)表示如下：
+对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在正式的数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数log_of_odds(p)表示如下：
 
 \begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p})\end{equation}
 
 易见函数log_of_odds(p)还是关于*p*的递增函数。
 
-对于LR模型而言，LR模型的输出值是概率，介于0到1之间。其\\(logit(p)\\)的表达式经过推导，可以很快得到下面这个式子（恰好等于公式2中的z）：
+对于LR模型而言，LR模型的输出值是概率，介于0到1之间。容易推导出LR模型对应的odds(p)和log_of_odds(p)的函数表达形式，分别见公式5和公式6，其中公式6恰好就是公式2中的z：
 
 \begin{equation}odds(p) = e^{\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k}\end{equation}
 
