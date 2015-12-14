@@ -12,7 +12,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 LR模型的model function如下
 
-\begin{equation}\mathbf{f}(z) = frac 1{1 + e^{-z}}\end{equation}
+\begin{equation}\mathbf{f}(z) = \frac 1{1 + e^{-z}}\end{equation}
 
 \begin{equation}\mathbf{f}(x, y) = \displaystyle\sum_{i=0}^{n-1} {\mathbf{A}\_{x,\ i} \times \mathbf{B}\_{i,\ y}}\end{equation}
 
