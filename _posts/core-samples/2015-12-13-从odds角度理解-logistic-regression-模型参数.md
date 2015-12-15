@@ -18,11 +18,11 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 说明：公式1的学名为logistic function。
 
-LR模型的参数可以从odds ratio角度来解释。下文将先介绍odds和log of odds，然后用odds ratio来解释LR模型的参数含义。
+下文将先介绍odds和log of odds，然后用odds来解释LR模型的参数含义。
 
 ## 2. 从概率到odds再到log of odds
 
-"Everything starts with the concept of probability." 假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)。为下文表述方便，用函数\\(odds(p)\\)表示如下：
+在统计和概率理论中，一个事件的**发生比**（英语：Odds[4]）是该事件发生和不发生的比率。假设某随机事件发生的概率是0.8，那么该事件不发生的概率为1 - 0.8 = 0.2。事件发生的odds定义成发生的概率除以不发生的概率，对这个例子即为 0.8 / 0.2 = 4。用数学式子形式化表示odds，就是\\(\frac p{1 - p} \\)。为下文表述方便，用函数\\(odds(p)\\)表示如下：
 
 \begin{equation}odds(p) = \frac p{1 - p}\end{equation}
 
@@ -42,7 +42,7 @@ LR模型的参数可以从odds ratio角度来解释。下文将先介绍odds和l
 
 ## 3. odds ratio
 
-这节基于上节介绍的odds和log of odds的概念，应用odds ratio来解释LR模型的参数含义。顾名思义，odds ratio是2个odds相除的结果，只不过这2个odds怎么得出是需要看分析哪个LR模型参数，或者说分析哪个分析场景。2个odds的除法取log，可以转换成log_of_odds的减法。文章[4], [5]是两份非常好的资料，读者可以详细阅读。文章[4]中给了一个数据集，对这个数据集做了5组特征的实验。这些实验很有代表性，就用它们来阐述odds ratio与LR模型参数之间的关系。
+这节基于上节介绍的odds和log of odds的概念，应用odds ratio来解释LR模型的参数含义。顾名思义，odds ratio是2个odds相除的结果，只不过这2个odds怎么得出是需要看分析哪个LR模型参数，或者说分析哪个分析场景。2个odds的除法取log，可以转换成log_of_odds的减法。文章[5], [6]是两份非常好的资料，读者可以详细阅读。文章[5]中给了一个数据集，对这个数据集做了5组特征的实验。这些实验很有代表性，就用它们来阐述odds ratio与LR模型参数之间的关系。
 
 ### 3.1 第1个实验
 
@@ -122,8 +122,10 @@ LR模型带组合特征（是否为女性，数学成绩和前两个特征的组
 
 [3] [Softmax Regression 或者 Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
 
-[4] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
+[4] [odds](https://en.wikipedia.org/wiki/Odds)（来自Wikipedia）
 
-[5] [Interpreting logistic regression models](http://www-hsc.usc.edu/~eckel/biostat2/notes/notes14.pdf) (来自USC的一份资料)
+[5] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
 
-[6] [Regression Analysis: How to Interpret the Constant (Y Intercept)](http://blog.minitab.com/blog/adventures-in-statistics/regression-analysis-how-to-interpret-the-constant-y-intercept)
+[6] [Interpreting logistic regression models](http://www-hsc.usc.edu/~eckel/biostat2/notes/notes14.pdf) (来自USC的一份资料)
+
+[7] [Regression Analysis: How to Interpret the Constant (Y Intercept)](http://blog.minitab.com/blog/adventures-in-statistics/regression-analysis-how-to-interpret-the-constant-y-intercept)
