@@ -28,17 +28,17 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 易见函数odds(p)是关于*p*的递增函数。
 
-对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在正式的数学文献中会记为\\(logit(p)\\)，但为了下文表述方便，用函数\\(log\\_of\\_odds(p)\\)表示如下：
+对odds取对数(成为log of odds)，也就是\\(log\frac p{1 - p}\\)，这个在正式的数学文献中会记为\\(logit(p)\\)，即：
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p})\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p})\end{equation}
 
 易见函数log_of_odds(p)还是关于*p*的递增函数。
 
-对于LR模型而言，LR模型的输出值是概率，介于0到1之间。容易推导出LR模型对应的\\(odds(p)\\)和\\(log\\_of\\_odds(p)\\)的函数表达形式，分别见公式5和公式6，其中公式6恰好就是公式2中的z：
+对于LR模型而言，LR模型的输出值是概率，介于0到1之间。容易推导出LR模型对应的\\(odds(p)\\)和\\(logit(p)\\)的函数表达形式，分别见公式5和公式6，其中公式6恰好就是公式2中的z：
 
 \begin{equation}odds(p) = e^{\beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k}\end{equation}
 
-\begin{equation}log\\_of\\_odds(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
+\begin{equation}logit(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
 ## 3. odds ratio
 
@@ -48,7 +48,7 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 k = 0，即LR模型不用任何特征，只留下截距项，通过参数训练得到的模型为
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -1.12546\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -1.12546\end{equation}
 
 公式7中的p表示什么概率呢？容易分析出它表示的正是正样本个数占全部样本个数的比例（或者说概率）。可以这样验证，数据集中正样本的比例为\\(\frac {49}{200} = 0.245\\)，\\(log\frac {0.245}{1-0.245} = -1.12546\\)。这个实验只用到odds或者说log of odds，还不需要用到odds ratio。
 
@@ -56,7 +56,7 @@ k = 0，即LR模型不用任何特征，只留下截距项，通过参数训练�
 
 LR模型只带一个二值特征（是否为女性），通过参数训练得到的模型为
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -1.470852 + 0.5927822 \times \mathbf{female}\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -1.470852 + 0.5927822 \times \mathbf{female}\end{equation}
 
 公式8中的\\(\beta_0(-1.470852)\\)表示非女性（即男性）的正样本的log of odds。同样可以用数据验证，数据集中男性正样本比例为\\(\frac {17}{17+74}\\)，男性正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
 
@@ -70,7 +70,7 @@ LR模型只带一个二值特征（是否为女性），通过参数训练得到
 
 LR模型只带一个连续特征（数学成绩），通过参数训练得到的模型为
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -9.793942 + 0.1563404 \times \mathbf{math}\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -9.793942 + 0.1563404 \times \mathbf{math}\end{equation}
 
 公式10中的\\(\beta_0(-9.793942)\\)按理应该表示数学成绩为0的正样本的log of odds。基于这点还原出数学成绩为0的正样本的概率为0.00005579，这是一个很小的数。但从数据集上看，没有一个人的数学成绩小于30。所以截距项在这里表示的是假想数学成绩为0的正样本的log of odds。
 
@@ -84,7 +84,7 @@ LR模型只带一个连续特征（数学成绩），通过参数训练得到的
 
 LR模型带多个非组合的特征（数学成绩，是否为女性，阅读方面的成绩），通过参数训练得到的模型为
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -11.77025 + 0.1229589 \times \mathbf{math} + 0.979948 \times \mathbf{female} + 0.0590632 \times \mathbf{read}\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -11.77025 + 0.1229589 \times \mathbf{math} + 0.979948 \times \mathbf{female} + 0.0590632 \times \mathbf{read}\end{equation}
 
 对拟合出的公式12，female特征的系数表示：固定math和read的取值，女性正样本的odds除以男性正样本的odds的比值为exp(0.979948) = 2.66。math特征的稀疏表示：固定female和read的取值，数学成绩每提高1分，正样本的odds将提高13%，因为exp(0.1229589) = 1.13。
 
@@ -92,15 +92,15 @@ LR模型带多个非组合的特征（数学成绩，是否为女性，阅读方
 
 LR模型带组合特征（是否为女性，数学成绩和前两个特征的组合），通过参数训练得到的模型为
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 \times \mathbf{female} + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{female} \times \mathbf{math}\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 \times \mathbf{female} + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{female} \times \mathbf{math}\end{equation}
 
 因为存在\\(\mathbf{female} \times \mathbf{math}\\)一项特征，这样就不好直接讨论\\(\mathbf{female}\\)的效果。但可以做如下变换，一个关于男性的公式：
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 + 0.1293781 \times \mathbf{math}\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -8.745841 + 0.1293781 \times \mathbf{math}\end{equation}
 
 另一个关于女性的公式：
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{math} = -11.645704 + 0.1963732 \times \mathbf{math}\end{equation}
+\begin{equation}logit(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{math} = -11.645704 + 0.1963732 \times \mathbf{math}\end{equation}
 
 在公式14和公式15中就没有组合特征，那么就可以走类似于上面几组实验的分析思路，对于男性，数学成绩每提高1分，正样本的odds将提高14%（因为exp(0.1293781) = 1.14）。对于女性，数学成绩每提高1分，正样本的odds将提高22%（exp(0.1963732) = 1.22）。
 
