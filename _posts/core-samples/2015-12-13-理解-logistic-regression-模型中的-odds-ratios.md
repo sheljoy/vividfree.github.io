@@ -58,13 +58,28 @@ LR模型只带一个二值特征（是否为女性），通过参数训练得到
 
 \begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -1.470852 + 0.5927822 * \mathbf{female}\end{equation}
 
-公式8中的\\(\beta_0(-1.470852)\\)表示非女性（即男性）的正样本的log of odds。同样可以用数据验证，数据集中男性的正样本比例为\\(\frac {17}{17+74}\\)，正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
+公式8中的\\(\beta_0(-1.470852)\\)表示非女性（即男性）的正样本的log of odds。同样可以用数据验证，数据集中男性正样本比例为\\(\frac {17}{17+74}\\)，男性正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
 
 公式8中的\\(\beta_1(0.5927822)\\)表示女性的正样本的log of odds 减去 男性的正样本的log of odds。因为
 
 \begin{equation}\beta_1 = (-1.470852 + 0.5927822 * 1) - (-1.470852 + 0.5927822 * 0)\end{equation}
 
-同样可以用数据验证，数据集中男性的正样本比例为\\(\frac {17}{17+74}\\)，正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
+同样可以用数据验证，数据集中女性正样本的log of odds为\\(log\frac {32}{77} = -0.878\\)，男性正样本的log of odds为\\(log\frac {17}{74} = -1.471\\)。这两个log of odds相减即得0.593，正是\\(\beta_1\\)。log of odds相减等价于对odds ratio取log。
+
+### 3.3 第3个实验
+
+LR模型只带一个连续特征（数学成绩），通过参数训练得到的模型为
+
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -9.793942 + 0.1563404 * \mathbf{female}\end{equation}
+
+公式8中的\\(\beta_0(-1.470852)\\)表示非女性（即男性）的正样本的log of odds。同样可以用数据验证，数据集中男性正样本比例为\\(\frac {17}{17+74}\\)，男性正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
+
+公式8中的\\(\beta_1(0.5927822)\\)表示女性的正样本的log of odds 减去 男性的正样本的log of odds。因为
+
+\begin{equation}\beta_1 = (-1.470852 + 0.5927822 * 1) - (-1.470852 + 0.5927822 * 0)\end{equation}
+
+同样可以用数据验证，数据集中女性正样本的log of odds为\\(log\frac {32}{77} = -0.878\\)，男性正样本的log of odds为\\(log\frac {17}{74} = -1.471\\)。这两个log of odds相减即得0.593，正是\\(\beta_1\\)。log of odds相减等价于对odds ratio取log。
+
 
 
 模型选择的越好，截距项会越小。这点要解释下。
