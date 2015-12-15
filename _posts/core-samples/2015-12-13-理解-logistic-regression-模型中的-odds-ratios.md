@@ -82,13 +82,23 @@ LR模型只带一个连续特征（数学成绩），通过参数训练得到的
 
 ### 3.4 第4个实验
 
+LR模型带多个非组合的特征（数学成绩，是否为女性，阅读方面的成绩），通过参数训练得到的模型为
 
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -11.77025 + 0.1229589 * \mathbf{math} + 0.979948 * \mathbf{female} + 0.0590632 * \mathbf{read}\end{equation}
+
+对拟合出的公式12，female特征的系数表示：固定math和read的取值，女性正样本的odds除以男性正样本的odds的比值为exp(0.979948) = 2.66。math特征的稀疏表示：固定female和read的取值，数学成绩每提高1分，正样本的odds将提高13%，因为exp(0.1229589) = 1.13。
 
 ### 3.5 第5个实验
+
+LR模型带组合特征（是否为女性，数学成绩和前两个特征的组合），通过参数训练得到的模型为
+
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 * \mathbf{female} + 0.1293781 * \mathbf{math} + 0.0669951 * \mathbf{female} *mathbf{math}\end{equation}
 
 TODO
 
 ## 4 总结
+
+可以用odds ratio解释LR模型的参数。
 
 模型选择的越好，截距项会越小。这点要解释下。
 
