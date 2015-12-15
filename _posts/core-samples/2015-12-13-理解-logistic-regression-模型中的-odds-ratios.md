@@ -94,7 +94,15 @@ LR模型带组合特征（是否为女性，数学成绩和前两个特征的组
 
 \begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 \times \mathbf{female} + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{female} \times \mathbf{math}\end{equation}
 
-TODO
+因为存在\\(\mathbf{female} \times \mathbf{math}\\)一项特征，这样就不好直接讨论\\(\mathbf{female}\\)的效果。但可以做如下变换，一个关于男性的公式：
+
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 + 0.1293781 \times \mathbf{math}\end{equation}
+
+另一个关于女性的公式：
+
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{math} = -11.645704 + 0.1963732 \times \mathbf{math}\end{equation}
+
+在公式14和公式15中就没有组合特征，那么就可以走类似于上面几组实验的分析思路，对于男性，数学成绩每提高1分，正样本的odds将提高13%（因为exp(0.1293781) = 1.13）。对于女性，数学成绩每提高1分，正样本的odds将提高22%（exp(0.1963732) = 1.22）。
 
 ## 4 总结
 
