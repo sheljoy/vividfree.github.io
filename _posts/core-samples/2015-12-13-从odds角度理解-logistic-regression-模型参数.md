@@ -34,6 +34,8 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 易见函数log_of_odds(p)还是关于*p*的递增函数。
 
+当有2个概率\\(p_1\\)和\\(p_2\\)，将这2个概率的odd相除等价于将这2个概率的logit相减。
+
 ## 3. 从odds角度理解LR模型参数
 
 对于LR模型而言，LR模型的输出值是概率，介于0到1之间。容易推导出LR模型对应的\\(odds(p)\\)和\\(logit(p)\\)的函数表达形式，分别见公式5和公式6，其中公式6恰好就是公式2中的z：
@@ -42,7 +44,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 \begin{equation}logit(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
-这节基于上节介绍的odds和log of odds的概念，应用odds ratio来解释LR模型的参数含义。顾名思义，odds ratio是2个odds相除的结果，只不过这2个odds怎么得出是需要看分析哪个LR模型参数，或者说分析哪个分析场景。2个odds的除法取log，可以转换成log_of_odds的减法。文章[5], [6]是两份非常好的资料，读者可以详细阅读。文章[5]中给了一个数据集，对这个数据集做了5组特征的实验。这些实验很有代表性，就用它们来阐述odds ratio与LR模型参数之间的关系。
+文章[5], [6]是两份解释LR模型参数的非常好的资料，读者可以详细阅读。文章[5]中给了一个数据集，针对这个数据集做了5组特征实验。这些实验很有代表性，笔者就用它们来阐述odds ratio与LR模型参数之间的关系。
 
 ### 3.1 第1个实验
 
