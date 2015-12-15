@@ -34,7 +34,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 易见函数log_of_odds(p)还是关于*p*的递增函数。
 
-当有2个概率\\(p_1\\)和\\(p_2\\)，将这2个概率的odd相除等价于将这2个概率的logit相减。
+当有2个概率\\(p_1\\)和\\(p_2\\)，将这2个概率的odd相除（称为odds ratio），等价于将这2个概率的logit相减。
 
 ## 3. 从odds角度理解LR模型参数
 
@@ -96,7 +96,7 @@ LR模型带组合特征（是否为女性，数学成绩和前两个特征的组
 
 \begin{equation}logit(p) = log(\frac p{1 - p}) = -8.745841 - 2.899863 \times \mathbf{female} + 0.1293781 \times \mathbf{math} + 0.0669951 \times \mathbf{female} \times \mathbf{math}\end{equation}
 
-因为存在\\(\mathbf{female} \times \mathbf{math}\\)一项特征，这样就不好直接讨论\\(\mathbf{female}\\)的效果。但可以做如下变换，一个关于男性的公式：
+因为\\(\mathbf{female} \times \mathbf{math}\\)是一项组合特征，这样就不好直接讨论\\(\mathbf{female}\\)的效果。但可以做变换得到2个公式，一个关于男性的公式：
 
 \begin{equation}logit(p) = log(\frac p{1 - p}) = -8.745841 + 0.1293781 \times \mathbf{math}\end{equation}
 
