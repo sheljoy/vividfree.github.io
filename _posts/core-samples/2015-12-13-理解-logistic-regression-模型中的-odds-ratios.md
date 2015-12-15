@@ -62,7 +62,7 @@ LR模型只带一个二值特征（是否为女性），通过参数训练得到
 
 公式8中的\\(\beta_1(0.5927822)\\)表示女性的正样本的log of odds 减去 男性的正样本的log of odds。因为
 
-\begin{equation}\beta_1 = (-1.470852 + 0.5927822 * 1) - (-1.470852 + 0.5927822 * 0) = log_of_odds(p)\_{\mathbf{female}=1} - log_of_odds(p)\\_{\mathbf{female}=0}\end{equation}
+\begin{equation}\beta_1 = (-1.470852 + 0.5927822 * 1) - (-1.470852 + 0.5927822 * 0) = log\_of\_odds(p)\_{\mathbf{female}=1} - log_of_odds(p)\\_{\mathbf{female}=0}\end{equation}
 
 同样可以用数据验证，数据集中男性的正样本比例为\\(\frac {17}{17+74}\\)，正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
 
