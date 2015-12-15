@@ -104,27 +104,6 @@ TODO
 
 另外，截距项并不是说要跟正样本的比例相关，得看怎么建模的。
 
-TODO
-说明一些情况下讨论截距是没有意义
-
-## 参考文献
-
-[1] [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) (来自Wikipedia)
-
-[2] [Max Entropy](https://en.wikipedia.org/wiki/Maximum_entropy_probability_distribution) (来自Wikipedia)
-
-[3] [Softmax Regression 或者 Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
-
-[4] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
-
-
-模型选择的越好，截距项会越小。这点要解释下。
-
-另外，截距项并不是说要跟正样本的比例相关，得看怎么建模的。
-
-## 4. 补充说明
-
-TODO
 说明一些情况下讨论截距是没有意义
 
 ## 参考文献
