@@ -18,7 +18,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 说明：公式1的学名为logistic function。
 
-Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮助。下文先介绍odds和log of odds，然后用odds ratio来解释LR模型的参数含义。
+LR模型的参数可以从odds ratio角度来解释。下文将先介绍odds和log of odds，然后用odds ratio来解释LR模型的参数含义。
 
 ## 2. 从概率到odds再到log of odds
 
