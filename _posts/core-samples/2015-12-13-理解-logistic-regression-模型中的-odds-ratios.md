@@ -42,9 +42,9 @@ Odds ratio可谓是LR模型的细节，但它对于理解LR模型有很好的帮
 
 ## odds ratio
 
-这节基于上节介绍的odds和log of odds的概念，应用odds ratio来解释LR模型的参数含义。文章[4], [5]是两份非常好的资料，读者可以详细阅读。下面以文章[4]中的数据集为例来阐述odds ratio与LR模型参数之间的关系。
+这节基于上节介绍的odds和log of odds的概念，应用odds ratio来解释LR模型的参数含义。顾名思义，odds ratio是2个odds相除的结果，只不过这2个odds怎么得出是需要看分析哪个LR模型参数，或者说分析哪个分析场景。2个odds的除法取log，可以转换成log_of_odds的减法。文章[4], [5]是两份非常好的资料，读者可以详细阅读。下面以文章[4]中的数据集为例来阐述odds ratio与LR模型参数之间的关系。
 
-顾名思义，odds ratio是2个odds相除的结果，只不过这2个odds怎么得出是需要看分析哪个LR模型参数，或者说分析哪个分析场景。对log of odds ratio  (TODO)
+
 
 ## 补充说明
 
