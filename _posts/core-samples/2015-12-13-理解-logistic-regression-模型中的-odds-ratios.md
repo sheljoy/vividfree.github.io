@@ -70,16 +70,42 @@ LR模型只带一个二值特征（是否为女性），通过参数训练得到
 
 LR模型只带一个连续特征（数学成绩），通过参数训练得到的模型为
 
-\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -9.793942 + 0.1563404 * \mathbf{female}\end{equation}
+\begin{equation}log\\_of\\_odds(p) = log(\frac p{1 - p}) = -9.793942 + 0.1563404 * \mathbf{math}\end{equation}
 
-公式8中的\\(\beta_0(-1.470852)\\)表示非女性（即男性）的正样本的log of odds。同样可以用数据验证，数据集中男性正样本比例为\\(\frac {17}{17+74}\\)，男性正样本的log of odds即为\\(log\frac {17}{74} = -1.47\\)。
+公式10中的\\(\beta_0(-9.793942)\\)按理应该表示数学成绩为0的正样本的log of odds。基于这点还原出数学成绩为0的正样本的概率为0.00005579，这是一个很小的数。但从数据集上看，没有一个人的数学成绩小于30。所以截距项在这里表示的是假想数学成绩为0的正样本的log of odds。
 
-公式8中的\\(\beta_1(0.5927822)\\)表示女性的正样本的log of odds 减去 男性的正样本的log of odds。因为
+公式10中的\\(\beta_1(0.1563404)\\)表示数学成绩每提高1分，正样本的log of odds会提升多少，或者说在数学成绩这个维度，对log of odds进行差分。因为
 
-\begin{equation}\beta_1 = (-1.470852 + 0.5927822 * 1) - (-1.470852 + 0.5927822 * 0)\end{equation}
+\begin{equation}\beta_1 = (-9.793942 + 0.1563404 * (score + 1)) - (-9.793942 + 0.1563404 * score)\end{equation}
 
-同样可以用数据验证，数据集中女性正样本的log of odds为\\(log\frac {32}{77} = -0.878\\)，男性正样本的log of odds为\\(log\frac {17}{74} = -1.471\\)。这两个log of odds相减即得0.593，正是\\(\beta_1\\)。log of odds相减等价于对odds ratio取log。
+这是2个log of odds相减，等价于对odds ratio取log。更进一步，还原回到odds ratio，即exp(0.1563404) = 1.1692241。这个可以理解为数学成绩每提高1分，正样本的odds将提高17%。
 
+### 3.4 第4个实验
+
+
+
+### 3.5 第5个实验
+
+TODO
+
+## 4 总结
+
+模型选择的越好，截距项会越小。这点要解释下。
+
+另外，截距项并不是说要跟正样本的比例相关，得看怎么建模的。
+
+TODO
+说明一些情况下讨论截距是没有意义
+
+## 参考文献
+
+[1] [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) (来自Wikipedia)
+
+[2] [Max Entropy](https://en.wikipedia.org/wiki/Maximum_entropy_probability_distribution) (来自Wikipedia)
+
+[3] [Softmax Regression 或者 Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
+
+[4] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
 
 
 模型选择的越好，截距项会越小。这点要解释下。
