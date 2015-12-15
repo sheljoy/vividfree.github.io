@@ -44,7 +44,7 @@ tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 
 \begin{equation}logit(p) = \beta_0 + \beta_1 \times x_1 +  \beta_2 \times x_2 + ... +  \beta_k \times x_k\end{equation}
 
-文章[5], [6]是两份解释LR模型参数的非常好的资料，读者可以详细阅读。文章[5]中给了一个数据集，针对这个数据集做了5组特征实验。这些实验很有代表性，笔者就用它们来阐述odds ratio与LR模型参数之间的关系。
+文章[5], [6]是两份解释LR模型参数的非常好的资料，读者可以详细阅读。文章[5]中给了一个数据集，针对这个数据集做了5组特征实验。这些实验很有代表性，笔者就用它们来阐述odds与LR模型参数之间的关系。
 
 ### 3.1 第1个实验
 
@@ -52,7 +52,7 @@ k = 0，即LR模型不用任何特征，只留下截距项，通过参数训练�
 
 \begin{equation}logit(p) = log(\frac p{1 - p}) = -1.12546\end{equation}
 
-公式7中的p表示什么概率呢？容易分析出它表示的正是正样本个数占全部样本个数的比例（或者说概率）。可以这样验证，数据集中正样本的比例为\\(\frac {49}{200} = 0.245\\)，\\(log\frac {0.245}{1-0.245} = -1.12546\\)。这个实验只用到odds或者说log of odds，还不需要用到odds ratio。
+公式7中的p表示什么概率呢？容易分析出它表示的正是正样本个数占全部样本个数的比例（或者说概率）。可以这样验证，数据集中正样本的比例为\\(\frac {49}{200} = 0.245\\)，\\(log\frac {0.245}{1-0.245} = -1.12546\\)。在k = 0时，截距项恰好是正样本比例对应的log of odds。
 
 ### 3.2 第2个实验
 
@@ -66,7 +66,7 @@ LR模型只带一个二值特征（是否为女性），通过参数训练得到
 
 \begin{equation}\beta_1 = (-1.470852 + 0.5927822 \times 1) - (-1.470852 + 0.5927822 \times 0)\end{equation}
 
-同样可以用数据验证，数据集中女性正样本的log of odds为\\(log\frac {32}{77} = -0.878\\)，男性正样本的log of odds为\\(log\frac {17}{74} = -1.471\\)。这两个log of odds相减即得0.593，正是\\(\beta_1\\)。log of odds相减等价于对odds ratio取log。
+同样可以用数据验证，数据集中女性正样本的log of odds为\\(log\frac {32}{77} = -0.878\\)，男性正样本的log of odds为\\(log\frac {17}{74} = -1.471\\)。这两个log of odds相减即得0.593，正是\\(\beta_1\\)。
 
 ### 3.3 第3个实验
 
@@ -124,7 +124,7 @@ LR模型带组合特征（是否为女性，数学成绩和前两个特征的组
 
 [3] [Softmax Regression 或者 Multinomial Logistic Regression](https://en.wikipedia.org/wiki/Multinomial_logistic_regression) (来自Wikipedia)
 
-[4] [odds](https://en.wikipedia.org/wiki/Odds)（来自Wikipedia）
+[4] [Odds](https://en.wikipedia.org/wiki/Odds)（来自Wikipedia）
 
 [5] [How do I interpret odds ratios in logistic regression](http://www.ats.ucla.edu/stat/mult_pkg/faq/general/odds_ratio.htm) (来自UCLA的一份资料)
 
