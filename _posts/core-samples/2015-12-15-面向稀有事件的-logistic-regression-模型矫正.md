@@ -18,6 +18,10 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 说明：公式1的学名为logistic function。
 
+经常会碰到一些二分类问题，其中正样本的比例很小，比如发生战争的概率，染上某种不常见疾病的概率等。在互联网领域，搜索业务、个性化推荐业务和广告投放业务都会碰到正样本比例很小的问题，那就是点击率预估。某些形态的广告投放点击率在万分位到千分位之间，比如说为千分之一，这就是说投放出1000次广告，才有1次点击。
+
+正样本比例很小，在一些文献中会成为样本倾斜，在另一些文献中会称正类代表的事件为稀有事件。
+
 ## 参考文献
 
 [1] [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) (来自Wikipedia)
