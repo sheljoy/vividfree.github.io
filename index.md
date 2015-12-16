@@ -20,7 +20,7 @@ tagline:
 ### 个人关键词
 
 + **机器学习**, **计算广告**, **自然语言处理**, **大规模数据处理**, **系统架构**
-+ C++, Python, Shell; Hadoop, Hive, MPI, Spark; Kafka, RabbitMQ; LevelDB, Redis.
++ C++, Python, Shell \| Hadoop, Hive, MPI, Spark \| Kafka, RabbitMQ \| LevelDB, Redis
 + 奇虎360, 人民搜索; Hulu北京（实习）
 + 中科院计算所, 华中科技大学, 江西省高安中学
 + 足球迷, 喜欢巴萨喜欢恒大
