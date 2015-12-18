@@ -48,7 +48,7 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 公式4与论文[7]6.3一节的式子是等价的，如下证明
 
-\begin{equation}q = \frac 1{1 + \mathbf{e}^{-x_i\beta + {ln\left(\frac {\overline y}{\tau}\right)}}\end{equation}
+\begin{equation}q = \frac 1{1 + \mathbf{e}^{-x_i\beta + {ln\left(\frac {\overline y}{\tau}\right)}}}\end{equation}
 
 不过公式4是离线算好的校准后的截距项，可以减少实时计算量。
 
