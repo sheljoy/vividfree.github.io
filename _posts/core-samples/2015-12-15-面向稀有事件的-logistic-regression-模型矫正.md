@@ -34,7 +34,7 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 1. Prior Correction. 
 
-\begin{equation}{\hat {\beta}}_1 = {\hat {\beta}_0} - ln[(\frac {1 - \tau}{\tau})(\frac {\hat y}{1 - \hat y})]\end{equation}
+\begin{equation}{\hat {\beta}}_1 = {\hat {\beta}_0} - ln\left[\left(\frac {1 - \tau}{\tau}\right)\left(\frac {\hat y}{1 - \hat y}\right)\right]\end{equation}
 
 2. Weighting. 
 
