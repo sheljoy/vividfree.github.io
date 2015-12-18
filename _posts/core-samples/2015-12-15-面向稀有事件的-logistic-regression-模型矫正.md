@@ -20,10 +20,11 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 说明：公式1的学名为logistic function。
 
-通常情况下，准备好标注样本和特征后，经过参数训练，最终会得到机器学习模型，对LR模型而言，得到的是分类超平面。但样本不均衡的情况下，通常的参数训练方法会带来模型估计上的偏差。对LR模型而言，通常的参数训练方法会造成正样本的估计概率低于真实值。论文[4]在5.1一节，以及书籍[5]在13.5.3一节，对此作了论述。在文献中从只有1个特征且该特征的特征权重大于0的LR模型出发来解释，正样本因为样本少使得估计不准，而且会使得分界面会比真是的分界面更右一些，这样使得正样本的估计概率低于真实值。
+通常情况下，准备好标注样本和特征后，经过参数训练，最终会得到机器学习模型，对LR模型而言，得到的是分类超平面。但样本不均衡的情况下，通常的参数训练方法会带来模型估计上的偏差。对LR模型而言，通常的参数训练方法会造成正样本的估计概率低于真实值。论文[4]在5.1一节，以及书籍[5]在13.5.3一节，对此作了论述。在文献中从只有1个特征且该特征的特征权重大于0的LR模型出发来解释。在均值和方差都未知的情况下，用极大似然估计（Maximum Likelihood Estimator, MLE）估计高斯分布的方差是有偏的，MLE估计出的方差的分母是样本数，但方差的无偏估计是样本数减1 [6]。也就是说，正样本因为样本少使得估计不准，而且会使得分界面会比真实的分界面更右一些，这样使得正样本的估计概率低于真实值。
 
 ## 2. 稀有事件下LR模型的矫正方法
 
+对稀有事件应用通常的LR模型训练方法会造成估计值低于真实值，
 
 直接用LR模型会碰到什么问题，有哪几种矫正方案呢，适合什么场景呢。Google和FB是怎么做的。
 
@@ -39,6 +40,8 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 [5] 刘鹏, 王超. 计算广告. 2015
 
-[6] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
+[6] [极大似然法计算出的高斯分布的方差为什么会产生偏差](https://www.zhihu.com/question/28751472) (来自知乎)
 
-[7] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
+[7] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
+
+[8] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
