@@ -36,17 +36,19 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 "Prior Correction"策略可以理解为基于先验分布的矫正。进行负采样后经过模型训练会得到模型参数，因为采样前后正样本的比例发生变化，所以得到的模型是有偏的，而且对正样本的估计概率偏高。需要把正样本比例作为先验信息，对模型参数做矫正。使用MLE估计出的模型参数中，估计出的非截距项的参数与真实参数是一致的，不用矫正，但对估计出的表示截距项的参数只需按照公式3进行矫正。
 
-\begin{equation}{\hat {\beta}_0} - ln\left[\left(\frac {1 - \tau}{\tau}\right)\left(\frac {\hat y}{1 - \hat y}\right)\right]\end{equation}
+\begin{equation}{\hat {\beta}_0} - ln\left[\left(\frac {1 - \tau}{\tau}\right)\left(\frac {\overline y}{1 - \overline y}\right)\right]\end{equation}
 
-说明：\\({\hat {\beta}}_0\\)是进行负采样后的通过LR模型训练出的模型参数。\\(\hat {\tau}\\)是未进行负采样时正样本的比例，\\(\hat y\\)是进行负采样后的正样本的比例。公式3在论文[4]的4.1一节也有论述，并在论文的附录B中有公式推导。
+说明：\\({\hat {\beta}}_0\\)是进行负采样后的通过LR模型训练出的模型参数。\\(\tau\\)是未进行负采样时正样本的比例，\\(\overline y\\)是进行负采样后的正样本的比例。公式3在论文[4]的4.1一节也有论述，并在论文的附录B中有公式推导。
 
-\\(\tau\\)需要先验知识。在一些问题上比较好确定，比如在广告定向投放的点击率预估问题中，这个可以用统计CTR来近似替代。
+\\(\tau\\)需要先验知识来确定，这在一些问题上比较好定，比如在广告定向投放的点击率预估问题中，就可以用统计CTR来近似替代。
 
-"Prior Correction"策略的优点是现有的模型训练工具不用修改，还是可以使用，只不过需要加个对截距项的后处理计算。缺点是如果所建立的模型有偏差，比如少了一些应该有的特征，那这个方法的鲁棒性就不如下文将介绍的Weighting策略。
+"Prior Correction"策略的优点是现有的模型训练工具不用修改，还是可以使用，只不过需要加个对截距项的后处理计算。缺点是如果所建立的模型有偏差，比如少了一些应该有的特征，那这个方法的鲁棒性就不如下文将介绍的Weighting策略。该方法在Facebook的广告定向投放业务中有应用[7]，并做了一定简化，因为广告点击率在百分位甚至更低，所以\\(\frac {1 - \tau}{1 - \overline y}\\)近似相等，所以在FB用的是公式4：
+
+\begin{equation}{\hat {\beta}_0} - ln\left(\frac {\overline y}{\tau}\right)\end{equation}
 
 ### 2.2 Weighting
 
-## 3. 在广告点击率预估中的应用
+Weighting策略是在训练时对正样本
 
 Google和FB是怎么做的。
 
@@ -64,6 +66,6 @@ Google和FB是怎么做的。
 
 [6] [极大似然法计算出的高斯分布的方差为什么会产生偏差](https://www.zhihu.com/question/28751472) (来自知乎)
 
-[7] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
+[7] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
 
-[8] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
+[8] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
