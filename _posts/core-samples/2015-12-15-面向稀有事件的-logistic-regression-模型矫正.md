@@ -36,6 +36,8 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 \begin{equation}{\hat {\beta}}_1 = {\hat {\beta}_0} - ln\left[\left(\frac {1 - \tau}{\tau}\right)\left(\frac {\hat y}{1 - \hat y}\right)\right]\end{equation}
 
+说明：\\({\hat {\beta}}_1\\)是未进行负采样时的真实模型参数，而\\({\hat {\beta}}_0\\)是进行负采样后的通过LR模型训练出的模型参数。\\(\hat {\tau}\\)是未进行负采样时正样本的比例，\\(\hat y\\)是进行负采样后的正样本的比例。
+
 2. Weighting. 
 
 ## 3. 在广告点击率预估中的应用
