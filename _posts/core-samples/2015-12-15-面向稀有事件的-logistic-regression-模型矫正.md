@@ -60,7 +60,7 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 ### 2.2 Weighting
 
-相比"Prior Correction"策略，Weighting策略应该更容易理解。在进行负样本采样后，模型训练前，对正样本、负样本赋以不同的样本权重。在文章[4]给出的样本权重是这样的，正样本的权重为\\(\tau / \overline y\\)，负样本的权重为\\((1 - \tau) / (1 - \overline y)\\)。
+相比"Prior Correction"策略，Weighting策略应该更容易理解。在进行负样本采样后，模型训练前，对正样本、负样本赋以不同的样本权重。在文章[4]给出的样本权重是这样的，正样本的权重为\\(\tau / \overline y\\)，负样本的权重为\\((1 - \tau) / (1 - \overline y)\\)。因为\\(\tau\\)和\\(\overline y\\)都很小，所以\\((1 - \tau) / (1 - \overline y)\\)会近似等于1。所以。。。
 
 Google是怎么做的。
 
