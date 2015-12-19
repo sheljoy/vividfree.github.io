@@ -1,6 +1,7 @@
 ---
 layout: post
-category : 机器学习
+title: test机器
+category: 机器学习
 tagline: 
 tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, intercept, 截距]
 ---
