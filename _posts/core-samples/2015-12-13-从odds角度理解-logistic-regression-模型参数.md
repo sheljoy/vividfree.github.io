@@ -125,3 +125,9 @@ LR模型带组合特征（是否为女性，数学成绩和前两个特征的组
 [6] [Interpreting logistic regression models](http://www-hsc.usc.edu/~eckel/biostat2/notes/notes14.pdf) (来自USC的一份资料)
 
 [7] [Regression Analysis: How to Interpret the Constant (Y Intercept)](http://blog.minitab.com/blog/adventures-in-statistics/regression-analysis-how-to-interpret-the-constant-y-intercept)
+
+* * *
+
+**原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
+
+**本文链接地址：**[从odds角度理解 Logistic Regression 模型参数](http://vividfree.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/12/13/%E4%BB%8Eodds%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3-logistic-regression-%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0/)
