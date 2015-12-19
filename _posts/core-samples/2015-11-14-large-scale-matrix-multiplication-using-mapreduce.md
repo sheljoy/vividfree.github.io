@@ -120,8 +120,8 @@ A的列向量有n个，B的行向量也有n个，将A的某个列向量与B的�
 
 **原创文章，转载请注明2：**转载自[vividfree的博客](http://vividfree.github.io/)
 
-**原创文章，转载请注明2：**转载自[vividfree的博客]({{ page.baseurl }})
+**原创文章，转载请注明3：**转载自[vividfree的博客]({{ page.production_url }})
 
-**本文链接地址1：**[{{ page.title }}]({{ page.url }})
+**本文链接地址：**[{{ page.title }}]({{ page.url }})
 
 * * *
