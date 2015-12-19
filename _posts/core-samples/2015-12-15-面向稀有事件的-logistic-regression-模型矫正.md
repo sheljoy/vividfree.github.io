@@ -50,6 +50,11 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 \begin{equation}q = \frac 1{1 + e^{-x_i\beta + {ln\left(\overline y/\tau\right)}}} = \frac 1{1 + e^{-x_i\beta} \times \left(\overline y/\tau\right)}\end{equation}
 
+容易知道\\(e^{-x_i\beta} = \frac {1-p}{p}\\)，所以式子5可以化简为
+
+\begin{equation}q = \frac 1{1 + ((1 - p) / p) \times (\overline y / \tau)}\end{equation}
+
+
 不过公式4是离线算好的校准后的截距项，可以减少实时计算量。
 
 ### 2.2 Weighting
