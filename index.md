@@ -1,6 +1,6 @@
 ---
 layout: page
-title: vividfree的博客
+title: 
 tagline: 
 ---
 {% include JB/setup %}
