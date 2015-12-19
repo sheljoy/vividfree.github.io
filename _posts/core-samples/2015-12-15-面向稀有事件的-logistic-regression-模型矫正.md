@@ -60,11 +60,13 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 ### 2.2 Weighting
 
-相比"Prior Correction"策略，Weighting策略应该更容易理解。在进行负样本采样后，模型训练前，对正样本、负样本赋以不同的样本权重。在文章[4]给出的样本权重是这样的，正样本的权重为\\(\tau / \overline y\\)，负样本的权重为\\((1 - \tau) / (1 - \overline y)\\)。因为\\(\tau\\)和\\(\overline y\\)都很小，所以\\((1 - \tau) / (1 - \overline y)\\)会近似等于1。所以。。。
+相比"Prior Correction"策略，Weighting策略应该更容易理解。在进行负样本采样后，模型训练前，对正样本、负样本赋以不同的样本权重。在文章[4]给出的样本权重是这样的，正样本的权重为\\(\tau / \overline y\\)，负样本的权重为\\((1 - \tau) / (1 - \overline y)\\)。因为\\(\tau\\)和\\(\overline y\\)都很小，所以\\((1 - \tau) / (1 - \overline y)\\)会近似等于1，权重的配置就可以调整为正样本的权重为1，负样本的权重为\\(\overline y / \tau\\)。这个正是Google在文章[10]所用的策略。
 
-Google是怎么做的。
+当建立的模型本身有偏差时，比如少了一些该有的特征，这种方法的鲁棒性要好于"Prior Correction"策略。另外，一些实验显示在应用FTRL算法的基础上，使用Weighting的策略并不好，可能的原因在于在线学习算法需要样本随机打散，但对于Weighting策略，样本权重在一定程度上阻碍了样本的随机性。
 
-附录B还有对多类别的修正
+### 3 其他
+
+论文[4]的附录B还推导给出了多类别的校准公式，比如这个就可以用于Softmax Regression等模型中。
 
 ## 参考文献
 
