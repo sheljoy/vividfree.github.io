@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 理解ROC和AUC
+title: 理解 ROC 和 AUC
 category: 机器学习
 tagline: 
 tags: [ROC, AUC, 评价指标]

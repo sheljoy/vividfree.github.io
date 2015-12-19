@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 如何在Github上建立独立博客
+title: 如何在 Github 上建立独立博客
 category: 工具使用
 tagline: 
 tags: [Github, Git, Jekyll, Markdown, Mathjax, 介绍]
@@ -69,8 +69,8 @@ Markdown是一种轻量级标记语言，允许人们“使用易读易写的纯
 
 * * *
 
-**原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
+**原创文章，转载请注明：**转载自[{{ site.title }}]({{ site.production_url }})
 
-**本文链接地址：**[{{ page.title }}](http://vividfree.github.io/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/2015/10/24/how-to-construct-blog-on-github/)
+**本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
 
 * * *
