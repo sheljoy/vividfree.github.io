@@ -54,8 +54,9 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 \begin{equation}q = \frac 1{1 + ((1 - p) / p) \times (\overline y / \tau)} = \frac p{p + (1 - p) \times (\overline y / \tau)}\end{equation}
 
+论文里\\(w\\)表示采样率，所以等式\\(\frac 1w = \frac {\overline y}{\tau}\\)成立，代入上式即可得到Facebook在论文[7]的校准公式。
 
-不过公式4是离线算好的校准后的截距项，可以减少实时计算量。
+不过公式4是离线算好的校准后的截距项，就不用实时计算校准。
 
 ### 2.2 Weighting
 
