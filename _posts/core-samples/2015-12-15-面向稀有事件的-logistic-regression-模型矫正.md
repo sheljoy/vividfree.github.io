@@ -20,7 +20,7 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 说明：公式1的学名为logistic function。
 
-通常情况下，准备好标注样本和特征后，经过参数训练，最终会得到机器学习模型，对LR模型而言，得到的是分类超平面。但样本不均衡的情况下，通常的参数训练方法会带来模型估计上的偏差。对LR模型而言，通常的参数训练方法会造成正样本的估计概率低于真实值。论文[4]在5.1一节，以及书籍[5]在13.5.3一节，对此作了论述。在文献中从只有1个特征且该特征的特征权重大于0的LR模型出发来解释。在均值和方差都未知的情况下，用极大似然估计（Maximum Likelihood Estimator, MLE）估计高斯分布的方差是有偏的，MLE估计出的方差的分母是样本数，但方差的无偏估计是样本数减1 [6]。也就是说，正样本因为样本少使得估计不准，而且会使得分界面会比真实的分界面更右一些，这样使得正样本的估计概率低于真实值。
+通常情况下，准备好标注样本和特征后，经过参数训练，最终会得到机器学习模型，对LR模型而言，得到的是分类超平面。但样本不均衡的情况下，通常的参数训练方法会带来模型估计上的偏差。对LR模型而言，通常的参数训练方法会造成正样本的估计概率低于真实值。论文[4]在5.1一节，以及书籍[5]在13.5.3一节，对此作了论述。在文献中从只有1个特征且该特征的特征权重大于0的LR模型出发来解释。在均值和方差都未知的情况下，用极大似然估计（Maximum Likelihood Estimator, MLE）估计高斯分布的方差是有偏(bias)但是满足一致性(consistency)[6][7]，MLE估计出的方差的分母是样本数，但方差的无偏估计是样本数减1 [8]。也就是说，正样本因为样本少使得估计不准，而且会使得分界面会比真实的分界面更右一些，这样使得正样本的估计概率低于真实值。
 
 ## 2. 稀有事件下LR模型的校准方法
 
@@ -42,11 +42,11 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 \\(\tau\\)需要先验知识来确定，这在一些问题上比较好定，比如在广告定向投放的点击率预估问题中，就可以用统计CTR来近似替代。
 
-"Prior Correction"策略的优点是现有的模型训练工具不用修改，还是可以使用，只不过需要加个对截距项的后处理计算。缺点是如果所建立的模型有偏差，比如少了一些应该有的特征，那这个方法的鲁棒性就不如下文将介绍的Weighting策略。该方法在Facebook的广告定向投放业务中有应用[7]，并做了一定简化，因为广告点击率在百分位甚至更低，\((\tau\))和\\(\overline y\\)都很小，所以\\(\frac {1 - \tau}{1 - \overline y}\\)可以认为近似相等，所以在FB其实用的是公式4[7]：
+"Prior Correction"策略的优点是现有的模型训练工具不用修改，还是可以使用，只不过需要加个对截距项的后处理计算。缺点是如果所建立的模型有偏差，比如少了一些应该有的特征，那这个方法的鲁棒性就不如下文将介绍的Weighting策略。该方法在Facebook的广告定向投放业务中有应用[9]，并做了一定简化，因为广告点击率在百分位甚至更低，\((\tau\))和\\(\overline y\\)都很小，所以\\(\frac {1 - \tau}{1 - \overline y}\\)可以认为近似相等，所以在FB其实用的是公式4[9]：
 
 \begin{equation}{\hat {\beta}_0} - ln\left(\frac {\overline y}{\tau}\right)\end{equation}
 
-公式4其实与Facebook在论文[7]的6.3一节的式子是等价的。<font color='red'>强调一下，是等价，而不是近似。</font>下面做简单证明，记校准后的预测概率为q，那么根据公式4有公式5成立。
+公式4其实与Facebook在论文[9]的6.3一节的式子是等价的。<font color='red'>强调一下，是等价，而不是近似。</font>下面做简单证明，记校准后的预测概率为q，那么根据公式4有公式5成立。
 
 \begin{equation}q = \frac 1{1 + e^{-x_i\beta + {ln\left(\overline y/\tau\right)}}} = \frac 1{1 + e^{-x_i\beta} \times \left(\overline y/\tau\right)}\end{equation}
 
@@ -54,7 +54,7 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 \begin{equation}q = \frac 1{1 + ((1 - p) / p) \times (\overline y / \tau)} = \frac p{p + (1 - p) \times (\overline y / \tau)}\end{equation}
 
-论文里\\(w\\)表示采样率，所以等式\\(\frac 1w = \frac {\overline y}{\tau}\\)成立，代入上式即可得到Facebook在论文[7]的校准公式。
+论文里\\(w\\)表示采样率，所以等式\\(\frac 1w = \frac {\overline y}{\tau}\\)成立，代入上式即可得到Facebook在论文[9]的校准公式。
 
 不过公式4是离线算好的校准后的截距项，就不用实时计算校准，能减少实时计算量。
 
@@ -64,7 +64,9 @@ TODO
 
 Weighting策略是在训练时对正样本
 
-Google和FB是怎么做的。
+Google是怎么做的。
+
+附录B还有对多类别的修正
 
 ## 参考文献
 
@@ -78,8 +80,12 @@ Google和FB是怎么做的。
 
 [5] 刘鹏, 王超. 计算广告. 2015
 
-[6] [极大似然法计算出的高斯分布的方差为什么会产生偏差](https://www.zhihu.com/question/28751472) (来自知乎)
+[6] [Consistent estimator](https://en.wikipedia.org/wiki/Consistent_estimator) (来自Wikipedia)
 
-[7] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
+[7] [What is the difference between a consistent estimator and an unbiased estimator](http://stats.stackexchange.com/questions/31036/what-is-the-difference-between-a-consistent-estimator-and-an-unbiased-estimator) (来自stackexchange)
 
-[8] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
+[8] [极大似然法计算出的高斯分布的方差为什么会产生偏差](https://www.zhihu.com/question/28751472) (来自知乎)
+
+[9] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
+
+[10] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
