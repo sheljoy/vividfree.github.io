@@ -12,7 +12,7 @@ ROC（Receiver Operating Characteristic）曲线和AUC（Area Under Curve）常�
 论文[3]是篇很不错的文章，介绍了ROC和AUC的特点，如何作出ROC曲线图和计算AUC，AUC的含义，以及对多类别分类问题如何计算AUC。后来有篇博文[4]翻译了这篇文章的核心部分，浅显易懂，适合不喜欢读英文的读者。
 
 <div align="center">
-  <img src="/images/2015-11-20-ROC-and-AUC-introduction-figure1.jpg" style="max-width:634px; text-align:center" alt=""/>
+  <img src="/images/2015-11-20-understanding-ROC-and-AUC-figure1.jpg.jpg" style="max-width:634px; text-align:center" alt=""/>
 </div>
 
 图1摘自论文[3]。ROC曲线，是以一系列的(fp rate, tp rate)或者写成(FPR, TPR)，为二维笛卡尔坐标系中的坐标点。应用到实际问题中，对一份训练集如何算出一系列的FPR和TPR，可以参考[3]或[4]。
