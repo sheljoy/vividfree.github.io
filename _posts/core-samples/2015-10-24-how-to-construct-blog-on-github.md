@@ -69,7 +69,7 @@ Markdown是一种轻量级标记语言，允许人们“使用易读易写的纯
 
 * * *
 
-<font color='red'>原创文章，转载请注明</font>：转载自
+<font color='red'>原创文章，转载请注明 </font> 转载自
 
 <font color='red'>原创文章，转载请注明</font>：转载自[vividfree的博客](http://vividfree.github.io/)
 
