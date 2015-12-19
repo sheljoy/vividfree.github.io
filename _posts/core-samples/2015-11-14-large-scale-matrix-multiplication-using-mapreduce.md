@@ -122,6 +122,8 @@ A的列向量有n个，B的行向量也有n个，将A的某个列向量与B的�
 
 **原创文章，转载请注明1：**转载自[vividfree的博客]({{ site.production_url }})
 
+**原创文章，转载请注明1：**转载自[{{ site.title }}]({{ site.production_url }})
+
 **本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
 
 * * *
