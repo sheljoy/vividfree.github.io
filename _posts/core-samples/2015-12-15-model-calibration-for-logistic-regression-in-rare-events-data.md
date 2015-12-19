@@ -1,9 +1,9 @@
 ---
 layout: post
-title: test机器
+title: 面向稀有事件的Logistic Regression模型校准
 category: 机器学习
 tagline: 
-tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, intercept, 截距]
+tags: ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, intercept, 截距]
 ---
 {% include JB/setup %}
 
@@ -93,6 +93,8 @@ tags : ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, int
 
 * * *
 
-**原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
+**原创文章，转载请注明：**转载自[{{ site.title }}]({{ site.production_url }})
 
-**本文链接地址：**[面向稀有事件的 Logistic Regression 模型矫正](http://vividfree.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/12/15/%E9%9D%A2%E5%90%91%E7%A8%80%E6%9C%89%E4%BA%8B%E4%BB%B6%E7%9A%84-logistic-regression-%E6%A8%A1%E5%9E%8B%E7%9F%AB%E6%AD%A3/)
+**本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
+
+* * *

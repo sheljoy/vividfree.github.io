@@ -1,8 +1,9 @@
 ---
 layout: post
-category : 机器学习
+title: 理解ROC和AUC
+category: 机器学习
 tagline: 
-tags : [ROC, AUC, 评价指标]
+tags: [ROC, AUC, 评价指标]
 ---
 {% include JB/setup %}
 
@@ -42,6 +43,8 @@ AUC（确切的说，应该是AUROC）被定义为ROC曲线下的面积，显然
 
 * * *
 
-**原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
+**原创文章，转载请注明：**转载自[{{ site.title }}]({{ site.production_url }})
 
-**本文链接地址：**[理解roc和auc](http://vividfree.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/11/20/%E7%90%86%E8%A7%A3ROC%E5%92%8CAUC/)
+**本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
+
+* * *

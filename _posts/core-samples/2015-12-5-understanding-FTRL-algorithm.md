@@ -1,8 +1,9 @@
 ---
 layout: post
-category : 机器学习
+title: 理解FTRL算法
+category: 机器学习
 tagline: 
-tags : [FTRL, "online learning", 在线学习, 正则化, 稀疏模型]
+tags: [FTRL, "online learning", 在线学习, 正则化, 稀疏模型]
 ---
 {% include JB/setup %}
 
@@ -82,6 +83,8 @@ FTRL算法的迭代算公式如下：
 
 * * *
 
-**原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
+**原创文章，转载请注明：**转载自[{{ site.title }}]({{ site.production_url }})
 
-**本文链接地址：**[理解ftrl算法](http://vividfree.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/12/05/%E7%90%86%E8%A7%A3FTRL%E7%AE%97%E6%B3%95/)
+**本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
+
+* * *

@@ -1,8 +1,9 @@
 ---
 layout: post
-category : 机器学习
+title: 从odds角度理解Logistic Regression的模型参数
+category: 机器学习
 tagline: 
-tags : ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
+tags: ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
 ---
 {% include JB/setup %}
 
@@ -128,6 +129,8 @@ LR模型带组合特征（是否为女性，数学成绩和前两个特征的组
 
 * * *
 
-**原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
+**原创文章，转载请注明：**转载自[{{ site.title }}]({{ site.production_url }})
 
-**本文链接地址：**[从odds角度理解 Logistic Regression 模型参数](http://vividfree.github.io/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/2015/12/13/%E4%BB%8Eodds%E8%A7%92%E5%BA%A6%E7%90%86%E8%A7%A3-logistic-regression-%E6%A8%A1%E5%9E%8B%E5%8F%82%E6%95%B0/)
+**本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
+
+* * *
