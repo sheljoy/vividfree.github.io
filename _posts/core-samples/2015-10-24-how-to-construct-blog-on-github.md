@@ -69,6 +69,10 @@ Markdown是一种轻量级标记语言，允许人们“使用易读易写的纯
 
 * * *
 
+<font color='red'>原创文章，转载请注明</font>：转载自
+
+<font color='red'>原创文章，转载请注明</font>：转载自[vividfree的博客](http://vividfree.github.io/)
+
 <font color='red'>原创文章，转载请注明：</font>转载自[vividfree的博客](http://vividfree.github.io/)
 
 <font color='red'>本文链接地址：</font>[{{ page.title }}](http://vividfree.github.io/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/2015/10/24/how-to-construct-blog-on-github/)
