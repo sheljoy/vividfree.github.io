@@ -71,4 +71,4 @@ Markdown是一种轻量级标记语言，允许人们“使用易读易写的纯
 
 **原创文章，转载请注明：**转载自[vividfree的博客](http://vividfree.github.io/)
 
-**本文链接地址：**[如何在 Github 上建立独立博客](http://vividfree.github.io/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/2015/10/24/%E5%A6%82%E4%BD%95%E5%9C%A8-github-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E7%8B%AC%E7%AB%8B%E5%8D%9A%E5%AE%A2/)
+**本文链接地址：**[{{ page.title }}](http://vividfree.github.io/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/2015/10/24/how-to-construct-blog-on-github/)
