@@ -47,7 +47,7 @@ tags: ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, inte
 
 \begin{equation}{\hat {\beta}_0} - ln\left(\frac {\overline y}{\tau}\right)\end{equation}
 
-公式4其实与Facebook在论文[9]的6.3一节的式子是等价的。<font color='red'>强调一下，是等价，而不是近似。</font>下面做简单证明，记校准后的预测概率为q，那么根据公式4有公式5成立。
+公式4其实与Facebook在论文[9]的6.3一节的式子是等价的。<font color='red'>强调一下，是等价，而不是近似。</font>下面做简单证明，记校准前的预测概率为\\(p\\)，校准后的预测概率为\\(q\\)，那么根据公式4有公式5成立。
 
 \begin{equation}q = \frac 1{1 + e^{-x_i\beta + {ln\left(\overline y/\tau\right)}}} = \frac 1{1 + e^{-x_i\beta} \times \left(\overline y/\tau\right)}\end{equation}
 
