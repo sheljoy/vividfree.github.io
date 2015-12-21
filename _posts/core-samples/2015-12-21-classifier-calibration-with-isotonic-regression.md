@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 使用 Platt scaling 和 Isotonic regression 校准分类器
+title: 使用 Isotonic Regression 校准分类器
 category: 机器学习
 tagline: 
 tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校准]
@@ -10,9 +10,11 @@ tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校�
 ## 1. 引言
 
 
-## 参考文献
 
-[1] [Logistic Regression](https://en.wikipedia.org/wiki/Logistic_regression) (来自Wikipedia)
+Google和微软在论文中提到用保序回归来做模型校准，介绍保序回归的概念，与另一种校准办法的对比，介绍在广告中的具体用法
+
+
+## 参考文献
 
 [2] [Classifier calibration with Platt scaling and isotonic regression](http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/)
 
@@ -30,9 +32,9 @@ tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校�
 
 [9] Ronny Luss, et al. Efficient regularized isotonic regression with application to gene--gene interaction search. The Annals of Applied Statistics. 2012
 
-[10] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
-
 [11] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
+
+[12] Thore graepel, et al. Web-Scale Bayesian Click-Through Rate Prediction for Sponsored Search Advertising in Microsoft’s Bing Search Engine. ICML2010
 
 * * *
 
