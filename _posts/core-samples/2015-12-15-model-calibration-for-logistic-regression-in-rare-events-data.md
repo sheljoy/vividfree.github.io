@@ -3,7 +3,7 @@ layout: post
 title: 面向稀有事件的 Logistic Regression 模型校准
 category: 机器学习
 tagline: 
-tags: ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, intercept, 截距]
+tags: ["logistic regression", LR, 逻辑回归, "rare event", 稀有事件, intercept, 截距, 校准]
 ---
 {% include JB/setup %}
 
