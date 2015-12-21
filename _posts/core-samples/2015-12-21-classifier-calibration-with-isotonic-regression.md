@@ -40,13 +40,11 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 ## 4. 其他
 
-还有一些关于 Platt scaling 和 Isotonic regression 的好文章，比如[13][14]，如果感兴趣，可以阅读下。
+关于 Platt scaling 和 Isotonic regression，一些英文文章有不错的介绍，比如[12][13][14][15]，这些都值得阅读。
 
 ## 参考文献
 
 [1] [Calibration (statistics)](https://en.wikipedia.org/wiki/Calibration_(statistics)) (来自Wikipedia)
-
-[2] [Calibrating classifier probabilities](http://danielnee.com/tag/isotonic-regression/)
 
 [3] [Isotonic regression](https://en.wikipedia.org/wiki/Isotonic_regression) (来自Wikipedia)
 
@@ -66,9 +64,13 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 
 
-[13] [Classifier calibration with Platt scaling and isotonic regression](http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/)
+[12] [Calibrating classifier probabilities](http://danielnee.com/tag/isotonic-regression/)
 
-[14] [Speeding up isotonic regression in scikit-learn by 5,000x](http://tullo.ch/articles/speeding-up-isotonic-regression/)
+[13] [How is isotonic regression used in practice for calibration in machine learning](https://www.quora.com/How-is-isotonic-regression-used-in-practice-for-calibration-in-machine-learning)
+
+[14] [Classifier calibration with Platt scaling and isotonic regression](http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/)
+
+[15] [Speeding up isotonic regression in scikit-learn by 5,000x](http://tullo.ch/articles/speeding-up-isotonic-regression/)
 
 * * *
 
