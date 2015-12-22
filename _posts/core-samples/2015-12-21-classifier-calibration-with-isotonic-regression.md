@@ -48,7 +48,7 @@ Isotonic regression，中文翻译为保序回归，是一种非参回归模型(
 
 其中，\\(m\\)表示保序函数（单调递增函数）。所以isotonic regression的目标函数为
 
-\begin{equation}\hatm = argmin_z \sum (y_i - z(f_i))^2\end{equation}
+\begin{equation}\hat m = argmin_z \sum (y_i - z(f_i))^2\end{equation}
 
 文献[5][6]
 
