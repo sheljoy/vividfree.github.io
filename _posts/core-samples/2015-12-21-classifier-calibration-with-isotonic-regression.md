@@ -9,15 +9,24 @@ tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校�
 
 ## 1. 引言
 
-通常的机器学习训练流程包括这样几步：先建立起模型，然后在训练集上训练模型，如果有超参数，还需要在验证集上应用交叉验证以确定超参数，总之最终会得到一个模型。在这样的流程下，不断优化模型，如果在测试集上取得了较高的准确率、召回率、F-score或者AUC后，那事情就结束了，模型的输出结果是符合需要的吗？这并不一定。
+对有监督机器学习问题，通常的训练流程包括这样几步：先建立起模型，然后在训练集上训练模型，如果有超参数，还需要在验证集上应用交叉验证以确定超参数，总之最终会得到一个模型。在这样的流程下，不断优化模型，如果在测试集上取得了较高的准确率、召回率、F-score或者AUC后，那事情就结束了，模型的输出结果是符合需要的吗？这并不一定。
 
-一些分类模型，比如Naive bayes虽然能输出分数，但这个分数经常是特别接近0或者1，这个分数并不是\\(P(c\|x)\\)的有效估计，SVM模型并不显示的输出分数，通常用离分类超平面的距离作为分数的替代，这个显然也不是\\(P(c\|x)\\)的有效估计。
+当给定一个样本，大部分分类器能够输出该样本属于某类的分数，通常这个分数介于0到1之间，我们称之为概率，严格来讲，是后验概率，数学上表示为\\(P(Y=c\|X)\\)，\\(X\\)表示样本，\\(Y=1\\)表示样本属于类c。但是模型输出的概率经常与样本属于类c的真实概率有偏差。比如输出概率为20%，并不表示真实概率也是20%。
 
-https://www.quora.com/How-is-isotonic-regression-used-in-practice-for-calibration-in-machine-learning
+模型估计出的概率存在偏差有这样几个原因：
 
-http://danielnee.com/tag/isotonic-regression/
++ 模型假设与实际数据分布并不相符。比如：Naive Bayes模型的条件独立性假设，在实际业务中，经常看到该模型输出的概率会特别接近0或者1
 
-在上一篇博文《面向稀有事件的 Logistic Regression 模型校准》中介绍了稀有事件下LR模型的校准方法，而这篇文章将讨论普适情况下的模型校准(model calibration)[1]。理论上讲，应用这类模型校准方法与使用哪种模型没有关系，这些方法针对模型输出和真实输出先离线建立其校准模型，然后在线上实时应用。
++ 一些有效的特征没有被加入到模型中
+
++ 训练算法存在不足，收敛得到的解并不是对业务而言的最优解
+
+估计出的概率存在偏差是否需要校准，这个得看
+
+
+当我们的目标是要拿到准确的后验概率\\(P(Y=1\|X)\\)时，那么就需要做模型校准。在上一篇博文《面向稀有事件的 Logistic Regression 模型校准》中介绍了稀有事件下LR模型的校准方法，而这篇文章将讨论普适情况下的模型校准(model calibration)[1]。理论上讲，应用这类模型校准方法与使用哪种模型没有关系，这些方法针对模型输出和真实输出先离线建立其校准模型，然后在线上实时应用。
+
+下文主要围绕二分类来介绍，
 
 
 
@@ -49,7 +58,12 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 文献[7][8]
 
-## 4. 其他
+## 4. 多分类下的模型校准
+
+英文文章[12]介绍了啥
+或者搜索"isotonic regression for multiple independent variables"相关的文章，比如[10][11]
+
+## 5. 其他
 
 关于 Platt scaling 和 Isotonic regression，一些英文文章有不错的介绍，比如[12][13][14][15]，这些都值得阅读。
 
@@ -71,6 +85,10 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 [8] Thore graepel, et al. Web-Scale Bayesian Click-Through Rate Prediction for Sponsored Search Advertising in Microsoft’s Bing Search Engine. ICML2010
 
+
+[10] Adam Kalai, et al. The Isotron Algorithm: High-Dimensional Isotonic Regression.
+
+[11] Quentin Stout. Isotonic Regression for Multiple Independent Variables.
 
 [12] [Calibrating classifier probabilities](http://danielnee.com/tag/isotonic-regression/)
 
