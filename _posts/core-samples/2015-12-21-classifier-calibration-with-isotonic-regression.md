@@ -50,14 +50,13 @@ Isotonic regression，中文翻译为保序回归，是一种非参回归模型(
 
 \begin{equation}\hat m = argmin_z \sum (y_i - z(f_i))^2\end{equation}
 
-文献[5][6]
-
+Isotonic Regression的一种求解算法是pool adjacent violators algorithm (简称PAVA, PAV算法)，时间复杂度为\\(O(N)\\)，算法流程并不复杂，详细内容可以查阅文章[2]，另外文章[5]有该算法的动态效果图。PAV算法也是scikit-learn中isotonic regression库的求解算法。
 
 ## 3. 在广告排序中的应用
 
 Google和Microsoft在论文中提到用保序回归来做模型校准，介绍在广告中的具体用法
 
-文献[7][8]
+文献[6][7]
 
 ## 4. 其他
 
@@ -77,13 +76,11 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 [4] [Platt scaling](https://en.wikipedia.org/wiki/Platt_scaling) (来自Wikipedia)
 
-[5] Ronny Luss, et al. Efficient regularized isotonic regression with application to gene--gene interaction search. The Annals of Applied Statistics. 2012
+[5] [Isotonic Regression](http://fa.bianp.net/blog/2013/isotonic-regression/)
 
-[6] [Isotonic Regression](http://fa.bianp.net/blog/2013/isotonic-regression/)
+[6] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
 
-[7] H. Brendan McMahan, et al. Ad Click Prediction: a View from the Trenches. KDD2013
-
-[8] Thore graepel, et al. Web-Scale Bayesian Click-Through Rate Prediction for Sponsored Search Advertising in Microsoft’s Bing Search Engine. ICML2010
+[7] Thore graepel, et al. Web-Scale Bayesian Click-Through Rate Prediction for Sponsored Search Advertising in Microsoft’s Bing Search Engine. ICML2010
 
 
 [10] Adam Kalai, et al. The Isotron Algorithm: High-Dimensional Isotonic Regression.
