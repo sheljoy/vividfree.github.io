@@ -40,7 +40,7 @@ For each bin, the mean predicted value is plotted against the true fraction of p
 
 在很多互联网业务上，比如广告定向投放，经常碰到样本量大的情况，所以下节将围绕适用于大样本量的Isotonic regression来介绍模型校准方法。
 
-## 3. Isotonic regression
+## 3. Isotonic regression及其在广告排序中的应用
 
 Isotonic regression，中文翻译为保序回归，是一种非参回归模型(nonparametric regression)。这种方法只有一个约束条件即，函数空间为单调递增函数的空间。基于reliability diagram，给定模型预测的分数\\(f_i\\)，真实的分数\\(y_i\\)，Isotonic regression的模型公式为：
 
@@ -52,11 +52,21 @@ Isotonic regression，中文翻译为保序回归，是一种非参回归模型(
 
 Isotonic Regression的一种求解算法是pool adjacent violators algorithm (简称PAVA, PAV算法)，时间复杂度为\\(O(N)\\)，算法流程并不复杂，详细内容可以查阅文章[2]，另外文章[5]有该算法的动态效果图。PAV算法也是scikit-learn中isotonic regression库的求解算法。
 
-## 3. 在广告排序中的应用
+论文[6][7]分别显示出Google和Microsoft在CTR预估模型的校准上用到保序回归。应用保序回归到CTR预估模型的校准上的流程大致有这样几步：
 
-Google和Microsoft在论文中提到用保序回归来做模型校准，介绍在广告中的具体用法
+1. 准备一份验证集（不同于用于训练CTR预估模型的训练集）用于训练保序回归模型。这份验证集的每个样本仍然是展示点击信息。
 
-文献[6][7]
+2. 将[0, 1]区间划分为N个桶，每个桶的长度相同，比如\\(N=10^5\\)或者\\(N=10^6\\)。
+
+3. 用之前训好的CTR预估模型在此验证集上进行预测，给出每个样本的点击率估计值，基于这些点击率估计值，将验证集中的样本落入对应的桶中。
+
+4. 对每个桶，基于展示点击信息，计算落入样本的真实点击率。比如桶表示的区间为\\(1 \times [10^{-5}, 2 \times 10^{-5})\\)，取平均值为\\(1.5 \times 10^{-5}\\)，这个桶的真实点击率为\\(10^{-6}\\)，这样这个桶就得到reliability diagram图的一个点\\((1.5 \times 10^{-5}, 10^{-6})\\)，全部N个桶就构成了reliability diagram。
+
+5. 对上步生成的reliability diagram中的数据运行isotonic regression（这个数据量不大，\\(N=10^6\\)的数据大小也就几M空间，scikit-learn工具包完全可以胜任）
+
+上述流程最终产出校准用的映射表，在线上加载这个映射表实时应用，比如在线上预估出的CTR值为x，查校准用的映射表，判断x所在的桶，取得校准映射到的值。
+
+数值区间。前一篇博客。
 
 ## 4. 其他
 
