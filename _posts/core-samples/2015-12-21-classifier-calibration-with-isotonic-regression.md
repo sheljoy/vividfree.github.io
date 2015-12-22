@@ -52,7 +52,7 @@ Isotonic regression，中文翻译为保序回归，是一种非参回归模型(
 
 Isotonic Regression的一种求解算法是pool adjacent violators algorithm (简称PAVA, PAV算法)，时间复杂度为\\(O(N)\\)，算法流程并不复杂，详细内容可以查阅文章[2]，另外文章[5]有该算法的动态效果图。PAV算法也是scikit-learn中isotonic regression库的求解算法。
 
-论文[6][7]分别显示出Google和Microsoft在CTR预估模型的校准上用到保序回归。应用保序回归到CTR预估模型的校准上的流程大致有这样几步：
+论文[6][7]分别显示出Google和Microsoft在CTR预估模型的校准上用到保序回归，Facebook的论文[8]没用此方法，而是用上篇博文《面向稀有事件的 Logistic Regression 模型校准》中所说的prior correction方法。应用保序回归到CTR预估模型的校准上的流程大致有这样几步：
 
 1. 准备一份验证集（不同于用于训练CTR预估模型的训练集）用于训练保序回归模型。这份验证集的每个样本仍然是展示点击信息。
 
@@ -64,17 +64,13 @@ Isotonic Regression的一种求解算法是pool adjacent violators algorithm (�
 
 5. 对上步生成的reliability diagram中的数据运行isotonic regression（这个数据量不大，\\(N=10^6\\)的数据大小也就几M空间，scikit-learn工具包完全可以胜任）
 
-上述流程最终产出校准用的映射表，在线上加载这个映射表实时应用，比如在线上预估出的CTR值为x，查校准用的映射表，判断x所在的桶，取得校准映射到的值。
-
-数值区间。前一篇博客。
+上述流程最终产出校准用的映射表，在线上加载这个映射表实时应用，比如在线上预估出的CTR值为\\(x\\)，查校准用的映射表，判断\\(x\\)所在的桶，取得映射后的校准值\\(y\\)。在训练校准模型的流程中，第2步N的设置和第4步如何判定算出的真实点击率是可信的，都需要结合实际情况来分析。
 
 ## 4. 其他
 
-多分类下的模型校准
-英文文章[12]介绍了啥
-或者搜索"isotonic regression for multiple independent variables"相关的文章，比如[10][11]，或者wikipedia
+上面主要是对二分类问题讨论模型校准，关于多分类下的模型校准也有些文章。文章[9]介绍了platt scaling方法在多类别下的扩展思路。对于多类别下的isotonic regression，可以在查阅[10][11]。
 
-关于 Platt scaling 和 Isotonic regression，一些英文文章有不错的介绍，比如[12][13][14][15]，这些都值得阅读。
+在文章的最后，再推荐一些关于 Platt scaling 和 Isotonic regression 的英文文章，比如[12][13][14]，它们都有不错的介绍，值得阅读。
 
 ## 参考文献
 
@@ -92,18 +88,19 @@ Isotonic Regression的一种求解算法是pool adjacent violators algorithm (�
 
 [7] Thore graepel, et al. Web-Scale Bayesian Click-Through Rate Prediction for Sponsored Search Advertising in Microsoft’s Bing Search Engine. ICML2010
 
+[8] Xinran He, et al. Practical Lessons from Predicting Clicks on Ads at Facebook. ADKDD2014
+
+[9] [Calibrating classifier probabilities](http://danielnee.com/tag/isotonic-regression/)
 
 [10] Adam Kalai, et al. The Isotron Algorithm: High-Dimensional Isotonic Regression.
 
 [11] Quentin Stout. Isotonic Regression for Multiple Independent Variables.
 
-[12] [Calibrating classifier probabilities](http://danielnee.com/tag/isotonic-regression/)
+[12] [How is isotonic regression used in practice for calibration in machine learning](https://www.quora.com/How-is-isotonic-regression-used-in-practice-for-calibration-in-machine-learning)
 
-[13] [How is isotonic regression used in practice for calibration in machine learning](https://www.quora.com/How-is-isotonic-regression-used-in-practice-for-calibration-in-machine-learning)
+[13] [Classifier calibration with Platt scaling and isotonic regression](http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/)
 
-[14] [Classifier calibration with Platt scaling and isotonic regression](http://fastml.com/classifier-calibration-with-platts-scaling-and-isotonic-regression/)
-
-[15] [Speeding up isotonic regression in scikit-learn by 5,000x](http://tullo.ch/articles/speeding-up-isotonic-regression/)
+[14] [Speeding up isotonic regression in scikit-learn by 5,000x](http://tullo.ch/articles/speeding-up-isotonic-regression/)
 
 * * *
 
