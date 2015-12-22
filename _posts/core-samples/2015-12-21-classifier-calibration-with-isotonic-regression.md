@@ -42,9 +42,15 @@ For each bin, the mean predicted value is plotted against the true fraction of p
 
 ## 3. Isotonic regression
 
-Isotonic regression，中文名保序回归，下文简写为IR。
+Isotonic regression，中文翻译为保序回归，是一种非参回归模型(nonparametric regression)。这种方法只有一个约束条件即，函数空间为单调递增函数的空间。基于reliability diagram，给定模型预测的分数\\(f_i\\)，真实的分数\\(y_i\\)，Isotonic regression的模型公式为：
 
-这是一种非参回归模型(nonparametric regression)
+\begin{equation}y_i = m(f_i) + \epsilon\end{equation}
+
+其中，\\(m\\)表示保序函数（单调递增函数）。所以isotonic regression的目标函数为
+
+TODO
+
+\begin{equation}\hatm = argmin_z \sigma_t\mathbf{w}_t - \mathbf{g}_t\end{equation}
 
 文献[5][6]
 
