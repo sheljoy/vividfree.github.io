@@ -31,18 +31,14 @@ tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校�
 
 ## 2. 校准方法
 
-首先引入**Reliablity diagram**，这是一种相对简单而且常用的可视化方法，能用它大致评估出当前模型的输出结果与真实结果有多大偏差。如论文[4]的下面这段介绍，如果能得到斜率为45度的线，那么意味着模型输出的结果是有效的估计。
+首先引入**reliability diagram**，这是一种相对简单而且常用的可视化方法，用它能大致评估出当前模型的输出结果与真实结果有多大偏差。如论文[2]的下面这段介绍，如果能得到斜率为45度的线，那么意味着模型输出的结果是有效的估计。
 
 > On real problems where the true conditional probabilities are not known, model calibration can be visualized with reliability diagrams (DeGroot & Fienberg, 1982). First, the prediction space is discretized into ten bins. Cases with predicted value between 0 and 0.1 fall in the first bin, between 0.1 and 0.2 in the second bin, etc.
 For each bin, the mean predicted value is plotted against the true fraction of positive cases. If the model is well calibrated the points will fall near the diagonal line.
 
-对分类模型的校准主要有2种方法：Platt scaling[3] 和 Isotonic regression[4]。论文[2]很好的对比和总结了这2种方法。Platt scaling适用于样本量少的情形，而Isotonic regression适用于样本量多的情形。样本量少时，使用Isotonic regression容易过拟合。需要注意一点，无论是对Platt scaling方法还是Isotonic regression方法，为了得到一个有效的校准模型，需要用一个独立于训练集的验证集，否则会引入偏差。下面2段分别摘自论文[2]的2.1节和2.2节。
+对分类模型的校准主要有2种方法：Platt scaling[3] 和 Isotonic regression[4]。Platt scaling使用LR模型对模型输出的值做拟合（并不是对reliability diagram中的数据做拟合），适用于样本量少的情形。Isotonic regression则是对reliability diagram中的数据做拟合，适用于样本量多的情形。样本量少时，使用Isotonic regression容易过拟合。需要注意一点，无论是对Platt scaling方法还是Isotonic regression方法，为了得到一个有效的校准模型，需要用一个独立于训练集的验证集，否则会引入偏差。可以查阅论文[2]，该文对这2种方法做了很好的对比分析。
 
-> If we use the same data set that was used to train the model we want to calibrate, we introduce unwanted bias. For example, if the model learns to discriminate the train set perfectly and orders all the negative examples before the positive examples, then the sigmoid transformation will output just a 0,1 function. So we need to use an independent calibration set in order to get good posterior probabilities. This, however, is not a draw back, since the same set can be used for model and parameter selection.
-
-> As in the case of Platt calibration, if we use the model training set \\((x_i, y_i)\\) to get the training set \\((f(x_i), y_i)\\) for Isotonic Regression, we introduce unwanted bias. So we use an independent validation set to train the isotonic function.
-
-在很多互联网业务上，比如广告定向投放，经常碰到样本量大的情况，所以下文将围绕适用于大样本量的Isotonic regression来介绍模型校准方法。
+在很多互联网业务上，比如广告定向投放，经常碰到样本量大的情况，所以下节将围绕适用于大样本量的Isotonic regression来介绍模型校准方法。
 
 ## 3. Isotonic regression
 
@@ -63,7 +59,7 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 多分类下的模型校准
 英文文章[12]介绍了啥
-或者搜索"isotonic regression for multiple independent variables"相关的文章，比如[10][11]
+或者搜索"isotonic regression for multiple independent variables"相关的文章，比如[10][11]，或者wikipedia
 
 关于 Platt scaling 和 Isotonic regression，一些英文文章有不错的介绍，比如[12][13][14][15]，这些都值得阅读。
 
