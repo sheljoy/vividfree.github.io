@@ -31,7 +31,12 @@ tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校�
 
 ## 2. 校准方法
 
-对分类模型的校准主要有2种方法：Platt scaling[2] 和 Isotonic regression[3]。论文[4]很好的对比和总结了这2种方法。Platt scaling适用于样本量少的情形，而Isotonic regression适用于样本量多的情形。样本量少时，使用Isotonic regression容易过拟合。需要注意一点，无论是对Platt scaling方法还是Isotonic regression方法，为了得到一个有效的校准模型，需要用一个独立于训练集的验证集，否则会引入偏差。下面2段分别摘自论文[4]的2.1节和2.2节。
+首先引入**Reliablity diagram**，这是一种相对简单而且常用的可视化方法，能用它大致评估出当前模型的输出结果与真实结果有多大偏差。如论文[4]的下面这段介绍，如果能得到斜率为45度的线，那么意味着模型输出的结果是有效的估计。
+
+> On real problems where the true conditional probabilities are not known, model calibration can be visualized with reliability diagrams (DeGroot & Fienberg, 1982). First, the prediction space is discretized into ten bins. Cases with predicted value between 0 and 0.1 fall in the first bin, between 0.1 and 0.2 in the second bin, etc.
+For each bin, the mean predicted value is plotted against the true fraction of positive cases. If the model is well calibrated the points will fall near the diagonal line.
+
+对分类模型的校准主要有2种方法：Platt scaling[3] 和 Isotonic regression[4]。论文[2]很好的对比和总结了这2种方法。Platt scaling适用于样本量少的情形，而Isotonic regression适用于样本量多的情形。样本量少时，使用Isotonic regression容易过拟合。需要注意一点，无论是对Platt scaling方法还是Isotonic regression方法，为了得到一个有效的校准模型，需要用一个独立于训练集的验证集，否则会引入偏差。下面2段分别摘自论文[2]的2.1节和2.2节。
 
 > If we use the same data set that was used to train the model we want to calibrate, we introduce unwanted bias. For example, if the model learns to discriminate the train set perfectly and orders all the negative examples before the positive examples, then the sigmoid transformation will output just a 0,1 function. So we need to use an independent calibration set in order to get good posterior probabilities. This, however, is not a draw back, since the same set can be used for model and parameter selection.
 
@@ -66,11 +71,11 @@ Google和Microsoft在论文中提到用保序回归来做模型校准，介绍�
 
 [1] [Calibration (statistics)](https://en.wikipedia.org/wiki/Calibration_(statistics)) (来自Wikipedia)
 
-[2] [Isotonic regression](https://en.wikipedia.org/wiki/Isotonic_regression) (来自Wikipedia)
+[2] Alexandru Niculescu-Mizil, et al. Predicting Good Probabilities With Supervised Learning. ICML2005
 
-[3] [Platt scaling](https://en.wikipedia.org/wiki/Platt_scaling) (来自Wikipedia)
+[3] [Isotonic regression](https://en.wikipedia.org/wiki/Isotonic_regression) (来自Wikipedia)
 
-[4] Alexandru Niculescu-Mizil, et al. Predicting Good Probabilities With Supervised Learning. ICML2005
+[4] [Platt scaling](https://en.wikipedia.org/wiki/Platt_scaling) (来自Wikipedia)
 
 [5] Ronny Luss, et al. Efficient regularized isotonic regression with application to gene--gene interaction search. The Annals of Applied Statistics. 2012
 
