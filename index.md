@@ -36,9 +36,9 @@ tagline:
 
 ### 还可以在这些地方找到我的足迹
 
-+ 老博客 : [http://luowei828.blog.163.com/](http://luowei828.blog.163.com/)（网易博客系统近期有点不稳定，目前已不更新）
-+ Github : *vividfree*
-+ Weibo  : *vividfree*
++ 老博客 : [http://luowei828.blog.163.com](http://luowei828.blog.163.com)（网易博客系统近期有点不稳定，目前已不更新）
++ Github : [vividfree](https://github.com/vividfree)
++ Weibo  : [vividfree](http://weibo.com/vividfree)
 
 ### 推荐站点
 
