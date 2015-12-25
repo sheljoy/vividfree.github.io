@@ -7,10 +7,10 @@ tags:
 ---
 {% include JB/setup %}
 
-### 讲座 & 演讲
+## 讲座 & 演讲
 
 + [video lecture](http://videolectures.net/)
 
-### MOOC
+## MOOC
 
 + [Coursera](https://www.coursera.org/)
