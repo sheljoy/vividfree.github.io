@@ -30,5 +30,6 @@ tags:
 
 ### 博客
 
-+ [Edwin Chen](http://blog.echen.me/)
-+ [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
++ [Edwin Chen](http://blog.echen.me/) <font color='red'>|</font> [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
+
++ [火光摇曳](http://www.flickering.cn/)(腾讯广点通技术博客) <font color='red'>|</font> [阿里技术沙龙](http://club.alibabatech.org/index.htm) <font color='red'>|</font> [美团技术博客](http://tech.meituan.com/)
