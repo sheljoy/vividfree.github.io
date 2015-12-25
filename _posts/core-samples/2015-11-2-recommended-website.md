@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 推荐站点
-category: 内容索引
+category: 
 tagline: 
-tags: [站点]
+tags: 
 ---
 {% include JB/setup %}
 
