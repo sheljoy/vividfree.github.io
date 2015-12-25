@@ -44,4 +44,4 @@ tagline:
 
 ### 推荐站点
 
-<a href="/additional_posts/recommended_website">推荐站点</a>
+<a href="{{ BASE_PATH }}/additional_posts/recommended_website">推荐站点</a>
