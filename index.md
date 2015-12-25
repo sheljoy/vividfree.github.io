@@ -25,7 +25,7 @@ tagline:
 
 ### 代码仓库
 
-+ [alphabet](https://github.com/vividfree/alphabet): 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码
++ [alphabet](https://github.com/vividfree/alphabet): 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（刚开始建设）
 
 ### 个人关键词
 
