@@ -32,6 +32,10 @@ tagline:
 + 足球迷, 喜欢巴萨喜欢恒大
 + Stay hungry! Stay foolish!
 
+### 代码仓库
+
++ [alphabet](https://github.com/vividfree/alphabet): 放置 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码
+
 ### 还可以在这些地方找到我的足迹
 
 + 老博客 : [http://luowei828.blog.163.com/](http://luowei828.blog.163.com/)（网易博客系统近期有点不稳定）
