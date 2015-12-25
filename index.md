@@ -15,7 +15,7 @@ tagline:
 
 欢迎与我讨论问题！
 
-### 近期博文
+### 最新文章
 
 <ul class="posts">
   {% for post in site.posts limit:7 %}
@@ -25,7 +25,7 @@ tagline:
 
 ### 代码仓库
 
-+ [alphabet](https://github.com/vividfree/alphabet): 放置 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码
++ [alphabet](https://github.com/vividfree/alphabet): 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码
 
 ### 个人关键词
 
@@ -38,6 +38,10 @@ tagline:
 
 ### 还可以在这些地方找到我的足迹
 
-+ 老博客 : [http://luowei828.blog.163.com/](http://luowei828.blog.163.com/)（网易博客系统近期有点不稳定）
++ 老博客 : [http://luowei828.blog.163.com/](http://luowei828.blog.163.com/)（网易博客系统近期有点不稳定，目前已不更新）
 + Github : *vividfree*
 + Weibo  : *vividfree*
+
+### 推荐站点
+
+<a href="/additional_posts/recommended_website">推荐站点</a>
