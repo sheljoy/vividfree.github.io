@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 推荐站点
+title: 推荐站点 技术方面
 category:
 tagline:
 tags:
@@ -10,9 +10,6 @@ tags:
 ## 技术
 
 ### 机器学习
-
-
-### 数学
 
 
 ### 大规模数据处理
@@ -28,7 +25,3 @@ tags:
 + Google开发规范
   - [英文版](https://github.com/google/styleguide): 包括C++、Objective-C、Java、Python、R、Shell、HTML/CSS、JavaScript、AngularJS、Lisp和Vimscript等语言的开发规范
   - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 4门语言的开发规范（翻译自英文版）
-
-## 非技术
-
-+ [Google文化学院](https://www.google.com/culturalinstitute/project/art-project): 需要翻墙

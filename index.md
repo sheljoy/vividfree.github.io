@@ -11,6 +11,8 @@ tagline:
 
 <br />
 
+**很多东西都可以成为艺术品，程序也不例外！**
+
 ### 最新文章
 
 <ul class="posts">
@@ -40,4 +42,4 @@ tagline:
 
 ### 推荐站点
 
-<a href="/2015/11/02/recommended-website">这里</a>的网站都不错（会不断更新）
+<a href="/2015/11/02/recommended-website-technology">技术</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-science">科学</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-culture">人文</a>
