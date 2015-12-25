@@ -19,6 +19,7 @@ tagline:
   {% for post in site.posts limit:7 %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
+  <li><a href="/archive.html">更多文章......</a></li>
 </ul>
 
 ### 代码仓库
@@ -36,7 +37,7 @@ tagline:
 
 ### 还可以在这些地方找到我的足迹
 
-+ 老博客 : [http://luowei828.blog.163.com](http://luowei828.blog.163.com)（网易博客系统近期有点不稳定，目前已不更新）
++ 老博客 : [http://luowei828.blog.163.com](http://luowei828.blog.163.com)（网易博客系统近期有点不稳定，自2015年12月起已不更新）
 + Github : [vividfree](https://github.com/vividfree)
 + Weibo  : [vividfree](http://weibo.com/vividfree)
 
