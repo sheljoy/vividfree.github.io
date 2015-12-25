@@ -11,6 +11,8 @@ tags:
 
 ### 机器学习
 
++ [Best Paper Awards in Computer Science](http://jeffhuang.com/best_paper_awards.html)
+
 
 ### 大规模数据处理
 
@@ -25,3 +27,8 @@ tags:
 + Google开发规范
   - [英文版](https://github.com/google/styleguide): 包括C++、Objective-C、Java、Python、R、Shell、HTML/CSS、JavaScript、AngularJS、Lisp和Vimscript等语言的开发规范
   - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 4门语言的开发规范（翻译自英文版）
+
+### 博客
+
++ [Edwin Chen](http://blog.echen.me/)
++ [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
