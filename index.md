@@ -40,4 +40,4 @@ tagline:
 
 ### 推荐站点
 
-<a href="/%E5%86%85%E5%AE%B9%E7%B4%A2%E5%BC%95/2015/11/02/recommended-website">这里</a>的网站都不错（会不断更新）
+<a href="/2015/11/02/recommended-website">这里</a>的网站都不错（会不断更新）
