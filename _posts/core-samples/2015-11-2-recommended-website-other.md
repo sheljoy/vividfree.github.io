@@ -7,9 +7,9 @@ tags:
 ---
 {% include JB/setup %}
 
-## 讲座 & 演讲
+## 讲座
 
-+ [video lecture](http://videolectures.net/)
++ [videolectures](http://videolectures.net/)
 
 ## 开放课程
 
