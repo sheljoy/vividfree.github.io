@@ -11,6 +11,7 @@ tags:
 
 + [video lecture](http://videolectures.net/)
 
-## MOOC
+## 开放课程
 
 + [Coursera](https://www.coursera.org/)
++ [Stanford Online](http://online.stanford.edu/)
