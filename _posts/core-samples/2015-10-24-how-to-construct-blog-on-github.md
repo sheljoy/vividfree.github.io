@@ -7,6 +7,8 @@ tags: [Github, Git, Jekyll, Markdown, Mathjax, 介绍]
 ---
 {% include JB/setup %}
 
+[TOC]
+
 ## 引言
 
 对很多码农而言，[Github](https://github.com/)并不陌生，它号称程序员的Facebook。到2015年，Github已经有超过900万注册用户和2000万代码仓库。事实上它已经成为当今世界上最大的代码存放网站，而且许多重要的项目都托管在上面。最近几年，越来越多的人（不仅仅是IT圈）开始在Github上搭建blog。他们既有博客的绝对管理权，又享受Github带来的便利，不管何时何地，只要向主机提交commit，就能发布新文章。更妙的是，这一切还是免费的。
@@ -47,6 +49,8 @@ Markdown是一种轻量级标记语言，允许人们“使用易读易写的纯
 
 + [献给写作者的 Markdown 新手指南](http://www.jianshu.com/p/q81RER)
     - 此文介绍了Markdown的常用语法，并给出示例及其效果。<font color='red'>（作为快速入门用，读完不用10分钟）</font>
++ [Markdown 编辑阅读器 Demo](https://www.zybuluo.com/mdeditor?url=https%3A%2F%2Fwww.zybuluo.com%2Fstatic%2Feditor%2Fmd-help.markdown)
+    - 此文介绍了Markdown的常用语法，并有demo可以直接看到效果。
 + [Markdown 语法说明 (简体中文版)](http://wowubuntu.com/markdown/)
     - 详细的介绍Markdown语法，给了示例但没有给出效果。
 
