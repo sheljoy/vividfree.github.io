@@ -29,9 +29,18 @@ tags:
   - [英文版](https://github.com/google/styleguide): 包括C++、Objective-C、Java、Python、R、Shell、HTML/CSS、JavaScript、AngularJS、Lisp和Vimscript等语言的开发规范
   - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 4门语言的开发规范（翻译自英文版）
 
+### 书籍
+
+#### 凸优化
+
++ [Convex Optimization](http://stanford.edu/~boyd/cvxbook/) (Stanford University)
+  - 作者是 Stephen Boyd 和 Lieven Vandenberghe，此书是凸优化领域的经典书籍之一。上面这个网址不仅有书籍的超链接，还有作者在斯坦福大学开课的课件。
++ [Numerical Optimization](http://home.agh.edu.pl/~pba/pdfdoc/Numerical_Optimization.pdf) (Northwestern University)
+  - 作者是 Jorge Nocedal 和 Stephen J. Wright，此书是优化领域的经典书籍之一。
+
 ### 课程
 
-+ [Introduction to Computational Advertising](https://web.stanford.edu/class/msande239/)(Stanford University)
++ [Introduction to Computational Advertising](https://web.stanford.edu/class/msande239/) (Stanford University)
 
 ### 博客
 
