@@ -21,7 +21,7 @@ tags:
 
 ### 系统设计
 
-+ [High Scalability](http://highscalability.com/): 介绍搭建高并发高可靠性的网站技术。此站点的热门文章放在[这里](http://highscalability.com/all-time-favorites/)
++ [High Scalability](http://highscalability.com/): 介绍搭建高并发高可靠性的网站技术。此站点的热门文章放在 [这里](http://highscalability.com/all-time-favorites/) 。
 
 ### 程序语言
 
