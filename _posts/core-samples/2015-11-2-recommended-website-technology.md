@@ -27,7 +27,7 @@ tags:
 
 + Google开发规范
   - [英文版](https://github.com/google/styleguide): 包括C++、Objective-C、Java、Python、R、Shell、HTML/CSS、JavaScript、AngularJS、Lisp和Vimscript等语言的开发规范
-  - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 4门语言的开发规范（翻译自英文版）
+  - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 等语言的开发规范（翻译自英文版）
 
 ### 书籍
 
