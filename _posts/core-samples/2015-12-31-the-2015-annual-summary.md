@@ -41,4 +41,4 @@ tags: [年度总结]
 
 踏踏实实的做好上面这三方面，一步一个脚印往前走，这就是最开心的。最后借乔布斯说过的一句话勉励自己
 
-> Stay hungry! Stay foolish!
+> **Stay hungry! Stay foolish!**
