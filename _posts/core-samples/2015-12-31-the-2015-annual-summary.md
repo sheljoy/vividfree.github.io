@@ -37,7 +37,7 @@ tags: [年度总结]
 
 在学习方面，继续在 [vividfree的博客](http://vividfree.github.io/) 写文章；给 [alphabet](https://github.com/vividfree/alphabet) 加代码，goal: to create a **Never-Ending Learning System (NELS)**；在知乎上多参与问答。
 
-在生活方面，搞定房和车，虽然这么说有点落俗了。还有就是要去一些地方玩玩。
+在生活方面，搞定房和车，虽然这么说有点落俗了。还有更重要的事，多陪媳妇，和媳妇一块去旅行。
 
 踏踏实实的做好上面这三方面，一步一个脚印往前走，这就是最开心的。最后借乔布斯说过的一句话勉励自己
 
