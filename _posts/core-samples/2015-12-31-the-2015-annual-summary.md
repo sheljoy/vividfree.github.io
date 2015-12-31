@@ -35,7 +35,7 @@ tags: [年度总结]
 
 在工作方面，在 算法策略、工程实现、产品思维 三方面同步发展，并突出 算法策略 方面的能力。
 
-在学习方面，继续在 [vividfree的博客](http://vividfree.github.io/) 写文章；给 [alphabet](https://github.com/vividfree/alphabet) 加代码，goal: let it be a **Never-Ending Learning System (NELS)**；在知乎上多参与问答。
+在学习方面，继续在 [vividfree的博客](http://vividfree.github.io/) 写文章；给 [alphabet](https://github.com/vividfree/alphabet) 加代码，goal: to create a **Never-Ending Learning System (NELS)**；在知乎上多参与问答。
 
 在生活方面，搞定房和车，虽然这么说有点落俗了。还有就是要去一些地方玩玩。
 
