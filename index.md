@@ -27,10 +27,10 @@ tagline:
 + [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（刚开始建设）
   + Goal: to create a **Never-Ending Learning System (NELS)**
 
-### 关于我
-
-+ <a href="/2015/10/30/about-me">关于我</a>
-
 ### 推荐站点
 
 + <a href="/2015/11/02/recommended-website-technology">技术</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-science">科学</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-culture">人文</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-other">其他</a>
+
+### 关于我
+
++ <a href="/2015/10/30/about-me">关于我</a>
