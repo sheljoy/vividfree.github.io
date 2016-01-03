@@ -30,7 +30,3 @@ tagline:
 ### 推荐站点
 
 + <a href="/2015/11/02/recommended-website-technology">技术</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-science">科学</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-culture">人文</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-website-other">其他</a>
-
-### 关于我
-
-+ <a href="/2015/10/30/about-me">关于我</a>
