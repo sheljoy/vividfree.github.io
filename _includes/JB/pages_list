@@ -23,6 +23,8 @@ Usage:
 {% if site.JB.pages_list.provider == "custom" %}
   {% include custom/pages_list %}
 {% else %}
+  {% include JB/sort_collection collection=pages_list sort_by="weight" %}
+  {% assign pages_list = sort_result %}
   {% for node in pages_list %}
     {% if node.title != null %}
       {% if group == null or group == node.group %}
