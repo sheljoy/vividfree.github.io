@@ -1,3 +1,12 @@
+.gsib_a {
+  padding: 0 !important;
+}
+.gsc-search-button.gsc-search-button-v2 {
+  height: 100%;
+}
+.navbar-form {
+  width: 300px;
+}
 /* Custom container */
 
 /* Replaced with normal container and standard footer */
