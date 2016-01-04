@@ -6,7 +6,7 @@
     width: 250px !important;
     height: 100% !important;
     padding: 0 !important;
-    background-color: #fafafa;
+    background-color: #fafafa !important;
 }
 .gsc-clear-button {
   display: none !important;
