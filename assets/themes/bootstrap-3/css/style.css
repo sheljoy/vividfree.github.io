@@ -1,3 +1,4 @@
+/* 下面3个css样式是对 Google个性化搜索功能 的配置 */
 .navbar-form {
   margin: 0 !important;
 }
@@ -9,6 +10,7 @@
 .gsc-clear-button {
   display: none !important;
 }
+
 /* Custom container */
 
 /* Replaced with normal container and standard footer */
