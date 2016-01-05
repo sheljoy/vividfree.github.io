@@ -49,3 +49,7 @@ tags:
 
 + [Airbnb Engineering Blog](http://nerds.airbnb.com/)  <font color='red'>|</font> [Facebook Engineering Blog](https://code.facebook.com/posts/)
 + [火光摇曳](http://www.flickering.cn/)(腾讯广点通技术博客) <font color='red'>|</font> [阿里技术沙龙](http://club.alibabatech.org/index.htm) <font color='red'>|</font> [美团技术博客](http://tech.meituan.com/)
+
+### 微博
+
++ [爱可可-爱生活](http://weibo.com/fly51fly)
