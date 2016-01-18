@@ -38,6 +38,7 @@ $$ 代码规范 > 代码格式 + 命名规定 $$
 
 <div align="center">
   <img src="/images/2016-01-17-some-viewpoint-about-software-development-figure1.jpg" style="max-width:298px; text-align:center" alt=""/>
+  <br/>
   图1 Google开发规范的目录截图
 </div>
 
