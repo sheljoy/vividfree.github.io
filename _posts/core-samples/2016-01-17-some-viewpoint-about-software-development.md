@@ -36,7 +36,9 @@ $$ 代码规范 > 代码格式 + 命名规定 $$
 
 为了提高软件质量，执行良好的开发规范是很有必要的。不少工程师以为开发规范只是提些代码格式、命名格式之类的，其实不然。以Google开发规范为例，代码格式和命令格式只是其中的第6点和第8点（如下图所示），还有很多其他方面的内容，它们与健壮性、可扩展性和可靠性非常相关。
 
-<img src="/images/2016-01-17-some-viewpoint-about-software-development-figure1.jpg" style="max-width:298px; text-align:center" alt=""/>
+<div align="center">
+  <img src="/images/2016-01-17-some-viewpoint-about-software-development-figure1.jpg" style="max-width:298px; text-align:center" alt=""/>
+</div>
 
 这里举几个Google C++开发规范中提到的点作为例子：
 
@@ -68,9 +70,9 @@ $$ 代码规范 > 代码格式 + 命名规定 $$
 
 对于软件开发，有很多比较朴实的开发理念。站在团队协作这一层面，个人认为有2点是最重要的：
 
-+ 代码不是给计算机看的，而是给人看的。
++ **代码不是给计算机看的，而是给人看的**
   - 这句话中的“人”包括：3个月后的自己，review代码的同事，接手模块的同事等
-+ KISS (<font color='red'>K</font>eep <font color='red'>I</font>t <font color='red'>S</font>imple, <font color='red'>S</font>tupid)
++ **KISS** (<font color='red'>K</font>eep <font color='red'>I</font>t <font color='red'>S</font>imple, <font color='red'>S</font>tupid)
   - 给定同样的需求，不同人写出的代码可读性不同。有些人因为风格的问题（比如接口没有做适当抽象，命名比较随意），写的代码太难懂，有些人就写得易懂。其实simple和stupid很多时候就是指让写的代码浅显易懂。不要去挑战读代码的人的智商，要让人很快了解你的模块在干啥是最重要的。
 
 除了上面提到的内容外，还有必要养成一些好的开发习惯：
