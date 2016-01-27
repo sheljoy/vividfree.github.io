@@ -53,6 +53,8 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 \begin{equation}\sum_{j \in N} I(r_j < r_i)\end{equation}
 
+\begin{equation}r_i - 1 - \sum_{j \in P} I(r_j < r_i)\end{equation}
+
 累加求和的结果为：
 
 
