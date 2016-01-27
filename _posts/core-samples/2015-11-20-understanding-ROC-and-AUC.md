@@ -29,7 +29,7 @@ AUC（确切的说，应该是AUROC）被定义为ROC曲线下的面积，显然
 
 \begin{equation}\frac {\sum_{i \in P} r_i}{\|P\| \times \|N\|}\end{equation}
 
-\begin{equation}\frac {\sum_{i \in P} r_i - \frac {|P| \times (|P| + 1)}2}{|P| \times |N|}\end{equation}
+\begin{equation}\frac {\sum_{i \in P} r_i - \frac {\|P\| \times (\|P\| + 1)}2}{\|P\| \times \|N\|}\end{equation}
 
 说明：
 P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个数。\\(r_i\\)表示元素i在全集（P+N）中按预测分从小到大排的下标位置（下标位置从1开始，比如：假设|P+N|=10，那么最高分的\\(r_i\\)为10，最低分的\\(r_i\\)为1）。举例子说明上式的计算过程：
