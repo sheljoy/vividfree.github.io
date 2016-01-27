@@ -27,7 +27,7 @@ AUC（确切的说，应该是AUROC）被定义为ROC曲线下的面积，显然
 
 既然了解了AUC表示的概率含义，那么就可以通过概率统计的方法来算AUC。做N次随机试验，每次实验中随机采样一个正样本和一个负样本，当模型预测正样本的分数大于模型预测负样本的分数，计数则加1。记计数最终为n（n肯定小于等于N），那么用n/N即得到AUC。stackexchange中的一篇帖子[6]在"A concordance measure"一节中也提到了这种算AUC的方法，并通过实验说明此方法计算出的AUC与画出ROC曲线然后算AUC面积是一致的。应用这个物理含义来算AUC，除了走先随机采样后并计数以得到概率，也可以用下面这个公式来计算：
 
-\begin{equation}\frac {\sum_{i \in P} r_i}{\|P\| \times \|N\|}\end{equation}
+\begin{equation}\frac {\sum_{i \in P} r_i - \frac 12}{\|P\| \times \|N\|}\end{equation}
 
 \begin{equation}\frac {\sum_{i \in P} r_i - \frac {\|P\| \times (\|P\| + 1)}2}{\|P\| \times \|N\|}\end{equation}
 
