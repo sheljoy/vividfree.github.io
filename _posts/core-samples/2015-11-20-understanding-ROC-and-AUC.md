@@ -70,7 +70,7 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 与 基于ROC曲线计算AUROC的方法 一致的证明如下：
 画出ROC曲线（横轴为\\(FPR = \frac {FP}{\|N\|}\\)，纵轴为\\(TPR = \frac {TP}{\|P\|}\\)，算出每个小梯形的面积然后累加求和。对\\({r_i}\\)序列，该方法可以用公式形式化表示如下：
 
-\begin{equation}\sum_{j \in (P + N)} \frac {(\frac {TP_i}{\|P\| + \frac {TP_{i-1}}{\|P\|}}) \times (\frac {FP_i}{\|N\| + \frac {FP_{i-1}}{\|N\|}})}2\end{equation}
+\begin{equation}\sum_{j \in (P + N)} \frac {(\frac {TP_i}{\|P\|} + \frac {TP_{i-1}}{\|P\|}) \times (\frac {FP_i}{\|N\|} + \frac {FP_{i-1}}{\|N\|})}2\end{equation}
 
 至此即证明了与 基于ROC曲线计算AUROC的方法 是一致的。
 
