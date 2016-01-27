@@ -65,16 +65,16 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 既然可以对正样本走加法原理，自然也可以对负样本走加法原理。所以分子也会等价于：
 
+\begin{equation}\sum_{i \in N}\sum_{j \in P} I(r_j > r_i)\end{equation}
 
 与 基于ROC曲线计算AUROC的方法 一致的证明如下：
 画出ROC曲线（横轴为\\(FPR = \frac {FP}{\|N\|}\\)，纵轴为\\(TPR = \frac {TP}{\|P\|}\\)，算出每个小梯形的面积然后累加求和。对\\({r_i}\\)序列，该方法可以用公式形式化表示如下：
 
-
+\begin{equation}\sum_{j \in (P + N)} \frac {(\frac {TP_i}{\|P\| + \frac {TP_{i-1}}{\|P\|}}) \times (\frac {FP_i}{\|N\| + \frac {FP_{i-1}}{\|N\|}})}2\end{equation}
 
 至此即证明了与 基于ROC曲线计算AUROC的方法 是一致的。
 
 虽然三种方法是等价的，但在计算量上去掉排序的因素（排序的计算复杂度为O(NlogN)），式子的计算效率要高。
-
 
 
 ## 参考文献
