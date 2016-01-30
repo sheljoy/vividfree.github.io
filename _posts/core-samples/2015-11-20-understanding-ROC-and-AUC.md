@@ -7,6 +7,8 @@ tags: [ROC, AUC, 评价指标]
 ---
 {% include JB/setup %}
 
+## 1. 引言
+
 ROC（Receiver Operating Characteristic）曲线和AUC（Area Under Curve）常被用来评价一个二值分类器（binary classifier）的优劣。相比准确率、召回率、F-score这样的评价指标，ROC曲线有这样一个很好的特性：当测试集中正负样本的分布变化的时候，ROC曲线能够保持不变。在实际的数据集中经常会出现类不平衡（class imbalance）现象，即负样本比正样本多很多（或者相反），而且测试数据中的正负样本的分布也可能随着时间变化。
 
 论文[3]是篇很不错的文章，介绍了ROC和AUC的特点，如何作出ROC曲线图和计算AUC，AUC的含义，以及对多类别分类问题如何计算AUC。后来有篇博文[4]翻译了这篇文章的核心部分，浅显易懂，适合不喜欢读英文的读者。
@@ -18,6 +20,8 @@ ROC（Receiver Operating Characteristic）曲线和AUC（Area Under Curve）常�
 图1摘自论文[3]。ROC曲线，是以一系列的(fp rate, tp rate)或者写成(FPR, TPR)，为二维笛卡尔坐标系中的坐标点。应用到实际问题中，对一份训练集如何算出一系列的FPR和TPR，可以参考[3]或[4]。
 
 AUC（确切的说，应该是AUROC）被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。ROC曲线上的任意相邻两点与横轴都能形成梯形，把所有这样的梯形面积做加和即可得到AUC。一般而言，训练样本越多，在得到样本判别为正例的分数取值后不同分数也相对会越多，这样ROC曲线上的点也就越多，估算的AUC会更准些。这种思路很像微积分里常用的微分法。该方法正是在论文[3]中描述的方法，笔者在实际业务中实现了它，它并不难实现。
+
+## 2. AUC的物理含义
 
 那么AUC值的含义是什么呢？在论文[3]，有这样一段话：”The AUC value is equivalent to the probability that a randomly chosen positive example is ranked higher than a randomly chosen negative example. This is equivalent to the Wilcoxon test of ranks (Hanley and McNeil, 1982). The AUC is also closely related to the Gini coefficient (Breiman et al., 1984), which is twice the area between the diagonal and the ROC curve. Hand and Till (2001) point out that Gini + 1 = 2 * AUC.”
 
@@ -46,9 +50,10 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 对该例，\\(\|P\| = 3, \|N\| = 2\\)，分母为6，分子为(2+4+5) – (0.5*3*4)=5。那么AUC为5/6=0.8333。
 
-下面首先证明这个式子与AUC的物理含义是一致的，其次证明该式与第一种方法（基于ROC曲线计算AUROC的方法）是一致的。以此得到三种方法的相互一致。（为了描述直观，先忽略因系统预测分相同导致rank值相同，后面再对此做说明）
+下面用两节分别证明这个式子与AUC的物理含义是一致，以及该式与第一种方法（基于ROC曲线计算AUROC的方法）是一致的。以此得到三种方法的相互一致。（为了描述直观，先忽略因系统预测分相同导致rank值相同，后面再对此做说明）
 
-与AUC的物理含义一致的证明如下：
+## 3. 与AUC的物理含义一致的证明
+
 全集（P+N）中一个正样本与一个负样本组成pair的总数为 \\(|P| \times |N|\\) ，也就是式子中的分母。那么接下来只需要证明对于\\(\\{r_i\\}\\)序列来说，满足正样本的rank值大于负样本rank值的pair总数是分子表达的那个数。这个可以基于加法原理来计算，对每个正样本，统计出它的rank值能大于的负样本个数，做个累加求和即可。对某个\\(i \in P\\)，它的rank值能大于的负样本个数为（公式2和公式3是等价的，不过式子3便于做后面的累加求和）：
 
 \begin{equation}\sum_{j \in N} I(r_j < r_i)\end{equation}
@@ -65,7 +70,8 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 \begin{equation}\sum_{i \in N}\sum_{j \in P} I(r_j > r_i)\end{equation}
 
-与 基于ROC曲线计算AUROC的方法 一致的证明如下：
+## 4. 与基于ROC曲线计算AUROC的方法一致的证明
+
 画出ROC曲线（横轴为\\(FPR = \frac {FP}{\|N\|}\\)，纵轴为\\(TPR = \frac {TP}{\|P\|}\\)，算出每个小梯形的面积然后累加求和。对\\(\\{r_i\\}\\)序列，该方法可以用公式形式化表示如下：
 
 \begin{equation}\sum_{i \in (P + N)} \frac {(\frac {TP_i}{\|P\|} + \frac {TP_{i-1}}{\|P\|}) \times (\frac {FP_i}{\|N\|} - \frac {FP_{i-1}}{\|N\|})}2\end{equation}
@@ -79,6 +85,8 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 \begin{equation}\sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} \\\ = \sum_{i \in N} \frac {TP_i}{\|P\| \times \|N\|} \\\ = \frac {\sum_{i \in N} TP_i}{\|P\| \times \|N\|} \\\ = \frac {\sum_{i \in N}\sum_{j \in P} I(r_j > r_i)}{\|P\| \times \|N\|}\end{equation}
 
 结合公式5的说明，即证明了公式1与 基于ROC曲线计算AUROC的方法 是一致的。
+
+## 5. 补充说明
 
 虽然三种方法是等价的，但在计算量上去掉排序的因素（排序的计算复杂度为O(NlogN)），公式1的计算效率要高。
 
