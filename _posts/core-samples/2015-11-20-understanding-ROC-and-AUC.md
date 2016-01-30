@@ -74,13 +74,13 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 \begin{equation}\sum_{i \in (P + N)} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} \\\ = \sum_{i \in P} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} + \sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|}\end{equation}
 
-因为对P集合，\\(FP_i\\)与\\(FP_{i - 1}\\)是一样的，对N集合，\\(TP_i\\)与\\(TP_{i - 1}\\)是一样的，所以继续化简为：
+因为对P集合，\\(FP_i\\)与\\(FP_{i - 1}\\)是一样的；对N集合，\\(TP_i\\)与\\(TP_{i - 1}\\)是一样的，所以继续化简为：
 
 \begin{equation}\sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} \\\ = \sum_{i \in N} \frac {TP_i}{\|P\| \times \|N\|} \\\ = \frac {\sum_{i \in N} TP_i}{\|P\| \times \|N\|} \\\ = \frac {\sum_{i \in N}\sum_{j \in P} I(r_j > r_i)}{\|P\| \times \|N\|}\end{equation}
 
-至此即证明了与 基于ROC曲线计算AUROC的方法 是一致的。
+结合公式5的说明，即证明了公式1与 基于ROC曲线计算AUROC的方法 是一致的。
 
-虽然三种方法是等价的，但在计算量上去掉排序的因素（排序的计算复杂度为O(NlogN)），式子的计算效率要高。
+虽然三种方法是等价的，但在计算量上去掉排序的因素（排序的计算复杂度为O(NlogN)），公式1的计算效率要高。
 
 
 ## 参考文献
