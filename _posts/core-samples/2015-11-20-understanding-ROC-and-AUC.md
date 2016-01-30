@@ -101,11 +101,11 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 [3] Tom Fawcett, An introduction to ROC analysis. Pattern Recognition Letters. 2006.
 
-[4] [introduction to auc and roc](http://alexkong.net/2013/06/introduction-to-auc-and-roc/)
+[4] [Introduction to auc and roc](http://alexkong.net/2013/06/introduction-to-auc-and-roc/)
 
 [5] ROC(Receiver operating characteristic) ([From Wikipedia](https://en.wikipedia.org/wiki/Receiver_operating_characteristic))
 
-[6] [how to calculate area under the curve auc or the c-statistic by hand](http://stats.stackexchange.com/questions/145566/how-to-calculate-area-under-the-curve-auc-or-the-c-statistic-by-hand)
+[6] [How to calculate area under the curve auc or the c-statistic by hand](http://stats.stackexchange.com/questions/145566/how-to-calculate-area-under-the-curve-auc-or-the-c-statistic-by-hand)
 
 * * *
 
