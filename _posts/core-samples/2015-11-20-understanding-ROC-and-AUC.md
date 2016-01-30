@@ -57,7 +57,13 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 基于式子3，对正样本做累加求和的结果为：
 
-\begin{equation}\sum_{i \in P} \left(r_i - 1 - \sum_{j \in P} I(r_j < r_i)\right) \\\= \sum_{i \in P} r_i - \|P\| - \sum_{i \in P}\sum_{j \in P} I(r_j < r_i) \\\= \sum_{i \in P} r_i - \|P\| - (0 + 1 + ... + (\|P\| - 1)) \\\= \sum_{i \in P} r_i - \frac {\|P\| \times (\|P\| + 1)}2\end{equation}
+\begin{equation}\sum_{i \in P} \left(r_i - 1 - \sum_{j \in P} I(r_j < r_i)\right) \end{equation}
+
+\begin{equation}= \sum_{i \in P} r_i - \|P\| - \sum_{i \in P}\sum_{j \in P} I(r_j < r_i) \end{equation}
+
+\begin{equation}= \sum_{i \in P} r_i - \|P\| - (0 + 1 + ... + (\|P\| - 1)) \end{equation}
+    
+\begin{equation}= \sum_{i \in P} r_i - \frac {\|P\| \times (\|P\| + 1)}2\end{equation}
 
 至此即证明了对于\\(\\{r_i\\}\\)序列来说，满足正样本rank值大于负样本rank值的pair总数正是分子。所以得证公式1算的正是AUC。
 
