@@ -44,7 +44,7 @@ tags:
 
 ### 6. 博客
 
-+ [Leon Bottou](http://leon.bottou.org/) <font color='red'>|</font> [Edwin Chen](http://blog.echen.me/) <font color='red'>|</font> [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/) <font color='red'>|</font> [Denny Britz](http://www.wildml.com/)
++ [Leon Bottou](http://leon.bottou.org/) <font color='red'>|</font> [Denny Britz](http://www.wildml.com/) <font color='red'>|</font> [Edwin Chen](http://blog.echen.me/) <font color='red'>|</font> [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
 + [阮一峰](http://www.ruanyifeng.com/blog/)
 
 + [Airbnb Engineering Blog](http://nerds.airbnb.com/)  <font color='red'>|</font> [Facebook Engineering Blog](https://code.facebook.com/posts/)
