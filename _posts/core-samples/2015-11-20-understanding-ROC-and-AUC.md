@@ -70,22 +70,13 @@ P表示正样本集合，N表示负样本集合，|S|表示集合S的元素个�
 
 \begin{equation}\sum_{i \in (P + N)} \frac {(\frac {TP_i}{\|P\|} + \frac {TP_{i-1}}{\|P\|}) \times (\frac {FP_i}{\|N\|} - \frac {FP_{i-1}}{\|N\|})}2\end{equation}
 
-对上式化简得：
+对公式6化简得：
 
-\begin{equation}\sum_{i \in (P + N)} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|}\end{equation}
+\begin{equation}\sum_{i \in (P + N)} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} \\\ = \sum_{i \in P} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} + \sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|}\end{equation}
 
-对P集合和N集合分开累加：
+因为对P集合，\\(FP_i\\)与\\(FP_{i - 1}\\)是一样的，对N集合，\\(TP_i\\)与\\(TP_{i - 1}\\)是一样的，所以继续化简为：
 
-\begin{equation}\sum_{i \in P} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} + \sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|}\end{equation}
-
-因为对P集合，\\(FP_i\\)与\\(FP_{i - 1}\\)是一样的，所以可以化简为：
-
-\begin{equation}\sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} = \sum_{i \in N} \frac {TP_i}{\|P\| \times \|N\|}\end{equation}
-
-进一步化简为：
-
-\begin{equation}\frac {\sum_{i \in N} TP_i}{\|P\| \times \|N\|} = \frac {\sum_{i \in N}\sum_{j \in P} I(r_j > r_i)}{\|P\| \times \|N\|}\end{equation}
-
+\begin{equation}\sum_{i \in N} \frac {(TP_i + TP_{i-1}) \times (FP_i - FP_{i - 1})}{2 \times \|P\| \times \|N\|} \\\ = \sum_{i \in N} \frac {TP_i}{\|P\| \times \|N\|} \\\ = \frac {\sum_{i \in N} TP_i}{\|P\| \times \|N\|} \\\ = \frac {\sum_{i \in N}\sum_{j \in P} I(r_j > r_i)}{\|P\| \times \|N\|}\end{equation}
 
 至此即证明了与 基于ROC曲线计算AUROC的方法 是一致的。
 
