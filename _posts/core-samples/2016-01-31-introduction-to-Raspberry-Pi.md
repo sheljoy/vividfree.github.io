@@ -26,7 +26,7 @@ Raspberry Pi(中文名为“树莓派”,简写为RPi，(或者RasPi / RPI)是�
 
 ## 参考文献
 
-[1] [树莓派](https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE)
+[1] 树莓派 [From Wikipedia](https://zh.wikipedia.org/wiki/%E6%A0%91%E8%8E%93%E6%B4%BE)
 
 * * *
 
