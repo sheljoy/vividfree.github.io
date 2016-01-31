@@ -13,7 +13,7 @@ tags: ["growth hacking", 用户增长, 介绍]
 
 [1] [Growth Hack](https://www.zhihu.com/topic/19800630) (来自 知乎话题)
 
-[2] 覃超写的growth hack系列专题 [上篇](http://zhuanlan.zhihu.com/qinchao/20190015) [中篇](http://zhuanlan.zhihu.com/qinchao/20226008) [下篇](http://zhuanlan.zhihu.com/qinchao/20308036) [番外篇](http://zhuanlan.zhihu.com/qinchao/20322079)
+[2] 覃超写的growth hack系列专题 ([上篇](http://zhuanlan.zhihu.com/qinchao/20190015), [中篇](http://zhuanlan.zhihu.com/qinchao/20226008), [下篇](http://zhuanlan.zhihu.com/qinchao/20308036), [番外篇](http://zhuanlan.zhihu.com/qinchao/20322079))
 
 [3] [增长黑客](http://book.douban.com/subject/26541801/) (书籍)
 
