@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 树莓派简介
+title: 树莓派 简介
 category: 东西百科
 tagline: 
 tags: ["Raspberry Pi", 树莓派, 介绍]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Growth Hacking简介
+title: Growth Hacking 简介
 category: 东西百科
 tagline: 
 tags: ["growth hacking", 用户增长, 介绍]
