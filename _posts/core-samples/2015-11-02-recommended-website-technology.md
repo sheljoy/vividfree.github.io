@@ -11,6 +11,7 @@ tags:
 
 ### 1. 机器学习
 
++ [Awesome Big Data](https://github.com/onurakpolat/awesome-bigdata)
 + [Best Paper Awards in Computer Science](http://jeffhuang.com/best_paper_awards.html)
 + [Machine Learning (Theory)](http://hunch.net/)
 + [Reading list on Bayesian modeling for language](http://homepages.inf.ed.ac.uk/sgwater/reading_list.html)
