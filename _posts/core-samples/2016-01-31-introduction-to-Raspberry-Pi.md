@@ -4,6 +4,8 @@ title: 树莓派 简介
 category: 东西百科
 tagline: 
 tags: ["Raspberry Pi", 树莓派, 介绍]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 
