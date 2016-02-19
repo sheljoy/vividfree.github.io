@@ -4,6 +4,8 @@ title: 使用 MapReduce 实现大规模稀疏矩阵相乘
 category: 大规模数据处理
 tagline: 
 tags: [MapReduce, 大规模数据, 稀疏矩阵, 稠密矩阵, 相似度计算]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

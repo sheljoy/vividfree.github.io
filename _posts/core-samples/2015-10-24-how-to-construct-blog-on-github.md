@@ -4,6 +4,8 @@ title: 如何在 Github 上建立独立博客
 category: 工具使用
 tagline: 
 tags: [Github, Git, Jekyll, Markdown, Mathjax, 介绍]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

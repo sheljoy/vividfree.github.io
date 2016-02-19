@@ -4,6 +4,8 @@ title: 从 Odds 角度理解 Logistic Regression 模型的参数
 category: 机器学习
 tagline: 
 tags: ["logistic regression", LR, odds, intercept, 逻辑回归, 截距]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

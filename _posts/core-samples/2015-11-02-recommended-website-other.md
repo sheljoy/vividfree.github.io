@@ -4,6 +4,8 @@ title: 推荐站点 其他
 category:
 tagline:
 tags:
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

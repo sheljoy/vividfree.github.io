@@ -4,6 +4,8 @@ title: 理解 ROC 和 AUC
 category: 机器学习
 tagline: 
 tags: [ROC, AUC, 评价指标]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

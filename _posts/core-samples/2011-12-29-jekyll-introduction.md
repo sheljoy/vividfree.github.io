@@ -3,6 +3,8 @@ layout: post
 category : 工具使用
 tagline: 
 tags : [Jekyll, 介绍]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

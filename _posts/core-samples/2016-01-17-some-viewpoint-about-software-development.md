@@ -4,6 +4,8 @@ title: 对软件开发的一点思考
 category: 个人思考
 tagline: 
 tags: [个人思考, 软件开发]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

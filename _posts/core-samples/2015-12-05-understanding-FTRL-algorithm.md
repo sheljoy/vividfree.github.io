@@ -4,6 +4,8 @@ title: 理解 FTRL 算法
 category: 机器学习
 tagline: 
 tags: [FTRL, "online learning", 在线学习, 正则化, 稀疏模型]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

@@ -4,6 +4,8 @@ title: 使用 Isotonic Regression 校准分类器
 category: 机器学习
 tagline: 
 tags: ["platt scaling", "isotonic regression", 保序回归, "calibration", 校准]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 

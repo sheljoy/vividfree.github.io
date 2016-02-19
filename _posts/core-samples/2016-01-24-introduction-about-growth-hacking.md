@@ -4,6 +4,8 @@ title: Growth Hacking 简介
 category: 东西百科
 tagline: 
 tags: ["growth hacking", 用户增长, 介绍]
+theme :
+  name : bootstrap-3
 ---
 {% include JB/setup %}
 
