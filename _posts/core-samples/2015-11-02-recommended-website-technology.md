@@ -18,6 +18,7 @@ theme :
 + [Machine Learning (Theory)](http://hunch.net/)
 + [Reading list on Bayesian modeling for language](http://homepages.inf.ed.ac.uk/sgwater/reading_list.html)
 + [UFLDL Tutorial](http://ufldl.stanford.edu/wiki/index.php/UFLDL_Tutorial)
++ [What are the best machine learning blogs or resources available?](https://www.quora.com/What-are-the-best-machine-learning-blogs-or-resources-available)
 
 + [机器学习(Machine Learning)&深度学习(Deep Learning)资料(Chapter 1)](https://github.com/ty4z2008/Qix/blob/master/dl.md)
 + [机器学习(Machine Learning)&深度学习(Deep Learning)资料(Chapter 2)](https://github.com/ty4z2008/Qix/blob/master/dl2.md)
