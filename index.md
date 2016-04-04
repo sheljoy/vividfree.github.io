@@ -24,8 +24,15 @@ tagline:
 
 ### 代码仓库
 
-+ [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（刚开始建设）
-  + Goal: to create a **Never-Ending Learning System (NELS)**
++ [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（under construction）
+
+### 技术心愿
+
++ 基于树莓派造玩具，比如遥控汽车等
++ 对某些领域建立知识图谱
+  - 进展: 目前在汽车、房地产、旅游等领域积累了些数据词典
++ 应用Machine Learning，辅助分析财经等领域的趋势判断
++ create a **Never-Ending Learning System (NELS)**
 
 ### 推荐站点
 
