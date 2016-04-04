@@ -46,6 +46,7 @@ theme :
 
 ### 5. 课程
 
++ [Deep Learning for Natural Language Processing](http://cs224d.stanford.edu/index.html) (Stanford University)
 + [Introduction to Computational Advertising](https://web.stanford.edu/class/msande239/) (Stanford University)
 
 ### 6. 博客
