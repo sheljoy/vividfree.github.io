@@ -57,6 +57,8 @@ theme :
 + [Airbnb Engineering Blog](http://nerds.airbnb.com/)  <font color='red'>|</font> [Facebook Engineering Blog](https://code.facebook.com/posts/)
 + [火光摇曳](http://www.flickering.cn/)(腾讯广点通技术博客) <font color='red'>|</font> [阿里技术沙龙](http://club.alibabatech.org/index.htm) <font color='red'>|</font> [阿里云栖社区](https://yq.aliyun.com/) <font color='red'>|</font> [美团技术博客](http://tech.meituan.com/)
 
++ [160家优秀国外技术公司博客](https://zhuanlan.zhihu.com/p/20641362)
+
 ### 7. 微博
 
 + [爱可可-爱生活](http://weibo.com/fly51fly)
