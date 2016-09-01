@@ -13,9 +13,9 @@ EM算法是一种优化算法框架，用于含有 隐变量（hidden variable�
 
 EM算法简约而不简单，是一个经典的机器学习算法框架，在很多机器学习模型中都有应用。笔者在阅读了一些相关资料后梳理了一份slides，大家可以在 [云盘共享地址](https://yunpan.cn/cMtDRgpRHwzvj) （提取码：bdda）下载到，欢迎大家一起探讨。
 
-主要参考文献
-+ Christopher M. Bishop. 《Pattern Recognition and Machine Learning》
-+ 李航. 《统计学习方法》
+#### 主要参考文献
+1. Christopher M. Bishop. 《Pattern Recognition and Machine Learning》
+2. 李航. 《统计学习方法》
 
 * * *
 
