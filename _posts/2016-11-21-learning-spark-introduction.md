@@ -17,23 +17,12 @@ Spark最初在2009年由加州大学伯克利分校的AMPLab开发，并于2010�
 
 "Big Data Processing with Apache Spark"系列文章（共4篇）写得不错，推荐给读者读读：
 
-Part 1:
-
-+ [https://www.infoq.com/articles/apache-spark-introduction](https://www.infoq.com/articles/apache-spark-introduction)
++ Part 1 [https://www.infoq.com/articles/apache-spark-introduction](https://www.infoq.com/articles/apache-spark-introduction)
   - 中文翻译版 [http://www.infoq.com/cn/articles/apache-spark-introduction](http://www.infoq.com/cn/articles/apache-spark-introduction)
-
-Part 2:
-
-+ [https://www.infoq.com/articles/apache-spark-sql](https://www.infoq.com/articles/apache-spark-sql)
-
-Part 3:
-
-+ [https://www.infoq.com/articles/apache-spark-streaming](https://www.infoq.com/articles/apache-spark-streaming)
++ Part 2 [https://www.infoq.com/articles/apache-spark-sql](https://www.infoq.com/articles/apache-spark-sql)
++ Part 3 [https://www.infoq.com/articles/apache-spark-streaming](https://www.infoq.com/articles/apache-spark-streaming)
   - 中文翻译版 [http://www.infoq.com/cn/articles/apache-spark-streaming](http://www.infoq.com/cn/articles/apache-spark-streaming)
-
-Part 4:
-
-+ [https://www.infoq.com/articles/apache-spark-machine-learning](https://www.infoq.com/articles/apache-spark-machine-learning)
++ Part 4 [https://www.infoq.com/articles/apache-spark-machine-learning](https://www.infoq.com/articles/apache-spark-machine-learning)
   - 中文翻译版 [http://www.infoq.com/cn/articles/apache-spark-machine-learning](http://www.infoq.com/cn/articles/apache-spark-machine-learning)
 
 2013年最初开发Spark的团队创建了Databricks公司，DataBricks公司的官方博客 [https://databricks.com/blog](https://databricks.com/blog) 也值得看看，里面会介绍Spark研发和产业方面的动态。他们家还定期组织Spark Summit，在Spark summit 2016邀请到 Jeff Dean, Doug Cutting, Andrew Ng 做keynote speech，相比国内的某些技术峰会，这个峰会的干货是很多的了，而且峰会的slide很多都可以下载到。Databricks的Xiangrui Meng等人也有些slides，深入浅出的介绍了Spark的使用。
