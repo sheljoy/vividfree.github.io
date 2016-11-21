@@ -11,7 +11,7 @@ theme :
 
 Spark最初在2009年由加州大学伯克利分校的AMPLab开发，并于2010年成为Apache的开源项目之一，如今是很火的大数据处理框架之一。
 
-网上有很多关于Spark的资料，从整体到细节，从浅到深，都有相关资料。刚接触Spark时，可能会看到 RDD, DataFrame, DataSet, transformation, action, lineage, narrow dependencies, wide dependencies 等spark核心术语，还可能还会听到很多Spark与Hadoop, Storm等其他分布式系统的对比。对于Spark核心术语，可以阅读RDD的最早论文“Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing”，这篇文章值得认真阅读，可以体会到Spark设计者在设计系统时为啥抽象出那些概念。
+网上有很多关于Spark的资料，从整体到细节，从浅到深，都有相关资料。刚接触Spark时，可能会看到 RDD, DataFrame, DataSet, transformation, action, lineage, narrow dependencies, wide dependencies 等spark核心术语，还可能还会听到很多Spark与Hadoop, Storm等其他分布式系统的对比。对于Spark核心术语，可以阅读RDD的最早论文 "[Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](http://101.96.8.164/www-bcf.usc.edu/~minlanyu/teach/csci599-fall12/papers/nsdi_spark.pdf)"，这篇文章值得认真阅读，可以体会到Spark设计者在设计系统时为啥抽象出那些概念。
 
 对于spark初学者来说，建议看些spark相关的书、牛人写的相关文章、一些公司写的相关博客。
 
