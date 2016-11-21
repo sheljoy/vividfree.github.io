@@ -18,17 +18,21 @@ Spark最初在2009年由加州大学伯克利分校的AMPLab开发，并于2010�
 "Big Data Processing with Apache Spark"系列文章（共4篇）写得不错，推荐给读者读读：
 
 Part 1:
+
 + [https://www.infoq.com/articles/apache-spark-introduction](https://www.infoq.com/articles/apache-spark-introduction)
   - 中文翻译版 [http://www.infoq.com/cn/articles/apache-spark-introduction](http://www.infoq.com/cn/articles/apache-spark-introduction)
 
 Part 2:
+
 + [https://www.infoq.com/articles/apache-spark-sql](https://www.infoq.com/articles/apache-spark-sql)
 
 Part 3:
+
 + [https://www.infoq.com/articles/apache-spark-streaming](https://www.infoq.com/articles/apache-spark-streaming)
   - 中文翻译版 [http://www.infoq.com/cn/articles/apache-spark-streaming](http://www.infoq.com/cn/articles/apache-spark-streaming)
 
 Part 4:
+
 + [https://www.infoq.com/articles/apache-spark-machine-learning](https://www.infoq.com/articles/apache-spark-machine-learning)
   - 中文翻译版 [http://www.infoq.com/cn/articles/apache-spark-machine-learning](http://www.infoq.com/cn/articles/apache-spark-machine-learning)
 
