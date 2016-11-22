@@ -11,7 +11,7 @@ theme :
 
 对 RDD vs DataFrame vs DataSet，列举3篇基础性的介绍文章：
 
-+ [A Tale of Three Apache Spark APIs: RDDs, DataFrames, and Datasets](https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html) From Databricks blog
++ [A Tale of Three Apache Spark APIs: RDDs, DataFrames, and Datasets](https://databricks.com/blog/2016/07/14/a-tale-of-three-apache-spark-apis-rdds-dataframes-and-datasets.html) <font color='red'>From Databricks blog</font>
 + [RDD、DataFrame和DataSet的区别](http://www.jianshu.com/p/c0181667daa0)
 + [Apache Spark : RDD vs DataFrame vs Dataset](https://www.linkedin.com/pulse/apache-spark-rdd-vs-dataframe-dataset-chandan-prakash)
 
