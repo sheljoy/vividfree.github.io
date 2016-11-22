@@ -17,7 +17,8 @@ theme :
 + [Tuning and Debugging in Apache Spark](http://www.slideshare.net/pwendell/tuning-and-debugging-in-apache-spark)<font color='red'> From Databricks</font>
 + Spark性能优化指南 [(基础篇)](http://tech.meituan.com/spark-tuning-basic.html) [(高级篇)](http://tech.meituan.com/spark-tuning-pro.html) <font color='red'>来自 美团技术博客</font>
 
-<font color='red'>NOTE</font>:Spark版本更新很快，一些文章所述的一些问题或者解决办法可能不适合大家正使用的Spark版本，这个尤其要注意，特别是当为了性能调试一些参数时发现运行状况几乎没变化时，可以想想是不是参数没有生效。笔者曾经碰到的一个坑，调试spark.shuffle.memoryFraction和spark.storage.memoryFraction参数发现没效果，后来追查因为用的是Spark 1.6.1版本，默认使用的是统一内存管理模型(Spark 1.6及以后版本，Unified Memory Manager)，而不是LegacyMode(Spark 1.5及以前版本，最早称呼为 Static Memory Manager)，如果没有打开spark.memory.useLegacyMode的话，spark.shuffle.memoryFraction和spark.storage.memoryFraction自然无效。
+<font color='red'>NOTE:</font>
+Spark版本更新很快，一些文章所述的一些问题或者解决办法可能不适合大家正使用的Spark版本，这个尤其要注意，特别是当为了性能调试一些参数时发现运行状况几乎没变化时，可以想想是不是参数没有生效。笔者曾经碰到的一个坑，调试spark.shuffle.memoryFraction和spark.storage.memoryFraction参数发现没效果，后来追查因为用的是Spark 1.6.1版本，默认使用的是统一内存管理模型(Spark 1.6及以后版本，Unified Memory Manager)，而不是LegacyMode(Spark 1.5及以前版本，最早称呼为 Static Memory Manager)，如果没有打开spark.memory.useLegacyMode的话，spark.shuffle.memoryFraction和spark.storage.memoryFraction自然无效。
 
 * * *
 
