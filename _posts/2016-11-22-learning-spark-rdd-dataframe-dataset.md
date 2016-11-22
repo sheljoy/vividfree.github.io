@@ -3,7 +3,7 @@ layout: post
 title: Spark学习路径：RDD vs DataFrame vs DataSet
 category: 大规模数据处理
 tagline: 
-tags: [Spark, RDD, Databricks]
+tags: [Spark, RDD, DataFrame, DataSet]
 theme :
   name : bootstrap-3
 ---
