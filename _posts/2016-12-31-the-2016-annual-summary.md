@@ -42,4 +42,5 @@ theme :
 在生活方面，最重要的是陪媳妇去日本旅行，除此之外，当然还有一些小目标。
 
 继续踏踏实实的做好这三方面。最后借Elon Musk说过的一句话鼓励自己
+
 > **It's time to take risks, do something bold.**
