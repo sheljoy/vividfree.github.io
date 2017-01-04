@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 2016年度总结——知识沉淀
+title: 2016年度总结
 category: 年度总结
 tagline: 
 tags: [年度总结]
