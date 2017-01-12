@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 推荐站点 其他
+title: 推荐内容 其他
 category:
 tagline:
 tags:

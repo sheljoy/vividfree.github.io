@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 推荐站点 人文方面
+title: 推荐内容 人文方面
 category:
 tagline:
 tags:

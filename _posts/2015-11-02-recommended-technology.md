@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 推荐站点 技术方面
+title: 推荐内容 技术方面
 category:
 tagline:
 tags:
