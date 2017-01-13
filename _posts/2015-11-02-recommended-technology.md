@@ -55,13 +55,23 @@ theme :
 
 ### 5.1 公司博客
 
-+ [Airbnb Engineering Blog](http://nerds.airbnb.com/)  <font color='red'>|</font> [Facebook Engineering Blog](https://code.facebook.com/posts/)
-+ [火光摇曳](http://www.flickering.cn/)(腾讯广点通技术博客) <font color='red'>|</font> [阿里技术沙龙](http://club.alibabatech.org/index.htm) <font color='red'>|</font> [阿里云栖社区](https://yq.aliyun.com/) <font color='red'>|</font> [美团技术博客](http://tech.meituan.com/)
++ [Airbnb Engineering Blog](http://nerds.airbnb.com/)
++ [Facebook Engineering Blog](https://code.facebook.com/posts/)
++ [Quora Engineering Blog](https://engineering.quora.com/)
+
++ [火光摇曳](http://www.flickering.cn/)(腾讯广点通技术博客)
++ [阿里技术沙龙](http://club.alibabatech.org/index.htm)
++ [阿里云栖社区](https://yq.aliyun.com/)
++ [美团技术博客](http://tech.meituan.com/)
 
 + [160家优秀国外技术公司博客](https://zhuanlan.zhihu.com/p/20641362)
 
 ### 5.2 个人博客
 
-+ [Leon Bottou](http://leon.bottou.org/) <font color='red'>|</font> [Denny Britz](http://www.wildml.com/) <font color='red'>|</font> [Edwin Chen](http://blog.echen.me/) <font color='red'>|</font> [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
++ [Leon Bottou](http://leon.bottou.org/)
++ [Denny Britz](http://www.wildml.com/)
++ [Edwin Chen](http://blog.echen.me/)
++ [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
+
 + [阮一峰](http://www.ruanyifeng.com/blog/)
 
