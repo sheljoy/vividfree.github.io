@@ -28,4 +28,4 @@ tagline:
 
 ### 推荐内容
 
-+ <a href="/2015/11/02/recommended-technology">技术</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-science">科学</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-culture">人文</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-other">其他</a>
++ <a href="/2015/11/02/recommended-technology">工程技术</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-environment">地球环境</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-science-and-art">科学与艺术</a> <font color='red'>|</font> <a href="/2015/11/02/recommended-lecture-and-course">讲座与课程</a>

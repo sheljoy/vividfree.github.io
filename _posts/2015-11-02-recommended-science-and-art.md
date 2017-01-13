@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 推荐内容 科学方面
+title: 推荐内容之科学与艺术
 category:
 tagline:
 tags:
@@ -10,7 +10,6 @@ theme :
 {% include JB/setup %}
 
 ## 科学
-
 ### 书籍
 
 + 牛顿. Philosophiae Naturalis Principia Mathematica
@@ -27,3 +26,9 @@ theme :
 ### 站点
 
 + [Physical Review Letters](http://journals.aps.org/prl/)
+
+## 艺术
+
+### 站点
+
++ [Google文化学院](https://www.google.com/culturalinstitute/project/art-project): 需要翻墙
