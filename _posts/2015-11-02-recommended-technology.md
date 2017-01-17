@@ -15,6 +15,7 @@ theme :
 
 ### 1.1 站点
 
++ [Awesome - Most Cited Deep Learning Papers](https://github.com/terryum/awesome-deep-learning-papers)
 + [Awesome Big Data](https://github.com/onurakpolat/awesome-bigdata)
 + [Awesome Random Forest](http://jiwonkim.org/awesome-random-forest/)
 + [Awesome Recurrent Neural Networks](https://github.com/kjw0612/awesome-rnn)
