@@ -1,6 +1,6 @@
 ---
 layout: post
-title: NLP领域的tutorials (Since 2016)
+title: 自然语言处理领域的tutorials (Since 2016)
 category: 自然语言处理
 tagline:
 tags: [NLP, Natural Language Processing, 自然语言处理, Machine Translation, 机器翻译]
