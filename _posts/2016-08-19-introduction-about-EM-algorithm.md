@@ -16,6 +16,7 @@ EM算法简约而不简单，是一个经典的机器学习算法框架，在很
 #### 主要参考文献
 1. Christopher M. Bishop. 《Pattern Recognition and Machine Learning》
 2. 李航. 《统计学习方法》
+3. [EM算法](http://luowei828.blog.163.com/blog/static/3103120420120142193960/)  来自 老博客
 
 * * *
 
