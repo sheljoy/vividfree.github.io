@@ -25,3 +25,11 @@ theme :
 
 + 刘洋，清华大学副教授，主页是 [http://nlp.csai.tsinghua.edu.cn/~ly/](http://nlp.csai.tsinghua.edu.cn/~ly/)
 + 邱锡鹏，复旦大学副教授，主页是 [http://nlp.fudan.edu.cn/xpqiu/](http://nlp.fudan.edu.cn/xpqiu/)
+
+* * *
+
+**原创文章，转载请注明：**转载自[{{ site.title }}]({{ site.production_url }})
+
+**本文链接地址：**[{{ page.title }}]({{ site.production_url }}{{ page.url }})
+
+* * *
