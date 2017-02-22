@@ -9,6 +9,8 @@ theme :
 ---
 {% include JB/setup %}
 
+NOTE: this page is under construction
+
 ### 自然语言处理 Natural Language Processing
 
 2016年
