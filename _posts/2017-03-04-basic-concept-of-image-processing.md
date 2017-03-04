@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 图像处理基本概念——卷积、滤波、平滑
+title: 图像处理的几个基本概念——卷积、滤波、平滑
 category: 图像处理
 tagline: 
 tags: [图像处理, 卷积, 滤波]
@@ -22,8 +22,7 @@ theme :
   + [高斯模糊的算法](http://www.ruanyifeng.com/blog/2012/11/gaussian_blur.html)
   + [高斯模糊 维基百科词条](https://zh.wikipedia.org/wiki/%E9%AB%98%E6%96%AF%E6%A8%A1%E7%B3%8A)
 2. 双边滤波
-  + [双边滤波](http://blog.csdn.net/abcjennifer/article/details/7616663)
-    - 保边去噪的滤波器。相比高斯滤波仅考虑像素在空间距离上的关系，双边滤波的改进就在于在采样时不仅考虑像素在空间距离上的关系，同时加入了像素间的相似程度考虑，因而可以保持原始图像的大体分块进而保持边缘。
+  + [双边滤波](http://blog.csdn.net/abcjennifer/article/details/7616663)，保边去噪的滤波器。相比高斯滤波仅考虑像素在空间距离上的关系，双边滤波的改进就在于在采样时不仅考虑像素在空间距离上的关系，同时加入了像素间的相似程度考虑，因而可以保持原始图像的大体分块进而保持边缘。
 
 
 * * *
