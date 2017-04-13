@@ -27,7 +27,7 @@ cat /etc/*release*
 
 RPM包在命名时，有时候会带上noarch。noarch是”no architecture”的简称，意思是这个RPM包可以用在不同的CPU机器上。可以用”yum list \| grep noarch”查看有哪些RMP包是noarch的。
 
-关于更详细的系统环境检测，比如GPU型号和个数、GCC编译器版本等环境，可以看nvidia介绍如何安装Cuda工具包的文章，其中第2节就是介绍系统环境检测 [http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#pre-installation-actions](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#pre-installation-actions) 。
+关于更详细的系统环境检测，比如GPU型号和个数、GCC编译器版本等环境，可以看nvidia介绍如何安装Cuda工具包的文章，其中的第2节就是介绍系统环境检测 [http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#pre-installation-actions](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#pre-installation-actions) 。
 
 ## 2. 准备工作
 
@@ -37,13 +37,15 @@ RPM包在命名时，有时候会带上noarch。noarch是”no architecture”�
 
 ## 3. 按照官网描述的流程安装TensorFlow
 
-参考链接：[https://www.tensorflow.org/install/install_sources](https://www.tensorflow.org/install/install_sources) 。这是TensorFlow官网提供的源码方式安装流程的介绍。笔者执行这个流程时，没碰到特殊情况。
+参考链接：[https://www.tensorflow.org/install/install_sources](https://www.tensorflow.org/install/install_sources) 。这是TensorFlow官网提供的源码方式安装流程的介绍。笔者执行这个流程时，基本没碰到啥特殊情况。
 
 下面依官网文档的步骤分小节描述安装过程。
 
 ### 3.1 迁出TensorFlow代码
 
+```
 git clone https://github.com/tensorflow/tensorflow
+```
 
 ### 3.2 环境准备
 
@@ -52,15 +54,16 @@ git clone https://github.com/tensorflow/tensorflow
 TensorFlow官网给了Bazel官网的安装页面 [https://bazel.build/versions/master/docs/install.html](https://bazel.build/versions/master/docs/install.html) 。照着这个页面介绍的流程执行即可，下面就源码方式安装Bazel的方式来介绍。源码方式安装Bazel的介绍页面是 [https://bazel.build/versions/master/docs/install-compile-source.html](https://bazel.build/versions/master/docs/install-compile-source.html) 。
 
 <div align="center">
-  <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure1.jpg" style="max-width:324px; text-align:center" alt=""/>
-</div>
+  <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure1.jpg" style="max-width:854; text-align:center" alt=""/>
+  <br/>
 图1 源码编译Bazel的流程（实际操作中可能因为下载的内容不同而有一点区别）
+</div>
 
 首先，Bazel需要Java，且建议最好安装Java8。另外因为我们需要编译Bazel源码，所以需要JDK，而不只是JRE。参照页面 [http://openjdk.java.net/install/](http://openjdk.java.net/install/) ，RedHat系统需要的是 java-1.8.0-openjdk-devel.x86_64 （”sudo yum install java-1.8.0-openjdk-devel.x86_64”）
 
-其次，当前Bazel最新的版本是0.4.5。基于机器环境，选好相应的版本。下载地址是： [https://github.com/bazelbuild/bazel/releases/tag/0.4.5](https://github.com/bazelbuild/bazel/releases/tag/0.4.5) 。笔者选的是 bazel-0.4.5-installer-linux-x86_64.sh 。下载完这个文件后，可以用sha256sum命令比对sha256值。（说明：下载的文件和图1第2步描述的内容不一样，因为当时碰到 “bazel-<VERSION>-dist.zip” 文件下载不下来的情况）
+其次，当前Bazel最新的版本是0.4.5。基于机器环境，选好相应的版本。下载地址是： [https://github.com/bazelbuild/bazel/releases/tag/0.4.5](https://github.com/bazelbuild/bazel/releases/tag/0.4.5) 。笔者选的是 bazel-0.4.5-installer-linux-x86_64.sh 。下载完这个文件后，可以用sha256sum命令比对sha256值。（说明：下载的文件和图1第2步描述的内容不一样，因为当时碰到 “bazel-\<VERSION\>-dist.zip” 文件下载不下来的情况）
 
-最后，执行”sh bazel-0.4.5-installer-linux-x86_64.sh”，会把bazel工具装到默认目录/usr/local下。建议执行脚本前看下脚本的 usage() 接口的实现。如果Bazel安装的路径不对，需要卸载，请照这个网页 [https://github.com/bazelbuild/bazel/issues/962](https://github.com/bazelbuild/bazel/issues/962) 执行，以确保没有残留。
+最后，执行”sh bazel-0.4.5-installer-linux-x86_64.sh”，会把bazel工具装到默认目录/usr/local下。建议执行脚本前看下脚本的 usage() 接口的实现。如果Bazel安装的路径不对，需要卸载，请照这个网页 [https://github.com/bazelbuild/bazel/issues/962](https://github.com/bazelbuild/bazel/issues/962) 执行，以确保没有残留文件或者配置。
 
 #### 3.2.2 安装TensorFlow依赖的python环境
 
@@ -83,21 +86,19 @@ TensorFlow官网介绍需要安装Cuda和cuDNN。
 说明：
 1. Package Manager Installation方案和Runfile Installation方案是2种不同的安装方案。笔者按照Package Manager Installation方案执行。对于是否需要支持跨平台，视需求而定。
 2. Cuda含有的库很多，有80余个，所以安装CUDA需要的时间较长，可能要半个多小时。在安装的过程中，可能会碰到某些库因为网络连接等问题导致安装失败。对这个问题，首先要看在最后脚本是否自动重装了这些失败的库，如果自动重装了，那就不用在意，否则可以用上面那个网页提到的yumdownloader命令安装这些失败的库。
+3. 安装完Cuda后的一些工作。可以参考网页的第6节，特别是第6.2节。nvidia给了很多示例代码，这个参考网页会指导编译和执行几个有代表性的程序。nvcc是编译Cuda程序的编译命令。
 
-安装失败的库的log示例
+安装Cuda工具包时碰到安装失败的库的log示例
 
 ```
 cuda-cufft-dev-8-0-8.0.61-1.x8               FAILED ]  431 B/s | 273 MB 713:54:04 ETA
 http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-dev-8-0-8.0.61-1.x86_64.rpm: [Errno 12] Timeout on http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-dev-8-0-8.0.61-1.x86_64.rpm: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
-
 ```
-
-3. 安装完Cuda后的一些工作。可以参考网页的第6节，特别是第6.2节。nvidia给了很多示例代码，这个参考网页会指导编译和执行几个有代表性的程序。nvcc是编译Cuda程序的编译命令。
 
 接下来安装cuDNN工具包，请详细阅读nvidia官网的安装介绍页面 [https://developer.nvidia.com/cudnn](https://developer.nvidia.com/cudnn) ，按照TensorFlow的建议，选择 cuDNN v5.1 (Jan 20, 2017), for CUDA 8.0。下载下来是个tgz文件，笔者放到 /usr/local/cudnn 目录下，解压后如图2所示，解压后会产出cuda的目录，笔者不建议将其中的include文件和lib64文件并到/usr/local/cuda目录下，因为这样可以隔离开Cuda和cuDNN的升级维护。
 
 <div align="center">
-  <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure2.jpg" style="max-width:324px; text-align:center" alt=""/>
+  <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure2.jpg" style="max-width:480; text-align:center" alt=""/>
 </div>
 图2 解压cudnn包后的结果
 
