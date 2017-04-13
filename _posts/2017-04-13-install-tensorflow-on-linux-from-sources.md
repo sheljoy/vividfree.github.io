@@ -56,7 +56,8 @@ TensorFlow官网给了Bazel官网的安装页面 [https://bazel.build/versions/m
 <div align="center">
   <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure1.jpg" style="max-width:854; text-align:center" alt=""/>
   <br/>
-图1 源码编译Bazel的流程（实际操作中可能因为下载的内容不同而有一点区别）
+  图1 源码编译Bazel的流程（实际操作中可能因为下载的内容不同而有一点区别）
+  <br/>
 </div>
 
 首先，Bazel需要Java，且建议最好安装Java8。另外因为我们需要编译Bazel源码，所以需要JDK，而不只是JRE。参照页面 [http://openjdk.java.net/install/](http://openjdk.java.net/install/) ，RedHat系统需要的是 java-1.8.0-openjdk-devel.x86_64 （”sudo yum install java-1.8.0-openjdk-devel.x86_64”）
@@ -99,8 +100,10 @@ http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-
 
 <div align="center">
   <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure2.jpg" style="max-width:480; text-align:center" alt=""/>
+  </br>
+  图2 解压cudnn包后的结果
+  </br>
 </div>
-图2 解压cudnn包后的结果
 
 说明：
 1. TensorFlow官网说最后还需要安装libcupti-dev。这句话应该是对ubuntu系统来说的，而对redhat系统来说，在安装Cuda时，已经把cupti给装了，可以查看机器的/usr/local/cuda-8.0/extras/CUPTI/这个目录。
