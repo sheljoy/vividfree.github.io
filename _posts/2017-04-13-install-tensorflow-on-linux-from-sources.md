@@ -100,9 +100,9 @@ http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-
 
 <div align="center">
   <img src="/images/2017-04-13-install-tensorflow-on-linux-from-sources-figure2.jpg" style="max-width:480; text-align:center" alt=""/>
-  </br>
+  <br/>
   图2 解压cudnn包后的结果
-  </br>
+  <br/>
 </div>
 
 说明：
