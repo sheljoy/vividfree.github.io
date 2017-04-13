@@ -15,17 +15,17 @@ TensorFlow ([官网地址](https://www.tensorflow.org/)) 是Google开源出的�
 
 首先，需要了解机器装的是哪个Linux操作系统。Linux有很多种发行版，比如Redhat, Ubuntu等。想大概了解不同发行版的区别联系，可以看这个网页 [http://blog.csdn.net/ithomer/article/details/9729933](http://blog.csdn.net/ithomer/article/details/9729933) 。查看Linux内核版本或者Linux操作系统版本等信息的命令有：
 
-'''
+```
 cat /proc/version
 
 uname -a
 
 cat /etc/*release*
-'''
+```
 
 如果是Redhat系统，就需要用基于RPM包的yum包管理工具；如果是Ubuntu系统，就需要用apt-get包管理工具。TensorFlow官网是围绕Ubuntu系统来介绍安装步骤，内容很详细。笔者给Redhat系统安装TensorFlow，发现大体流程和在Ubuntu上安装是类似的，无非是用yum代替apt-get命令，当然有时候需要花点功夫找到对应的RPM包，但总体上并不困难。下文就Redhat系统介绍安装情况。
 
-RPM包在命名时，有时候会带上noarch。noarch是”no architecture”的简称，意思是这个RPM包可以用在不同的CPU机器上。可以用”yum list | grep noarch”查看有哪些RMP包是noarch的。
+RPM包在命名时，有时候会带上noarch。noarch是”no architecture”的简称，意思是这个RPM包可以用在不同的CPU机器上。可以用”yum list \| grep noarch”查看有哪些RMP包是noarch的。
 
 关于更详细的系统环境检测，比如GPU型号和个数、GCC编译器版本等环境，可以看nvidia介绍如何安装Cuda工具包的文章，其中第2节就是介绍系统环境检测 [http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#pre-installation-actions](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/#pre-installation-actions) 。
 
@@ -67,8 +67,8 @@ TensorFlow官网给了Bazel官网的安装页面 [https://bazel.build/versions/m
 TensorFlow官网介绍需要numpy, dev, pip, wheel四个包。可以用yum安装下面4个包：
 + numpy.x86_64
 + python-devel.x86_64
-+python2-pip.noarch
-+python-wheel.noarch
++ python2-pip.noarch
++ python-wheel.noarch
 
 说明：注意机器的python版本是python2还是python3。
 
@@ -86,11 +86,11 @@ TensorFlow官网介绍需要安装Cuda和cuDNN。
 
 安装失败的库的log示例
 
-'''
+```
 cuda-cufft-dev-8-0-8.0.61-1.x8               FAILED ]  431 B/s | 273 MB 713:54:04 ETA
 http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-dev-8-0-8.0.61-1.x86_64.rpm: [Errno 12] Timeout on http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-dev-8-0-8.0.61-1.x86_64.rpm: (28, 'Operation too slow. Less than 1000 bytes/sec transferred the last 30 seconds')
 
-'''
+```
 
 3. 安装完Cuda后的一些工作。可以参考网页的第6节，特别是第6.2节。nvidia给了很多示例代码，这个参考网页会指导编译和执行几个有代表性的程序。nvcc是编译Cuda程序的编译命令。
 
@@ -104,35 +104,35 @@ http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-cufft-
 说明：
 1. TensorFlow官网说最后还需要安装libcupti-dev。这句话应该是对ubuntu系统来说的，而对redhat系统来说，在安装Cuda时，已经把cupti给装了，可以查看机器的/usr/local/cuda-8.0/extras/CUPTI/这个目录。
 2. 修改环境变量。示例：
-'''
+```
 export PATH=/usr/local/cuda/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cudnn/cuda/lib64:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
-'''
+```
 如果希望让机器的全部用户都可以使用Cuda和cuDNN，那么可以把这些内容加到/etc/profile文件中。
 
 ### 3.3 为安装TensorFlow配置环境
 
 走到这步，其实已经走完最麻烦的步骤，离最终安装完TensorFlow工具，就只剩下几行命令而已。
-'''
+```
 ./configure
-'''
+```
 会有几个交互问题，结合机器环境和自己的需求，填写答案。
 
 ### 3.4 构建TensorFlow的pip包
 
 构建有GPU支持的TensorFlow的pip包，参照TensorFlow官网的介绍先后执行下面2条命令：
-'''
+```
 bazel build --config=opt --config=cuda //tensorflow/tools/pip_package:build_pip_package
 
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
-'''
+```
 
 ### 3.5 安装TensorFlow的pip包
 
 参照TensorFlow官网的介绍：
-'''
+```
 sudo pip install /tmp/tensorflow_pkg/tensorflow-1.0.1-py2-none-any.whl
-'''
+```
 
 ### 3.6 验证TensorFlow是否安装成功
 
