@@ -16,12 +16,12 @@ theme :
 + [Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation](https://arxiv.org/abs/1609.08144)
 + [Google's Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation](https://arxiv.org/abs/1611.04558)
 
-这两篇文章均是使用RNN（具体来说用的是LSTM RNN + attention）。确实在最近几年，对于很多NLP问题，比如机器翻译、自动问答、自动摘要等问题，业内大部分认为RNN更合适些。但时光走到今年，Facebook先提出CNN做seq2seq问题，但发表后还不到一个月，Google就提出不用CNN和RNN，光有attention即可。这两个idea比较大胆，突破了原先大部分人的认识，但确实在标准评测集上，不断刷新state-of-the-art的翻译指标（BLEU）。
+这两篇文章均是使用RNN（具体来说用的是LSTM RNN + attention）。确实在最近几年，对于很多NLP问题，比如机器翻译、自动问答、自动摘要等问题，业内主流的观点是认为RNN更合适些，因为它可以处理变长的输入文本（当然在CNN里可以使用dynamic pooling技术也能处理），而且能更好的处理远距离依赖（memory是RNN的一个重要特点）。但时间走到今年，Facebook先提出CNN做seq2seq问题，但发表后还不到一个月，Google就提出不用CNN和RNN，光有attention即可。这两个idea都比较大胆，突破了原先大部分人的认识，但他们确实在标准评测集上，不断刷新着state-of-the-art的翻译指标（BLEU）。
 
 + [Convolutional sequence to sequence learning](https://arxiv.org/abs/1705.03122)
 + [Attention Is All You Need](https://arxiv.org/abs/1706.03762)
 
-语言的奥秘还没解开，机器翻译模型肯定还会进步，解决NLP各个问题的模型也会进步。这是我认为当前不好下结论的原因之一。
+语言的奥秘还没完全解开，机器翻译模型肯定还会进步，解决NLP各个问题的模型也会进步。这是我认为当前不好下结论的原因之一。
 
 此外，务实一点的话，解决一个NLP问题的效果好坏肯定不只是与用CNN、RNN和MLP这种框架性的模型有关，还与诸多其他的因素有关。像《Attention Is All You Need》一文，在没有CNN、RNN的基础上把效果做得这么好，肯定与attention（scaled dot-product attention 和multi-head attention）、position embedding设计的精巧有关。另外，一个实用的线上NLP系统涉及到诸多语言细节的处理策略，比如初始时是从词粒度的embedding做起，还是从字粒度的embedding做起，还是从更细粒度的语言单元（比如Google用的word piece）的embedding做起，甚至是对它们做模型融合；定义好基础粒度后如何训练得到对应的embedding模型，如何设计网络层数和节点数，使用哪些normalization技术或者哪种dynamic max pooling技术或者gradient clip等等，很多细节策略都会影响到最终的效果。这段话像是堆砌词语，但总结来说就是要调的一手好参。
 
