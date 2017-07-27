@@ -9,11 +9,11 @@ theme :
 ---
 {% include JB/setup %}
 
-本页面包括程序设计、系统设计、数学理论、机器学习与深度学习、博客等内容。
+本页面包括机器学习、数学理论、系统设计、程序设计、博客等内容。
 
 ## 1 机器学习
 
-### 1.1 站点
+### 1.1 Hub资源
 
 + [Awesome - Most Cited Deep Learning Papers](https://github.com/terryum/awesome-deep-learning-papers)
 + [Awesome Big Data](https://github.com/onurakpolat/awesome-bigdata)
@@ -33,24 +33,24 @@ theme :
 + [Deep Learning for Natural Language Processing](http://cs224d.stanford.edu/index.html) (Stanford University)
 + [Introduction to Computational Advertising](https://web.stanford.edu/class/msande239/) (Stanford University)
 
-## 2 系统设计
+## 2 数学理论
 
-+ [High Scalability](http://highscalability.com/): 介绍搭建高并发高可靠性的网站技术。此站点的热门文章放在 [这里](http://highscalability.com/all-time-favorites/) 。
-
-## 3 程序语言
-
-+ Google开发规范
-  - [英文版](https://github.com/google/styleguide): 包括C++、Objective-C、Java、Python、R、Shell、HTML/CSS、JavaScript、AngularJS、Lisp和Vimscript等语言的开发规范
-  - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 等语言的开发规范（翻译自英文版）
-
-## 4 数学理论
-
-### 4.1 凸优化
+### 2.1 凸优化
 
 + [Convex Optimization](http://stanford.edu/~boyd/cvxbook/) (Stanford University)
   - 作者是 Stephen Boyd 和 Lieven Vandenberghe，此书是凸优化领域的经典书籍之一。上面这个网址不仅有书籍的超链接，还有作者在斯坦福大学开课的课件。
 + [Numerical Optimization](http://home.agh.edu.pl/~pba/pdfdoc/Numerical_Optimization.pdf) (Northwestern University)
   - 作者是 Jorge Nocedal 和 Stephen J. Wright，此书是优化领域的经典书籍之一。
+
+## 3 系统设计
+
++ [High Scalability](http://highscalability.com/): 介绍搭建高并发高可靠性的网站技术。此站点的热门文章放在 [这里](http://highscalability.com/all-time-favorites/) 。
+
+## 4 程序语言
+
++ Google开发规范
+  - [英文版](https://github.com/google/styleguide): 包括C++、Objective-C、Java、Python、R、Shell、HTML/CSS、JavaScript、AngularJS、Lisp和Vimscript等语言的开发规范
+  - [中文版](https://github.com/zh-google-styleguide/zh-google-styleguide): 包括C++、Objective-C、Python和JSON 等语言的开发规范（翻译自英文版）
 
 ## 5 博客
 
@@ -70,9 +70,9 @@ theme :
 ### 5.2 个人博客
 
 + [Leon Bottou](http://leon.bottou.org/)
-+ [Denny Britz](http://www.wildml.com/)
++ [Denny Britz](http://www.wildml.com/) : wildml
 + [Edwin Chen](http://blog.echen.me/)
++ [Sebastian Ruder](http://ruder.io/) : ruder
 + [Tianqi Chen](http://homes.cs.washington.edu/~tqchen/)
 
 + [阮一峰](http://www.ruanyifeng.com/blog/)
-
