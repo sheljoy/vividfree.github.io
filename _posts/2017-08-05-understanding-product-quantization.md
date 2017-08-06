@@ -17,7 +17,7 @@ Product quantization，国内有人直译为乘积量化，这里的乘积是指
 
 2011年，Herve Jegou等学者在PAMI上发表了PQ方法的第一篇正式paper[1]，用于解决相似搜索问题（similarity search）或者也可以说是近邻搜索（nearest neighbor search）问题。其实这几位作者在2009年的INRIA（即法国国家信息与自动化研究所）的技术报告上已经发表PQ方法。这里插一段题外话，[1]的一作Herve Jegou和二作Matthijs Douze均在2015年跳槽去了Facebook AI research，并在今年3月份合作开源了Faiss相似搜索工具[4]。
 
-近几年，深度学习技术被广泛用于图像识别、语音识别、自然语言处理等领域，能够把每个实体（图像、语音、文本）转换为对应的embedding向量。一般来说，相似的实体转换得到的embedding向量也是相似的。最简单的想法是暴力穷举法，如果全部实体的个数是n，n是千万量级甚至是上亿的规模，每个实体对应的向量是D，那么当要这个实体集合中寻找某个实体的相似实体，暴力穷举的计算复杂度是O(n*D)，这是一个很大的计算量，该方法显然不可取。所以对大数据量下高维度数据的相似搜索场景，我们就需要一些高效的相似搜索技术，而PQ就是其中一类方法。
+近几年，深度学习技术被广泛用于图像识别、语音识别、自然语言处理等领域，能够把每个实体（图像、语音、文本）转换为对应的embedding向量。一般来说，相似的实体转换得到的embedding向量也是相似的。对于相似搜索问题，最简单的想法是暴力穷举法，如果全部实体的个数是\\(n\\)，\\(n\\)是千万量级甚至是上亿的规模，每个实体对应的向量是\\(D\\)，那么当要从这个实体集合中寻找某个实体的相似实体，暴力穷举的计算复杂度是\\(O(n\timesD)\\)，这是一个非常大的计算量，该方法显然不可取。所以对大数据量下高维度数据的相似搜索场景，我们就需要一些高效的相似搜索技术，而PQ就是其中一类方法。
 
 PQ是一种量化（quantization）方法，本质上是数据的一种压缩表达方法（其实通信学科的一个主要研究工作就是研究信号的压缩表达），所以该方法除了可以用在相似搜索外，还可以用于模型压缩，特别是深度神经网络的模型压缩上。由于相似搜索不仅要考虑如何量化的问题，还要考虑如何检索（search）的问题，而模型压缩可能更主要的是考虑如何量化的问题，不用太关注如何检索这个问题，所以这篇文章会主要站在相似搜索上的应用来介绍PQ方法。至于模型压缩，可以找找近几年研究神经网络模型压缩的paper或者一些互联网公司（比如百度, Snap等）发出的一些资料[3]。
 
@@ -27,22 +27,23 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
 - 基于树的方法
   + KD树是其下的经典算法。一般而言，在空间维度比较低时，KD树的查找性能还是比较高效的；但当空间维度较高时，该方法会退化为暴力枚举，性能较差，这时一般会采用下面的哈希方法或者矢量量化方法。
 - 哈希方法
-  + LSH是其下的代表算法。文献[7]是一篇非常好的LSH入门资料。对于小数据集和中规模的数据集(几个million-几十个million)，基于LSH的方法的效果性能还不错。这方面有2个开源工具FALCONN和NMSLIB。
+  + LSH(Locality-Sensitive Hashing)是其下的代表算法。文献[7]是一篇非常好的LSH入门资料。
+  +  对于小数据集和中规模的数据集(几个million-几十个million)，基于LSH的方法的效果和性能都还不错。这方面有2个开源工具FALCONN和NMSLIB。
 - 矢量量化方法
-  + 矢量量化方法，即vector quantization，其具体定义为：将一个向量空间中的点用其中的一个有限子集来进行编码的过程。在矢量量化编码中，关键是码本的建立和码字搜索算法。比如常见的聚类算法，就是一种矢量量化方法。而在相似搜索中，向量量化方法又以PQ方法最为典型。
+  + 矢量量化方法，即vector quantization。在矢量量化编码中，关键是码本的建立和码字搜索算法。比如常见的聚类算法，就是一种矢量量化方法。而在相似搜索中，向量量化方法又以PQ方法最为典型。
   + 对于大规模数据集(几百个million以上)，基于矢量量化的方法是一个明智的选择，可以用用Faiss开源工具。
 
 ## 3. Product Quantization算法的核心
 
 文献[1]详细介绍了PQ算法的过程和时间复杂度分析，这篇博客的第3节和第4节简要总结下其中的若干要点。
 
-在介绍PQ算法前，先简要介绍vector quantization。在信息论里，quantization是一个被充分研究的概念。Vector quantization定义了一个量化器quantizer，即 一个映射函数q，它将一个D维向量x转换码本Cookbook中的一个向量，这个码本的大小为k。
+在介绍PQ算法前，先简要介绍vector quantization。在信息论里，quantization是一个被充分研究的概念。Vector quantization定义了一个量化器quantizer，即一个映射函数\\(q\\)，它将一个\\(D\\)维向量x转换码本cookbook中的一个向量，这个码本的大小用\\(k\\)表示。
 
-> Quantization is a destructive process which has been extensively studied in information theory. Its purpose is to reduce the cardinality of the representation space, in particular when the input data is real-valued. Formally, a quantizer is a function q mapping a D-dimensional vector \\(x\in{R^D} \\) to a vector \\(q(x)\in{C}={c_{i}; i\in{I}}\\), where the index set I is from now on assumed to be finite: \\(I = 0, \cdots , k-1\\). The reproduction values \\(c_i\\) are called \\(\color{red}{centroids}\\). The set of reproduction values \\(C\\) is the \\(\color{red}{codebook}\\) of size k.
+> Quantization is a destructive process which has been extensively studied in information theory. Its purpose is to reduce the cardinality of the representation space, in particular when the input data is real-valued. Formally, a quantizer is a function \\(q\\) mapping a \\(D\\)-dimensional vector \\(x\in{R^D} \\) to a vector \\(q(x)\in{C}={c_{i}; i\in{I}}\\), where the index set \\(I\\) is from now on assumed to be finite: \\(I = 0, \cdots , k-1\\). The reproduction values \\(c_i\\) are called \\(\color{red}{centroids}\\). The set of reproduction values \\(C\\) is the \\(\color{red}{codebook}\\) of size \\(k\\).
 
-如果希望量化器达到最优，那么需要量化器满足Lloyd最优化条件。而这个最优量化器，恰巧就能对应到机器学习领域最常用的kmeans聚类算法。需要注意kmeans算法不是凸优化算法，受初始点设置的影响会收敛到不同的聚类中心点，当然有kmeans++等方法来解决这个问题，对这个问题，这篇文章就不多做描述。一般来说，码本的大小k一般会是2的幂次方，那么就可以用\\(\log_2 k\\) bit对应的向量来表示码本的每个值。
+如果希望量化器达到最优，那么需要量化器满足Lloyd最优化条件。而这个最优量化器，恰巧就能对应到机器学习领域最常用的kmeans聚类算法。需要注意的是kmeans算法的损失函数不是凸函数，受初始点设置的影响会收敛到不同的聚类中心点，当然有kmeans++等方法来解决这个问题，对这个问题，这篇文章就不多做描述。一般来说，码本的大小\\(k\\)一般会是2的幂次方，那么就可以用\\(\log_2 k\\) bit对应的向量来表示码本的每个值。
 
-有了vector quantization算法的铺垫，就好理解PQ算法。其实PQ算法可以理解为是对vector quantization做了一次分治，首先把原始的向量空间分解为m个低维向量空间的笛卡尔积，并对分解得到的低维向量空间分别做量化，这对低维向量空间如何做量化呢？恰巧又正是用kmeans算法。所以换句话描述就是，把原始D维向量（比如D=128），分成m组（比如m=4），每组就是\\(D^*=D/m\\)维的子向量（比如\\(D^*=D/m=128/4=32\\))，各自用kmeans算法学习到一个码本，然后这些码本的笛卡尔积就是原始D维向量对应的码本。用\\(q_j\\)表示第j组子向量，用\\(C_j\\)表示其对应学习到的码本，那么原始D维向量对应的码本就是\\(C=C_1\times{C_2}\times{...}\times{C_m}\\)。用\\(k^*\\)表示子向量的聚类中心点数或者说码本大小，那么原始D维向量对应的聚类中心点数或者说码本大小就是\\(k=(k^*)^m\\)。可以看到m=1或者m=D是2个极端情况，对m=1，PQ算法就回退到vector quantization，对m=D，PQ算法相当于对原始向量的每一维用kmeans算出码本。
+有了vector quantization算法的铺垫，就好理解PQ算法。其实PQ算法可以理解为是对vector quantization做了一次分治，首先把原始的向量空间分解为m个低维向量空间的笛卡尔积，并对分解得到的低维向量空间分别做量化，那如何对低维向量空间做量化呢？恰巧又正是用kmeans算法。所以换句话描述就是，把原始D维向量（比如D=128），分成m组（比如m=4），每组就是\\(D*=D\/m\\)维的子向量（比如\\(D^*=D/m=128/4=32\\))，各自用kmeans算法学习到一个码本，然后这些码本的笛卡尔积就是原始D维向量对应的码本。用\\(q_j\\)表示第j组子向量，用\\(C_j\\)表示其对应学习到的码本，那么原始D维向量对应的码本就是\\(C=C_1\times{C_2}\times{...}\times{C_m}\\)。用\\(k^*\\)表示子向量的聚类中心点数或者说码本大小，那么原始D维向量对应的聚类中心点数或者说码本大小就是\\(k=(k^*)^m\\)。可以看到m=1或者m=D是2个极端情况，对m=1，PQ算法就回退到vector quantization，对m=D，PQ算法相当于对原始向量的每一维用kmeans算出码本。
 
 > The strength of a product quantizer is to produce a large set of centroids from several small sets of centroids: those associated with the subquantizers. When learning the subquantizers using Lloyd’s algorithm, a limited number of vectors is used, but the codebook is, to some extent, still adapted to the data distribution to represent. The complexity of learning the quantizer is m times the complexity of performing k-means clustering with \\(k^*\\) centroids of dimension \\(D^*\\).
 
@@ -121,7 +122,7 @@ ADC算法：只对y表示为对应的中心点q(y)，然后用公式2来近似d(
 
 [2] [Efficient matching and indexing](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxsc3ZydHV0b3JpYWxjdnByMTR8Z3g6NThhMjhhNzBkMGI5NTJkOA)
 
-[3] [百度NLP | 神经网络模型压缩技术](https://www.jiqizhixin.com/articles/e70180f5-4274-4855-b749-23be41c800d7)
+[3] [百度NLP \| 神经网络模型压缩技术](https://www.jiqizhixin.com/articles/e70180f5-4274-4855-b749-23be41c800d7)
 
 [4] [Faiss](https://github.com/facebookresearch/faiss)
 
