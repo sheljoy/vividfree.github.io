@@ -43,11 +43,11 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
 
 如果希望量化器达到最优，那么需要量化器满足Lloyd最优化条件。而这个最优量化器，恰巧就能对应到机器学习领域最常用的kmeans聚类算法。需要注意的是kmeans算法的损失函数不是凸函数，受初始点设置的影响会收敛到不同的聚类中心点，当然有kmeans++等方法来解决这个问题，对这个问题，这篇文章就不多做描述。一般来说，码本的大小\\(k\\)一般会是2的幂次方，那么就可以用\\(\log_2 k\\) bit对应的向量来表示码本的每个值。
 
-有了vector quantization算法的铺垫，就好理解PQ算法。其实PQ算法可以理解为是对vector quantization做了一次分治，首先把原始的向量空间分解为m个低维向量空间的笛卡尔积，并对分解得到的低维向量空间分别做量化，那如何对低维向量空间做量化呢？恰巧又正是用kmeans算法。所以换句话描述就是，把原始\\(D\\)维向量（比如\\(D=128\\)），分成\\(m\\)组（比如\\(m=4\\)），每组就是\\(D^\*=D/m\\)维的子向量（比如\\(D^\*=D/m=128/4=32\\))，各自用kmeans算法学习到一个码本，然后这些码本的笛卡尔积就是原始\\(D\\)维向量对应的码本。用\\(q_j\\)表示第j组子向量，用\\(C_j\\)表示其对应学习到的码本，那么原始\\(D\\)维向量对应的码本就是\\(C=C_1\times{C_2}\times{...}\times{C_m}\\)。用\\(k^*\\)表示子向量的聚类中心点数或者说码本大小，那么原始D维向量对应的聚类中心点数或者说码本大小就是\\(k=(k^*)^m\\)。可以看到\\(m=1\\)或者\\(m=D\\)是2个极端情况，对\\(m=1\\)，PQ算法就回退到vector quantization，对\\(m=D\\)，PQ算法相当于对原始向量的每一维用kmeans算出码本。
+有了vector quantization算法的铺垫，就好理解PQ算法。其实PQ算法可以理解为是对vector quantization做了一次分治，首先把原始的向量空间分解为m个低维向量空间的笛卡尔积，并对分解得到的低维向量空间分别做量化，那如何对低维向量空间做量化呢？恰巧又正是用kmeans算法。所以换句话描述就是，把原始\\(D\\)维向量（比如\\(D=128\\)）分成\\(m\\)组（比如\\(m=4\\)），每组就是\\(D^\*=D/m\\)维的子向量（比如\\(D^\*=D/m=128/4=32\\))，各自用kmeans算法学习到一个码本，然后这些码本的笛卡尔积就是原始\\(D\\)维向量对应的码本。用\\(q_j\\)表示第\\(j\\)组子向量，用\\(C_j\\)表示其对应学习到的码本，那么原始\\(D\\)维向量对应的码本就是\\(C=C_1\times{C_2}\times{...}\times{C_m}\\)。用\\(k^\*\\)表示子向量的聚类中心点数或者说码本大小，那么原始D维向量对应的聚类中心点数或者说码本大小就是\\(k=(k^\*)^m\\)。可以看到\\(m=1\\)或者\\(m=D\\)是PQ算法的2种极端情况，对\\(m=1\\)，PQ算法就回退到vector quantization，对\\(m=D\\)，PQ算法相当于对原始向量的每一维都用kmeans算出码本。
 
-> The strength of a product quantizer is to produce a large set of centroids from several small sets of centroids: those associated with the subquantizers. When learning the subquantizers using Lloyd’s algorithm, a limited number of vectors is used, but the codebook is, to some extent, still adapted to the data distribution to represent. The complexity of learning the quantizer is m times the complexity of performing k-means clustering with \\(k^*\\) centroids of dimension \\(D^*\\).
+> The strength of a product quantizer is to produce a large set of centroids from several small sets of centroids: those associated with the subquantizers. When learning the subquantizers using Lloyd’s algorithm, a limited number of vectors is used, but the codebook is, to some extent, still adapted to the data distribution to represent. The complexity of learning the quantizer is m times the complexity of performing k-means clustering with \\(k^\*\\) centroids of dimension \\(D^\*\\).
 
-如图1所示，论文作者在一些数据集上调试\\(k^*\\)和\\(m\\)，综合考虑向量的编码长度和平方误差，最后得到一个结论或者说默认配置，\\(k^*=256\\)和\\(m=8\\)。像这样一种默认配置，相当于用 \\(m\times{\log_2 {k^*}}=8\times{\log_2 {256}}=64 bits=8 bytes\\)来表示一个原始向量。图2是在这个默认配置下对PQ算法的示意图。
+如图1所示，论文作者在一些数据集上调试\\(k^\*\\)和\\(m\\)，综合考虑向量的编码长度和平方误差，最后得到一个结论或者说默认配置，\\(k^\*=256\\)和\\(m=8\\)。像这样一种默认配置，相当于用 \\(m\times{\log_2 {k^*}}=8\times{\log_2 {256}}=64\ bits=8\ bytes\\)来表示一个原始向量。图2是在这个默认配置下对PQ算法的示意图。
 
 
 <div align="center">
