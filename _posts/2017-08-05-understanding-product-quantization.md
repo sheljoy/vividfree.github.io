@@ -17,7 +17,7 @@ Product quantization，国内有人直译为乘积量化，这里的乘积是指
 
 2011年，Herve Jegou等学者在PAMI上发表了PQ方法的第一篇正式paper[1]，用于解决相似搜索问题（similarity search）或者也可以说是近邻搜索（nearest neighbor search）问题。其实这几位作者在2009年的INRIA（即法国国家信息与自动化研究所）的技术报告上已经发表PQ方法。这里插一段题外话，[1]的一作Herve Jegou和二作Matthijs Douze均在2015年跳槽去了Facebook AI research，并在今年3月份合作开源了Faiss相似搜索工具[4]。
 
-近几年，深度学习技术被广泛用于图像识别、语音识别、自然语言处理等领域，能够把每个实体（图像、语音、文本）转换为对应的embedding向量。一般来说，相似的实体转换得到的embedding向量也是相似的。对于相似搜索问题，最简单的想法是暴力穷举法，如果全部实体的个数是\\(n\\)，\\(n\\)是千万量级甚至是上亿的规模，每个实体对应的向量是\\(D\\)，那么当要从这个实体集合中寻找某个实体的相似实体，暴力穷举的计算复杂度是\\(O(n\timesD)\\)，这是一个非常大的计算量，该方法显然不可取。所以对大数据量下高维度数据的相似搜索场景，我们就需要一些高效的相似搜索技术，而PQ就是其中一类方法。
+近几年，深度学习技术被广泛用于图像识别、语音识别、自然语言处理等领域，能够把每个实体（图像、语音、文本）转换为对应的embedding向量。一般来说，相似的实体转换得到的embedding向量也是相似的。对于相似搜索问题，最简单的想法是暴力穷举法，如果全部实体的个数是\\(n\\)，\\(n\\)是千万量级甚至是上亿的规模，每个实体对应的向量是\\(D\\)，那么当要从这个实体集合中寻找某个实体的相似实体，暴力穷举的计算复杂度是\\(O(n \times D)\\)，这是一个非常大的计算量，该方法显然不可取。所以对大数据量下高维度数据的相似搜索场景，我们就需要一些高效的相似搜索技术，而PQ就是其中一类方法。
 
 PQ是一种量化（quantization）方法，本质上是数据的一种压缩表达方法（其实通信学科的一个主要研究工作就是研究信号的压缩表达），所以该方法除了可以用在相似搜索外，还可以用于模型压缩，特别是深度神经网络的模型压缩上。由于相似搜索不仅要考虑如何量化的问题，还要考虑如何检索（search）的问题，而模型压缩可能更主要的是考虑如何量化的问题，不用太关注如何检索这个问题，所以这篇文章会主要站在相似搜索上的应用来介绍PQ方法。至于模型压缩，可以找找近几年研究神经网络模型压缩的paper或者一些互联网公司（比如百度, Snap等）发出的一些资料[3]。
 
@@ -37,7 +37,7 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
 
 文献[1]详细介绍了PQ算法的过程和时间复杂度分析，这篇博客的第3节和第4节简要总结下其中的若干要点。
 
-在介绍PQ算法前，先简要介绍vector quantization。在信息论里，quantization是一个被充分研究的概念。Vector quantization定义了一个量化器quantizer，即一个映射函数\\(q\\)，它将一个\\(D\\)维向量x转换码本cookbook中的一个向量，这个码本的大小用\\(k\\)表示。
+在介绍PQ算法前，先简要介绍vector quantization。在信息论里，quantization是一个被充分研究的概念。Vector quantization定义了一个量化器quantizer，即一个映射函数\\(q\\)，它将一个\\(D\\)维向量\\(x\\)转换码本cookbook中的一个向量，这个码本的大小用\\(k\\)表示。
 
 > Quantization is a destructive process which has been extensively studied in information theory. Its purpose is to reduce the cardinality of the representation space, in particular when the input data is real-valued. Formally, a quantizer is a function \\(q\\) mapping a \\(D\\)-dimensional vector \\(x\in{R^D} \\) to a vector \\(q(x)\in{C}={c_{i}; i\in{I}}\\), where the index set \\(I\\) is from now on assumed to be finite: \\(I = 0, \cdots , k-1\\). The reproduction values \\(c_i\\) are called \\(\color{red}{centroids}\\). The set of reproduction values \\(C\\) is the \\(\color{red}{codebook}\\) of size \\(k\\).
 
