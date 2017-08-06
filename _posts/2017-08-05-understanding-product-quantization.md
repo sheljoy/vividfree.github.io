@@ -64,7 +64,7 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
   <br/>
 </div>
 
-上面介绍了如何建立PQ的量化器，下面将介绍如何基于这些量化器做相似搜索。有2种方法做相似搜索，一种是SDC(symmetric distance computation)，另一种是ADC(asymmetric distance computation)。SDC算法和ADC算法的区别在于是否要对查询向量x做量化，参见公式1和公式2。如图3所示，\\(x\\)是查询向量(query vector)，y是数据集中的 某个向量，目标是要在数据集中找到\\(x\\)的相似向量。
+上面介绍了如何建立PQ的量化器，下面将介绍如何基于这些量化器做相似搜索。有2种方法做相似搜索，一种是SDC(symmetric distance computation)，另一种是ADC(asymmetric distance computation)。SDC算法和ADC算法的区别在于是否要对查询向量\\(x\\)做量化，参见公式1和公式2。如图3所示，\\(x\\)是查询向量(query vector)，\\(y\\)是数据集中的某个向量，目标是要在数据集中找到\\(x\\)的相似向量。
 
 <div align="center">
   <img src="/images/2017-08-05-understanding-product-quantization-figure3.jpg" style="max-width:559px; text-align:center" alt=""/>
@@ -73,23 +73,23 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
   <br/>
 </div>
 
-SDC算法：先用PQ量化器对x和y表示为对应的中心点q(x)和q(y)，然后用公式1来近似d(x,y)。
+SDC算法：先用PQ量化器对\\(x\\)和\\(y\\)表示为对应的中心点\\(q(x)\\)和\\(q(y)\\)，然后用公式1来近似\\(d(x,y)\\)。
 
 \begin{equation}\hat{d}(x,y)=d(q(x),q(y))=\sqrt{\sum_{j} d(q_j(x), q_j(y))^2}\end{equation}
 
 对SDC的2点补充说明：
-1. 为提高计算速度，一般会提前算好\\(c_{j,i}, c_{j,i'})^2\\)，然后在检索时就是查表，以O(1)的复杂度查出结果。
-2. \\(\hat{d}(x,y)\\)是d(x,y)的近似计算，一般会先用相似计算方法选出top N近邻，然后再做rerank以拿到最终的近邻排序结果。
+1. 为提高计算速度，一般会提前算好\\(d(c_{j,i}, c_{j,i'})^2\\)，然后在检索时就是查表，以O(1)的复杂度查出结果。
+2. \\(\hat{d}(x,y)\\)是\\(d(x,y)\\)的近似计算，一般会先用相似计算方法选出top N近邻，然后再做rerank以拿到最终的近邻排序结果。
 
-ADC算法：只对y表示为对应的中心点q(y)，然后用公式2来近似d(x,y)。
+ADC算法：只对\\(y\\)表示为对应的中心点\\(q(y)\\)，然后用公式2来近似\\(d(x,y)\\)。
 
 \begin{equation}\widetilde{d}(x,y)=d(x,q(y))=\sqrt{\sum_{j} d(u_j(x), q_j(u_j(y)))^2}\end{equation}
 
 对ADC的2点补充说明：
 1. 为提高计算速度，一般会在检索前提前算好\\(d(u_j(x), c_{j,i})^2 : j=1,\cdots, m, i=1,\cdots, k^\*\\)，然后在检索时就是查表，以O(1)的复杂度查出结果。
-2. \\(\widetilde{d}(x,y)\\)也是d(x,y)的近似计算，与SDC类似，一般会先用相似计算方法选出top N近邻，然后再做rerank以拿到最终的近邻排序结果。
+2. \\(\widetilde{d}(x,y)\\)也是\\(d(x,y)\\)的近似计算，与SDC类似，一般会先用相似计算方法选出top N近邻，然后再做rerank以拿到最终的近邻排序结果。
 
-图4对比了SDC算法和ADC算法的各阶段复杂度，当\\(n>k^\*D^\*\\)时，计算瓶颈存在于公式1和公式2的计算上，它们的复杂度都是\\(n \times m\\)。
+图4对比了SDC算法和ADC算法的各阶段复杂度，当\\(n>k^\*D^\*\\)时，计算瓶颈存在于公式1和公式2的计算上，它们的复杂度都是\\(O(n \times m)\\)。
 
 <div align="center">
   <img src="/images/2017-08-05-understanding-product-quantization-figure4.jpg" style="max-width:563px; text-align:center" alt=""/>
@@ -102,7 +102,7 @@ ADC算法：只对y表示为对应的中心点q(y)，然后用公式2来近似d(
 
 ## 4. Product Quantization算法的改进
 
-第3节介绍了SDC和ADC算法，当\\(n>k^\*D^\*\\)时，计算瓶颈存在于公式1和公式2的计算上，它们的复杂度都是\\(n \times m\\)。实际中\\(n\\)可能是千万量级甚至更大，虽然相比暴力搜索算法，PQ算法已经减少了计算量，但计算量依旧很大，并不实用。所以作者提出了IVFADC算法，一种基于倒排索引的ADC算法。简而言之，该算法包含2层量化，第1层被称为coarse quantizer，粗粒度量化器，在原始的向量空间中，基于kmeans聚类出\\(k'\\)个簇（文献[8]建议\\(k'=\sqrt{n}\\)）。第2层是上文讲的PQ量化器，不过这个PQ量化器不是直接在原始数据上做，而是经过第1层量化后，计算出每个数据与其量化中心的残差后，对这个残差数据集进行PQ量化。用PQ处理残差，而不是原始数据的原因是残差的方差或者能量比原始数据的方差或者能力要小。图5是该方法的索引和查询的流程图。
+第3节介绍了SDC和ADC算法，当\\(n>k^\*D^\*\\)时，计算瓶颈存在于公式1和公式2的计算上，它们的复杂度都是\\(O(n \times m)\\)。实际中\\(n\\)可能是千万量级甚至更大，虽然相比暴力搜索算法，PQ算法已经减少了计算量，但计算量依旧很大，并不实用。所以作者提出了IVFADC算法，一种基于倒排索引的ADC算法。简而言之，该算法包含2层量化，第1层被称为coarse quantizer，粗粒度量化器，在原始的向量空间中，基于kmeans聚类出\\(k'\\)个簇（文献[8]建议\\(k'=\sqrt{n}\\)）。第2层是上文讲的PQ量化器，不过这个PQ量化器不是直接在原始数据上做，而是经过第1层量化后，计算出每个数据与其量化中心的残差后，对这个残差数据集进行PQ量化。用PQ处理残差，而不是原始数据的原因是残差的方差或者能量比原始数据的方差或者能量要小。图5是该方法的索引和查询的流程图。
 
 > The energy of the residual vector is small compared to that of the vector itself.
 
@@ -114,9 +114,9 @@ ADC算法：只对y表示为对应的中心点q(y)，然后用公式2来近似d(
 </div>
 
 对IVFADC的3点补充说明：
-1. 考虑到在coarse quantization中，x和它的近邻不一定落在同一个簇中，所以在查询coarse quantization时，会同时取出w个倒排链。
+1. 考虑到在coarse quantization中，\\(x\\)和它的近邻不一定落在同一个簇中，所以在查询coarse quantization时，会同时取出\\(w\\)个倒排链。
 2. 对取出的每个倒排链，还是用第3节介绍的PQ算法把近邻给找出。
-3. 还是考虑当\\(n>k^\*D^\*\\)时，朴素的ADC算法的复杂度是\\(n \times m\\)，而IVFADC算法的复杂度会降低为\\((n \times w / k') \times m\\)。
+3. 考虑当\\(n>k^\*D^\*\\)时，朴素的ADC算法的复杂度是\\(O(n \times m)\\)，而IVFADC算法的复杂度会降低为\\(O((n \times w / k') \times m)\\)。
 
 ## 参考文献
 
