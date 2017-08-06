@@ -47,7 +47,7 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
 
 > The strength of a product quantizer is to produce a large set of centroids from several small sets of centroids: those associated with the subquantizers. When learning the subquantizers using Lloyd’s algorithm, a limited number of vectors is used, but the codebook is, to some extent, still adapted to the data distribution to represent. The complexity of learning the quantizer is m times the complexity of performing k-means clustering with \\(k^\*\\) centroids of dimension \\(D^\*\\).
 
-如图1所示，论文作者在一些数据集上调试\\(k^\*\\)和\\(m\\)，综合考虑向量的编码长度和平方误差，最后得到一个结论或者说默认配置，\\(k^\*=256\\)和\\(m=8\\)。像这样一种默认配置，相当于用 \\(m\times{\log_2 {k^*}}=8\times{\log_2 {256}}=64\ bits=8\ bytes\\)来表示一个原始向量。图2是在这个默认配置下对PQ算法的示意图。
+如图1所示，论文作者在一些数据集上调试\\(k^\*\\)和\\(m\\)，综合考虑向量的编码长度和平方误差，最后得到一个结论或者说默认配置，\\(k^\*=256\\)和\\(m=8\\)。像这样一种默认配置，相当于用 \\(m\times{\log_2 {k^*}}=8\times{\log_2 {256}}=64\ bits=8\ bytes\\)来表示一个原始向量。图2是在这个默认配置下对128维的原始数据用PQ算法的示意图。
 
 
 <div align="center">
@@ -64,7 +64,7 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
   <br/>
 </div>
 
-上面介绍了如何建立PQ的量化器，下面将介绍如何基于这些量化器做相似搜索。有2种方法做相似搜索，一种是SDC(symmetric distance computation)，另一种是ADC(asymmetric distance computation)。如图3所示，x是查询向量(query vector)，y是数据集中的向量，在数据集中找到x的相似向量。SDC算法和ADC算法的区别在于是否要对查询向量x做量化。
+上面介绍了如何建立PQ的量化器，下面将介绍如何基于这些量化器做相似搜索。有2种方法做相似搜索，一种是SDC(symmetric distance computation)，另一种是ADC(asymmetric distance computation)。SDC算法和ADC算法的区别在于是否要对查询向量x做量化，参见公式1和公式2。如图3所示，\\(x\\)是查询向量(query vector)，y是数据集中的 某个向量，目标是要在数据集中找到\\(x\\)的相似向量。
 
 <div align="center">
   <img src="/images/2017-08-05-understanding-product-quantization-figure3.jpg" style="max-width:559px; text-align:center" alt=""/>
@@ -86,10 +86,10 @@ ADC算法：只对y表示为对应的中心点q(y)，然后用公式2来近似d(
 \begin{equation}\widetilde{d}(x,y)=d(x,q(y))=\sqrt{\sum_{j} d(u_j(x), q_j(u_j(y)))^2}\end{equation}
 
 对ADC的2点补充说明：
-1. 为提高计算速度，一般会在搜索前提前算好\\(d(u_j(x), c_{j,i})^2 : j=1,\cdots, m, i=1,\cdots, k*\\)，然后在检索时就是查表，以O(1)的复杂度查出结果。
-2. \\(\widetilde{d}(x,y)\\)也是d(x,y)的近似计算，同ADC类似，一般会先用相似计算方法选出top N近邻，然后再做rerank以拿到最终的近邻排序结果。
+1. 为提高计算速度，一般会在检索前提前算好\\(d(u_j(x), c_{j,i})^2 : j=1,\cdots, m, i=1,\cdots, k^\*\\)，然后在检索时就是查表，以O(1)的复杂度查出结果。
+2. \\(\widetilde{d}(x,y)\\)也是d(x,y)的近似计算，与SDC类似，一般会先用相似计算方法选出top N近邻，然后再做rerank以拿到最终的近邻排序结果。
 
-图4对比了SDC算法和ADC算法的各阶段复杂度，当\\(n>k*D*\\)时，计算瓶颈存在于公式1和公式2的计算上，它们的复杂度都是\\(n\timesm\\)。
+图4对比了SDC算法和ADC算法的各阶段复杂度，当\\(n>k^\*D^\*\\)时，计算瓶颈存在于公式1和公式2的计算上，它们的复杂度都是\\(n\timesm\\)。
 
 <div align="center">
   <img src="/images/2017-08-05-understanding-product-quantization-figure4.jpg" style="max-width:563px; text-align:center" alt=""/>
@@ -98,7 +98,7 @@ ADC算法：只对y表示为对应的中心点q(y)，然后用公式2来近似d(
   <br/>
 </div>
 
-文献[1]还对SDC和ADC算法做了两点更深入的分析，第一点是对距离的期望误差进行分析。对ADC算法而言，距离的期望误差只与量化误差有关，与输入的x无关，而对SDC算法而言，距离的期望误差是ADC距离的期望误差的两倍，所以作者建议在应用时倾向于用ADC算法。作者做的第二点分析是计算距离的平方的期望，并希望通过矫正拿到期望的无偏估计。作者虽然推导出校准项，但在实验中发现加下校准项反倒使得距离的误差的方差加大了，所以作者建议在应用时倾向于不加校准项，也就是说还是用公式1或者公式2做计算。
+文献[1]还对SDC和ADC算法做了两点更深入的分析，第一点是对距离的期望误差进行分析。对ADC算法而言，距离的期望误差只与量化误差有关，与输入的x无关，而对SDC算法而言，距离的期望误差是ADC距离的期望误差的两倍，所以作者建议在应用时倾向于用ADC算法。作者做的第二点分析是计算距离的平方的期望，并希望通过矫正拿到距离的无偏估计。作者虽然推导出校准项，但在实验中却发现加上校准项反倒使得距离的残差的方差加大了，所以作者建议在应用时倾向于不加校准项，也就是说还是用公式1或者公式2做计算。
 
 ## 4. Product Quantization算法的改进
 
