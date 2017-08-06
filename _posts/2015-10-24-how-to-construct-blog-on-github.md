@@ -65,11 +65,12 @@ Markdown是一种轻量级标记语言，允许人们“使用易读易写的纯
 如果采用的是使用分布式网络服务中的MathJax的副本，那么只需要关注Mathjax的语法。如果觉得官方文档太厚实，可以看看下面这些文章对其介绍：
 
 + 中文
-    - [http://mlworks.cn/posts/introduction-to-mathjax-and-latex-expression/](http://mlworks.cn/posts/introduction-to-mathjax-and-latex-expression/)
-        + 介绍了MathJax的基本语法，包括数学符号、表格、矩阵、公式等的语法<font color='red'>（作为快速入门用，读完不用10分钟）</font>
+  - [MathJax 快速参考](http://colobu.com/2014/08/17/MathJax-quick-reference/)
+  - [Markdown输入数学公式](http://oiltang.com/2014/05/04/markdown-and-mathjax/)
 + 英文
-    - [http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm](http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm)
-        + 非常详细的语法整理，在一个网页里列举了绝大部分的语法及其示例
+  - [TEX Commands available in MathJax](http://www.onemathematicalcat.org/MathJaxDocumentation/TeXSyntax.htm)
+    + 非常详细的语法整理，在一个网页里列举了绝大部分的语法及其示例
+  - [MathJax basic tutorial and quick reference](https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference)
 
 * * *
 
