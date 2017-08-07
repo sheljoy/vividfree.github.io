@@ -3,7 +3,7 @@ layout: post
 title: 理解 product quantization 算法
 category: 机器学习
 tagline: 
-tags: [product quantization, 乘积量化, similarity search, 相似搜索，nearest neighbor search, 近邻搜索, kmeans, faiss, 模型压缩, kd tree, LSH, quantization]
+tags: [product quantization, 乘积量化, similarity search, 相似搜索, nearest neighbor search, 近邻搜索, kmeans, faiss, 模型压缩, kd tree, LSH, quantization]
 theme :
   name : bootstrap-3
 ---
