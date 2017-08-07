@@ -41,7 +41,7 @@ PQ是一种量化（quantization）方法，本质上是数据的一种压缩表
 
 > Quantization is a destructive process which has been extensively studied in information theory. Its purpose is to reduce the cardinality of the representation space, in particular when the input data is real-valued. Formally, a quantizer is a function \\(q\\) mapping a \\(D\\)-dimensional vector \\(x\in{R^D} \\) to a vector \\(q(x)\in{C}={c_{i}; i\in{I}}\\), where the index set \\(I\\) is from now on assumed to be finite: \\(I = 0, \cdots , k-1\\). The reproduction values \\(c_i\\) are called \\(\color{red}{centroids}\\). The set of reproduction values \\(C\\) is the \\(\color{red}{codebook}\\) of size \\(k\\).
 
-如果希望量化器达到最优，那么需要量化器满足Lloyd最优化条件。而这个最优量化器，恰巧就能对应到机器学习领域最常用的kmeans聚类算法。需要注意的是kmeans算法的损失函数不是凸函数，受初始点设置的影响会收敛到不同的聚类中心点，当然有kmeans++等方法来解决这个问题，对这个问题，这篇文章就不多做描述。一般来说，码本的大小\\(k\\)一般会是2的幂次方，那么就可以用\\(\log_2 k\\) bit对应的向量来表示码本的每个值。
+如果希望量化器达到最优，那么需要量化器满足Lloyd最优化条件。而这个最优量化器，恰巧就能对应到机器学习领域最常用的kmeans聚类算法。需要注意的是kmeans算法的损失函数不是凸函数，受初始点设置的影响，算法可能会收敛到不同的聚类中心点（局部最优解），当然有kmeans++等方法来解决这个问题，对这个问题，这篇文章就不多做描述。一般来说，码本的大小\\(k\\)一般会是2的幂次方，那么就可以用\\(\log_2 k\\) bit对应的向量来表示码本的每个值。
 
 有了vector quantization算法的铺垫，就好理解PQ算法。其实PQ算法可以理解为是对vector quantization做了一次分治，首先把原始的向量空间分解为m个低维向量空间的笛卡尔积，并对分解得到的低维向量空间分别做量化，那如何对低维向量空间做量化呢？恰巧又正是用kmeans算法。所以换句话描述就是，把原始\\(D\\)维向量（比如\\(D=128\\)）分成\\(m\\)组（比如\\(m=4\\)），每组就是\\(D^\*=D/m\\)维的子向量（比如\\(D^\*=D/m=128/4=32\\))，各自用kmeans算法学习到一个码本，然后这些码本的笛卡尔积就是原始\\(D\\)维向量对应的码本。用\\(q_j\\)表示第\\(j\\)组子向量，用\\(C_j\\)表示其对应学习到的码本，那么原始\\(D\\)维向量对应的码本就是\\(C=C_1\times{C_2}\times{...}\times{C_m}\\)。用\\(k^\*\\)表示子向量的聚类中心点数或者说码本大小，那么原始D维向量对应的聚类中心点数或者说码本大小就是\\(k=(k^\*)^m\\)。可以看到\\(m=1\\)或者\\(m=D\\)是PQ算法的2种极端情况，对\\(m=1\\)，PQ算法就回退到vector quantization，对\\(m=D\\)，PQ算法相当于对原始向量的每一维都用kmeans算出码本。
 
@@ -98,7 +98,7 @@ ADC算法：只对\\(y\\)表示为对应的中心点\\(q(y)\\)，然后用公式
   <br/>
 </div>
 
-文献[1]还对SDC和ADC算法做了两点更深入的分析，第一点是对距离的期望误差进行分析。对ADC算法而言，距离的期望误差只与量化误差有关，与输入的\\(x\\)无关，而对SDC算法而言，距离的期望误差是ADC距离的期望误差的两倍，所以作者建议在应用时倾向于用ADC算法。作者做的第二点分析是计算距离的平方的期望，并希望通过矫正拿到距离的无偏估计。作者虽然推导出校准项，但在实验中却发现加上校准项反倒使得距离的残差的方差加大了，所以作者建议在应用时倾向于不加校准项，也就是说还是用公式1或者公式2做计算。
+文献[1]还对SDC和ADC算法做了两点更深入的分析，第一点是对距离的期望误差的上界进行分析。对ADC算法而言，距离的期望误差的上界只与量化误差有关，与输入的\\(x\\)无关，而对SDC算法而言，距离的期望误差的上界是ADC距离的期望误差的上界的两倍，所以作者建议在应用时倾向于用ADC算法。作者做的第二点分析是计算距离的平方的期望，并希望通过矫正拿到距离的无偏估计。作者虽然推导出校准项，但在实验中却发现加上校准项反倒使得距离的残差的方差加大了，所以作者建议在应用时倾向于不加校准项，也就是说还是用公式1或者公式2做计算。
 
 ## 4. Product Quantization算法的改进
 
