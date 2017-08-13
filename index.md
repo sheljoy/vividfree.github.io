@@ -13,6 +13,10 @@ tagline:
 
 **很多东西都可以成为艺术品，程序也不例外！**
 
+### 岗位内推
+
++ [校招工作机会——【奇虎360】【商业数据部】招聘数据挖掘工程师、大数据开发工程师和产品助理（北京）](http://vividfree.github.io/%E5%86%85%E6%8E%A8/2017/08/13/job-opportunity-campus-recruitment)
+
 ### 最新文章
 
 <ul class="posts">
@@ -25,10 +29,6 @@ tagline:
 ### 代码仓库
 
 + [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（under construction）
-
-### 岗位内推
-
-+ [校招工作机会——【奇虎360】【商业数据部】招聘数据挖掘工程师、大数据开发工程师和产品助理（北京）](http://vividfree.github.io/%E5%86%85%E6%8E%A8/2017/08/13/job-opportunity-campus-recruitment)
 
 ### 推荐内容
 
