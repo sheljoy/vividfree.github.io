@@ -30,6 +30,7 @@ theme :
 
 ### 1.2 课程
 
++ [Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/) (Stanford University)
 + [Deep Learning for Natural Language Processing](http://cs224d.stanford.edu/index.html) (Stanford University)
 + [Introduction to Computational Advertising](https://web.stanford.edu/class/msande239/) (Stanford University)
 
