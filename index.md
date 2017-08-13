@@ -26,9 +26,9 @@ tagline:
 
 + [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（under construction）
 
-### 推荐工作机会
+### 岗位内推
 
-+ [【奇虎360】招聘数据挖掘工程师（北京）](http://vividfree.github.io/%E5%86%85%E6%8E%A8/2017/02/17/job-opportunity)
++ [校招工作机会——【奇虎360】【商业数据部】招聘数据挖掘工程师、大数据开发工程师和产品助理（北京）](http://vividfree.github.io/%E5%86%85%E6%8E%A8/2017/08/13/job-opportunity-campus-recruitment)
 
 ### 推荐内容
 
