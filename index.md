@@ -13,10 +13,6 @@ tagline:
 
 **很多东西都可以成为艺术品，程序也不例外！**
 
-### 岗位内推
-
-+ [校招工作机会——【奇虎360】【商业数据部】招聘数据挖掘工程师、大数据开发工程师和产品助理（北京）](http://vividfree.github.io/%E5%86%85%E6%8E%A8/2017/08/13/job-opportunity-campus-recruitment)
-
 ### 最新文章
 
 <ul class="posts">
