@@ -9,6 +9,8 @@ theme :
 ---
 {% include JB/setup %}
 
+**更新日期：2017年9月27日**
+
 不同于导航栏上设置的“分类”、“标签”、“Google站内搜索”等入口，本文章主要从技术方向上对若干篇博文（非全部的博文）进行知识索引，以帮助形成一种知识框架。
 
 ## 机器学习
@@ -35,7 +37,7 @@ theme :
 ## 自然语言处理
 
 + 机器翻译
-  - [201706 阅读笔记](http://vividfree.github.io/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/2017/06/24/201706-reading-list) : 第二节"Machine Translation"，主要介绍《Attention Is All You Need》文章的阅读笔记。
+  - [201706 阅读笔记](http://vividfree.github.io/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/2017/06/24/201706-reading-list) : 第二节"Machine Translation"，主要介绍google在17年发表的paper《Attention Is All You Need》的阅读笔记。
   - [201703 阅读笔记](http://vividfree.github.io/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/2017/03/14/201703-reading-list) : 第一节"序列到序列模型"，主要介绍《Neural Machine Translation and Sequence-to-sequence Models: A Tutorial》文章的阅读笔记。
   - [201702 阅读笔记](http://vividfree.github.io/%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/2017/02/05/201702-reading-list) : 第二节"Machine Translation"，主要介绍Google在16年发表的2篇paper《Google’s Neural Machine Translation System: Bridging the Gap between Human and Machine Translation》和《Google’s Multilingual Neural Machine Translation System: Enabling Zero-Shot Translation》的阅读笔记。
 + 文本匹配
