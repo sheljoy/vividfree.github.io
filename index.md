@@ -22,9 +22,13 @@ tagline:
   <li><a href="/archive.html">更多文章......</a></li>
 </ul>
 
+### 文章索引
+
++ [博客文章索引](2017/09/27/blog-article-index) : 主要从技术方向上对若干篇博文（非全部的博文）进行知识索引，以帮助形成一种知识框架。
+
 ### 代码仓库
 
-+ [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理** 相关的代码（under construction）
++ [alphabet](https://github.com/vividfree/alphabet) (Github) : 个人写的 **机器学习**, **自然语言处理**, **大规模数据处理**, **基础工具** 相关的代码（持续维护中）
 
 ### 推荐内容
 
