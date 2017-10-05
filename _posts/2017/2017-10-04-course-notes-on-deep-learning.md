@@ -19,7 +19,7 @@ Andrew Ng从百度离职后创立了 [deeplearning.ai](https://www.deeplearning.
 + 以什么样的比例切分出这些集合？不同于过去机器学习系统能用到的标注数据不多，因为那时只有数百到数万的样本，所以dev/test set分别占的比例会到20%左右。而现在实际业务系统上数据规模很容易到数百万甚至更大，dev/test set的比例可能只需要1%即可，这样也可以让像DL这种复杂模型使用到大量的训练数据。
 + Andrew Ng在error analyse上花了很多的功夫，系统性的介绍了human level error, training set error, train-dev set error, dev set error和test set error的概念，相邻2个之间会有gap，有哪些办法可以消除这些gap。Ng还把这个调试过程类比为调试电视机收看电视节目。
 + 虽然只是简单介绍了transfer learning和multi-task learning的大体框架和适用场景，但可以看到deep learning模型可以很好很方便的用于这两方面工作。
-+ 笔者认为最精彩的部分是对学术大师的采访，目前已邀请了Geoffrey Hinton、Joshua Bengio、Ian Goodfellow和林元庆等7位。通过这些采访，能了解Hinton和Bengio早在二三十年前的工作，比如基于神经网络的语言模型（NNLM），他们在80年代到90年代那会已经有研究了，很多人是在2000年之后才了解这部分的工作，甚至是2013年word2vec诞生后才了解的。此外，当然还能了解到大师们对DL未来发展的看法。
++ 笔者认为最精彩的部分是对学术大师的采访，目前已邀请了Geoffrey Hinton、Joshua Bengio、Ian Goodfellow和林元庆等7位。通过这些采访，能了解Hinton和Bengio早在二三十年前的工作，比如基于神经网络的语言模型（NNLM），他们在80年代到90年代那会已经有研究了，但很多人是在2000年之后才了解这部分的工作，甚至是2013年word2vec诞生后才了解的。此外还能了解到大师们对DL未来发展的看法。
 
 当然3门课程介绍的内容特别丰富也特别全面，笔者的收获很多，上面只是列举了一部分收获。感兴趣的读者也可以上上这些课程。
 
