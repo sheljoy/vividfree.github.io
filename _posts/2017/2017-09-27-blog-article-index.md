@@ -9,9 +9,10 @@ theme :
 ---
 {% include JB/setup %}
 
-**更新日期：2017年9月27日**
+**创建日期：2017年9月27日**
+**更新日期：2017年10月8日**
 
-不同于导航栏上设置的“分类”、“标签”、“Google站内搜索”等入口，本文章主要从技术方向上对若干篇博文（非全部的博文）进行知识索引，以帮助形成一种知识框架。
+不同于导航栏上设置的“分类”、“标签”、“Google站内搜索”等入口，本文主要从技术方向上对若干篇博文（非全部的博文）进行知识索引，以帮助形成一种知识框架。（说明：每部分内容按时间由近及远的顺序排列）
 
 ## 机器学习
 
@@ -46,6 +47,7 @@ theme :
 ## 个人思考
 
 上面列举的是对技术的理解或者笔记，此外，平时还喜欢琢磨技术的特点和发展趋势，写了些个人思考（不一定对，欢迎拍砖）：
++ [对系统设计的一点思考](http://vividfree.github.io/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/2017/09/16/some-viewpoint-about-system-design) : 不同于软件工程方面的书籍从学术的角度介绍系统设计，本文从笔者的一点实际经验出发，先后总结了2个朴素观点，第一，系统设计需要主动而且全面地考虑需求；第二，系统设计需要达到资源和需求的平衡。
 + [对在NLP领域对比MLP、CNN和RNN的一点思考](http://vividfree.github.io/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/2017/07/08/some-viewpoint-about-comparison-of-mlp-cnn-rnn-in-nlp)
 + [对国内互联网趋势的一点思考](http://vividfree.github.io/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/2017/06/04/some-viewpoint-about-trends-of-chinese-internet)
 + [对深度学习的一点思考](http://vividfree.github.io/%E4%B8%AA%E4%BA%BA%E6%80%9D%E8%80%83/2017/03/13/some-viewpoint-about-deep-learning)
